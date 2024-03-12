@@ -16,9 +16,19 @@ return(
         </div>
         {warehouseListData.Map((warehouse)=> {
             return(
-                <div></div>
-            )
-        })}
+                <div key={warehouse.id}>
+                    <h2>Warehouse</h2>
+                    {/* Link/navigate to warehouseDetails */}
+                    <p>{warehouse.name}</p>
+                    <h2>Address</h2>
+                    <p>{warehouse.address} {warehouse.city} {warehouse.country}</p>
+                    <h2>Contact Name</h2>
+                    <p>{warehouse.contact_name}</p>
+                    <h2>Contact Information</h2>
+                    <p>{warehouse.contact_phone} {warehouse.contact_email}</p>
+                </div>
+            )}
+        )}
     </section>
 )
 }
