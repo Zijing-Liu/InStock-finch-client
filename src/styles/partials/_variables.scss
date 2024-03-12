@@ -1,0 +1,28 @@
+
+
+/*Titillium Web font - Google  TypeKit*/
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+
+$font: "Titillium Web", sans-serif;
+
+
+/*breakpoints*/
+
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+$mobile-breakpoint: 480px;
+
+
+/*colors*/
+
+$instock-black: #13182C;
+$slate: #5C667E;
+$graphite: #232940;
+$green: #158463;
+$instock-indigo: #2E66E5;
+$cloud: #BDC5D5;
+$light-grey: #F7F8F9;
+$red: #C94515;
+$white: white; 
