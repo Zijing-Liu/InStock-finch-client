@@ -1,6 +1,5 @@
 import './Header.scss'
 import logo from '../assets/Logo/InStock-Logo.svg'
-// import { Link } from 'react-router-dom'
 
 export default function Header() {
 
