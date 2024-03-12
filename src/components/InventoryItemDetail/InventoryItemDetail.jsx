@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import arrow_back from "../../assets/icons/arrow_back-24px.svg";
+import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
+import editIcon from "../../assets/Icons/edit-24px/svg";
 import axios from "axios";
-
+import "./InventoryItemDetail.scss";
 function InventoryItemDetail() {
   // get the data from api
   const base_url = process.env.REACT_APP_BASE_URL;
@@ -18,28 +19,38 @@ function InventoryItemDetail() {
     <article className="inventory-item">
       <div className="inventory-item__header">
         <img
-          src={arrow_back}
+          src={arrowBackIcon}
           alt="Back Arrow Icon"
           // onClick={}
         />
 
         <h2>Television</h2>
-        <img src="./" alt="" />
+        <img src={edit - icon} alt="" />
       </div>
       <div className="inventory-item__body">
-        <p>ITEM DESCRIPTION:</p>
-        <p>CATEGORY:</p>
-        <div></div>
-        <div>
-          <p>STATUS:</p>
-          <p>IN STOCK:</p>
+        <h3 className="inventory-item__label">ITEM DESCRIPTION:</h3>
+        <p className="inventory-item__text">
+          This 50", 4K LED TV provides a crystal-clear picture and vivid colors.
+        </p>
+
+        <h3 className="inventory-item__label">CATEGORY:</h3>
+        <p className="inventory-item__text">Electronics</p>
+
+        <div className="inventory-item__status-and-quantity">
+          <div>
+            <h3 className="inventory-item__label">STATUS:</h3>
+            <p className="inventory-item__text--status">IN STOCK:</p>
+          </div>
+          <span>
+            <h3 className="inventory-item__label">Quantity:</h3>
+            <p className="inventory-item__text"></p>
+          </span>
         </div>
-        <span>
-          <p>Quantity:</p>
-        </span>
-        <p>Quantity:</p>
       </div>
-      <div>Warehouse:</div>
+      <div>
+        <h3 className="inventory-item__label">Warehouse:</h3>
+        <p className="inventory-item__text">Manhattan</p>
+      </div>
     </article>
   );
 }
