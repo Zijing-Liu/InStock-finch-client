@@ -1,5 +1,5 @@
 import React from "react";
-import InventoryItemDetail from "../../components/InventoryItemDetail/InventoryItemDetail";
+import InventoryItemDetail from "../../component/InventoryItemDetail/InventoryItemDetail";
 function InventoryDetails() {
   return <InventoryItemDetail />;
 }

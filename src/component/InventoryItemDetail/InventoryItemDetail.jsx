@@ -25,34 +25,41 @@ function InventoryItemDetail() {
             alt="Back Arrow Icon"
             onClick={navigator("/inventory")}
           />
-          <h2>Television</h2>
+          <h1>Television</h1>
         </div>
-        <img
-          className="inventory-item__edit"
-          src={editIconWhite}
-          alt="Edit Icon"
-        />
+        <button className="inventory-item__edit">
+          <p className="inventory-item__edit-text">Edit</p>
+          <img
+            className="inventory-item__edit-icon"
+            src={editIconWhite}
+            alt="Edit Icon"
+          />
+        </button>
       </div>
       <div className="inventory-item__body">
-        <h3 className="inventory-item__label">ITEM DESCRIPTION:</h3>
-        <p className="inventory-item__text">
-          This 50", 4K LED TV provides a crystal-clear picture and vivid colors.
-        </p>
-        <h3 className="inventory-item__label">CATEGORY:</h3>
-        <p className="inventory-item__text">Electronics</p>
-
-        <div className="inventory-item__status-and-quantity">
-          <div>
-            <h3 className="inventory-item__label">STATUS:</h3>
-            <p className="inventory-item__text--status">IN STOCK:</p>
-          </div>
-          <span>
-            <h3 className="inventory-item__label">Quantity:</h3>
-            <p className="inventory-item__text">500</p>
-          </span>
+        <div className="inventory-item__body-left">
+          <h4 className="inventory-item__label">ITEM DESCRIPTION:</h4>
+          <p className="inventory-item__text">
+            This 50", 4K LED TV provides a crystal-clear picture and vivid
+            colors.
+          </p>
+          <h4 className="inventory-item__label">CATEGORY:</h4>
+          <p className="inventory-item__text">Electronics</p>
         </div>
-        <h3 className="inventory-item__label">Warehouse:</h3>
-        <p className="inventory-item__text">Manhattan</p>
+        <div className="inventory-item__body-right">
+          <div className="inventory-item__status-and-quantity">
+            <div>
+              <h4 className="inventory-item__label">STATUS:</h4>
+              <p className="inventory-item__text--status">IN STOCK:</p>
+            </div>
+            <span>
+              <h4 className="inventory-item__label">Quantity:</h4>
+              <p className="inventory-item__text">500</p>
+            </span>
+          </div>
+          <h4 className="inventory-item__label">Warehouse:</h4>
+          <p className="inventory-item__text">Manhattan</p>
+        </div>
       </div>
     </article>
   );
