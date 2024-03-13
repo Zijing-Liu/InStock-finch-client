@@ -1,6 +1,14 @@
 import './WarehouseForm.scss'
+import { useState } from 'react'
 
 export default function WarehouseForm() {
+
+    const [error, setError] = useState("")
+
+    function handleChange() {
+
+    }
+
     return (
         <section className='edit-warehouse'>
             <h1 className='edit-warehouse__title'>Edit Warehouse</h1>
