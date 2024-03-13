@@ -1,156 +1,161 @@
-@use '../../styles/partials/mixins.scss' as *;
-@use '../../styles/partials/variables.scss' as *;
+// IF TIME, USE THIS COMPONENT FOR BOTH THE ADD AND EDIT 
+// WAREHOUSE PAGES
 
-.warehouse {
-    box-sizing: border-box;
-    width: 90%;
-    border-radius: 5px;
-    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
-    margin: 20px auto;
-    color: $instock-black;
 
-    @include desktop {
-        width: 80%;
-    }
 
-    &__title {
-        padding: 25px 0 25px 50px;
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin: 0;
-        background-image: url('../../assets/Icons/arrow_back-24px.svg');
-        background-repeat: no-repeat;
-        background-position: 20px 50%;
+// @use '../../styles/partials/mixins.scss' as *;
+// @use '../../styles/partials/variables.scss' as *;
 
-        @include tablet {
-            font-size: 1.8rem;
-            border-bottom: 1px solid $cloud
-        }
-    }
+// .warehouse {
+//     box-sizing: border-box;
+//     width: 90%;
+//     border-radius: 5px;
+//     box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+//     margin: 20px auto;
+//     color: $instock-black;
 
-    &__form {
+//     @include desktop {
+//         width: 80%;
+//     }
 
-        &-error {
-            color: $red;
-            border: $red;
-            font-size: 0.7rem;
-            margin-bottom: 5px;
-            background-image: url('../../assets/Icons/error-24px.svg');
-            background-size: 15px;
-            background-repeat: no-repeat;
-            padding-left: 18px;
-            background-position: 0 50%;
-        }
+//     &__title {
+//         padding: 25px 0 25px 50px;
+//         font-size: 1.3rem;
+//         font-weight: 600;
+//         margin: 0;
+//         background-image: url('../../assets/Icons/arrow_back-24px.svg');
+//         background-repeat: no-repeat;
+//         background-position: 20px 50%;
 
-        &-fields {
-            display: flex;
-            flex-direction: column;
+//         @include tablet {
+//             font-size: 1.8rem;
+//             border-bottom: 1px solid $cloud
+//         }
+//     }
 
-            @include tablet {
-                flex-direction: row;
-            }
-        }
+//     &__form {
 
-        &-section {
-            border-top: 1px solid $cloud;
-            padding: 5px 20px 20px 20px;
+//         &-error {
+//             color: $red;
+//             border: $red;
+//             font-size: 0.7rem;
+//             margin-bottom: 5px;
+//             background-image: url('../../assets/Icons/error-24px.svg');
+//             background-size: 15px;
+//             background-repeat: no-repeat;
+//             padding-left: 18px;
+//             background-position: 0 50%;
+//         }
 
-            @include tablet {
-                padding: 0 30px 0 30px;
-                margin: 30px 0;
-                border-top: none;
-            }
+//         &-fields {
+//             display: flex;
+//             flex-direction: column;
 
-            &--contact {
-                @include tablet {
-                    border-left: 1px solid $cloud;
-                }
-            }
-        }
+//             @include tablet {
+//                 flex-direction: row;
+//             }
+//         }
 
-        &-heading {
-            font-size: 1rem;
-            font-weight: 600;
+//         &-section {
+//             border-top: 1px solid $cloud;
+//             padding: 5px 20px 20px 20px;
 
-            @include tablet {
-                font-size: 1.2rem;
-                margin: 0 0 30px 0;
-            }
-        }
+//             @include tablet {
+//                 padding: 0 30px 0 30px;
+//                 margin: 30px 0;
+//                 border-top: none;
+//             }
 
-        &-label {
-            color: $instock-black;
-            font-size: 0.7rem;
-            font-weight: 500;
-            width: 100%;
+//             &--contact {
+//                 @include tablet {
+//                     border-left: 1px solid $cloud;
+//                 }
+//             }
+//         }
 
-            @include tablet {
-                font-weight: 600;
-                font-size: 0.8rem;
-            }
-        }
+//         &-heading {
+//             font-size: 1rem;
+//             font-weight: 600;
 
-        &-input {
-            border-radius: 20px;
-            border: 1px solid $cloud;
-            width: 90%;
-            height: 2rem;
-            margin: 3px 0 5px 0;
-            padding: 0 16px 0 16px;
+//             @include tablet {
+//                 font-size: 1.2rem;
+//                 margin: 0 0 30px 0;
+//             }
+//         }
 
-            @include tablet {
-                margin: 5px 0 15px 0;
-            }
+//         &-label {
+//             color: $instock-black;
+//             font-size: 0.7rem;
+//             font-weight: 500;
+//             width: 100%;
 
-            &:focus-visible {
-                outline: 1px solid $instock-indigo;
-            }
-        }
+//             @include tablet {
+//                 font-weight: 600;
+//                 font-size: 0.8rem;
+//             }
+//         }
 
-        &-buttons {
-            display: flex;
-            justify-content: space-evenly;
-            background-color: $light-grey;
-            padding: 15px 0;
+//         &-input {
+//             border-radius: 20px;
+//             border: 1px solid $cloud;
+//             width: 90%;
+//             height: 2rem;
+//             margin: 3px 0 5px 0;
+//             padding: 0 16px 0 16px;
 
-            @include tablet {
-                justify-content: flex-end;
-                padding: 20px 0;
-            }
+//             @include tablet {
+//                 margin: 5px 0 15px 0;
+//             }
 
-            &--cancel {
-                cursor: pointer;
-                border-radius: 20px;
-                border: 1px solid $cloud;
-                background-color: $white;
-                color: $slate;
-                width: 7rem;
-                font-size: 0.7rem;
-                font-weight: 600;
+//             &:focus-visible {
+//                 outline: 1px solid $instock-indigo;
+//             }
+//         }
 
-                @include tablet {
-                    width: 8%;
-                    height: 35px;
-                }
-            }
+//         &-buttons {
+//             display: flex;
+//             justify-content: space-evenly;
+//             background-color: $light-grey;
+//             padding: 15px 0;
 
-            &--save {
-                cursor: pointer;
-                border-radius: 20px;
-                border: none;
-                background-color: $instock-indigo;
-                color: $white;
-                height: 25px;
-                width: 7rem;
-                font-size: 0.7rem;
-                font-weight: 600;
+//             @include tablet {
+//                 justify-content: flex-end;
+//                 padding: 20px 0;
+//             }
 
-                @include tablet {
-                    width: 8%;
-                    height: 35px;
-                    margin: 0 20px;
-                }
-            }
-        }
-    }
-}
+//             &--cancel {
+//                 cursor: pointer;
+//                 border-radius: 20px;
+//                 border: 1px solid $cloud;
+//                 background-color: $white;
+//                 color: $slate;
+//                 width: 7rem;
+//                 font-size: 0.7rem;
+//                 font-weight: 600;
+
+//                 @include tablet {
+//                     width: 8%;
+//                     height: 35px;
+//                 }
+//             }
+
+//             &--save {
+//                 cursor: pointer;
+//                 border-radius: 20px;
+//                 border: none;
+//                 background-color: $instock-indigo;
+//                 color: $white;
+//                 height: 25px;
+//                 width: 7rem;
+//                 font-size: 0.7rem;
+//                 font-weight: 600;
+
+//                 @include tablet {
+//                     width: 8%;
+//                     height: 35px;
+//                     margin: 0 20px;
+//                 }
+//             }
+//         }
+//     }
+// }
