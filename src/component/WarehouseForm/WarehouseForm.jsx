@@ -27,10 +27,8 @@ export default function WarehouseForm({ formDetails }) {
     function handleChange(event) {
         const fieldName = event.target.name;
         const fieldValue = event.target.value;
-
         const newFormData = { ...formData };
         newFormData[fieldName] = fieldValue;
-
         setFormData(newFormData)
     }
 
