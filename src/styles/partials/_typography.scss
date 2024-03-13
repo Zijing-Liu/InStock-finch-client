@@ -4,7 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
 
 @mixin page-header {
-  font-family: $font, sans-serif;
+  font-family: $font;
   font-size: 28px;
   line-height: 36px;
   font-weight: 600;
@@ -15,7 +15,7 @@
 }
 
 @mixin subheader {
-  font-family: $font, sans-serif;
+  font-family: $font;
   font-size: 13px;
   line-height: 20px;
   font-weight: 600;
@@ -25,7 +25,7 @@
   }
 }
 @mixin label-links-buttons {
-  font-family: $font, sans-serif;
+  font-family: $font;
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -47,7 +47,7 @@
 }
 
 @mixin body-large {
-  font-family: $font, sans-serif;
+  font-family: $font;
   font-size: 15px;
   line-height: 26px;
   font-weight: 400;
@@ -58,7 +58,7 @@
 }
 
 @mixin body-medium {
-  font-family: "Titillium Web", sans-serif;
+  font-family: $font;
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -68,7 +68,7 @@
   }
 }
 @mixin body-small {
-  font-family: $font, sans-serif;
+  font-family: $font;
   font-size: 11px;
   line-height: 16px;
   font-weight: 400;
