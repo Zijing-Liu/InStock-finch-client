@@ -1,0 +1,10 @@
+@use "./styles/partials/mixins";
+@use "./styles/partials/variables";
+
+*, *::before, *::after {
+    font-family: $font;
+    margin: 0;
+    color: $Black;
+    box-sizing: border-box;
+}
+
