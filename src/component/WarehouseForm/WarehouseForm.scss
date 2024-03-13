@@ -1,7 +1,7 @@
 @use '../../styles/partials/mixins.scss' as *;
 @use '../../styles/partials/variables.scss' as *;
 
-.edit-warehouse {
+.warehouse {
     box-sizing: border-box;
     width: 90%;
     border-radius: 5px;
@@ -30,6 +30,15 @@
     }
 
     &__form {
+
+
+        &-error {
+            color: $red;
+            border: $red;
+            font-size: 0.7rem;
+            margin-bottom: 5px;
+        }
+
 
         &-fields {
             display: flex;
@@ -81,7 +90,7 @@
         &-input {
             border-radius: 20px;
             border: 1px solid $cloud;
-            width: 90%;
+            width: 95%;
             height: 2rem;
             margin: 3px 0 5px 0;
             padding: 0 16px 0 16px;
@@ -107,6 +116,7 @@
             }
 
             &--cancel {
+                cursor: pointer;
                 border-radius: 20px;
                 border: 1px solid $cloud;
                 background-color: $white;
@@ -122,6 +132,7 @@
             }
 
             &--save {
+                cursor: pointer;
                 border-radius: 20px;
                 border: none;
                 background-color: $instock-indigo;
