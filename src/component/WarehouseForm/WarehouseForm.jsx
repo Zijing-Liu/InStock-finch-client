@@ -43,10 +43,10 @@ export default function WarehouseForm() {
                 </div>
                 <div className='edit-warehouse__form-buttons'>
                     <button className='edit-warehouse__form-buttons--cancel'>Cancel</button>
-                    <button className='edit-warehouse__form-buttons--save' type='submit' onClick={() => navigate('/') > Save</button>
-                {/* For cancel button: onClick={() => navigate('/') */}
-            </div>
-        </form>
+                    <button className='edit-warehouse__form-buttons--save' type='submit' > Save</button>
+                    {/* For cancel button: onClick={() => navigate('/') */}
+                </div>
+            </form>
         </section >
     )
 }
