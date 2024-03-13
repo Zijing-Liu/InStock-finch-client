@@ -19,12 +19,28 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 4px;
-    border: 5px solid $cloud;
+    box-shadow: 0 2px 5px $cloud;
+
+    @include desktop {
+        max-width: 1020px;
+    }
 
     &__main-container{
         border-bottom: 1px solid $cloud;
-        padding-bottom: 16px;
-        margin: 0 16px;
+        padding: 0 16px 16px;
+        align-items: center;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    }
+
+    &__search-spacing {
+        @include tablet {
+        display: flex;
+        }
     }
 
     &__search-container{
@@ -35,6 +51,12 @@
         justify-content: space-between;
         height: 36px;
         margin-bottom: 16px;
+
+        @include tablet {
+            margin: 0;
+            width: fit-content;
+        }
+        
     }
 
     &__search {
@@ -46,6 +68,7 @@
         border: none;
         background-color: $white;
         margin-right: 11px;
+        border-radius: 10px;
     }
 
     &__btn {
@@ -56,6 +79,15 @@
         color: $white;
         background-color: $instock-indigo;
         border: none;
+
+        @include tablet {
+            margin-left: 16px;
+        }
+
+        @include tablet {
+            width: auto;
+            text-wrap: nowrap;
+        }
     }
 
     h2 {
@@ -63,22 +95,158 @@
         line-height: 16px;
         color: $slate;
         text-transform: uppercase;
+        margin: 0;
     }
 
     h1 {
         font-size: 28px;
         line-height: 36px;
+        margin: 10px;
     }
 
     p {
-        font-size: 11px;
+        font-size: 13px;
         line-height: 16px;
         margin: 11px 0;
+        margin: 8px 0;
     }
 
-    &__warehouse-container{
+    &__btn-mobile {
+        align-self: flex-end;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__list-btns {
+        display: none;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__header-mobile {
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__header {
+        display: none;
+
+        @include tablet {
+            margin: 0 16px;
+            display: flex;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &--active {
+            &:hover {
+                text-decoration: underline;
+                color: $instock-indigo;
+            }
+        }
+    }
+
+    &__warehouse {
+        @include tablet{
+            width: 25%;
+            text-decoration: none;
+            color: $instock-indigo;
+            font-weight: 600;
+        }
+
+        @include desktop{
+            width: 25%;
+        }
+    }
+
+    &__address {
+        @include tablet{
+            width: 15%;
+            text-wrap: wrap;
+            padding: 8px;
+        }
+
+        @include desktop{
+            width: 25%;
+            text-wrap: wrap;
+        }
+    }
+
+    &__name {
+        @include tablet{
+            width: 20%;
+            padding: 8px;
+        }
+
+        @include desktop{
+            width: 20%;
+        }
+    }
+
+    &__info {
+        @include tablet{
+            width: 25%;
+            word-wrap: wrap;
+            padding: 8px;
+        }
+
+        @include tablet{
+            width: 25%;
+        }
+    }
+
+    &__action {
+        margin: auto;
+    }
+
+    &__warehouse-container-mobile {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
+        padding: 0 16px;
+
+        @include tablet {
+            display: none;
+        }
+
+        @include desktop {
+            display: none;
+        }
+    }
+
+    &__warehouse-container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            // justify-content: space-between;
+            margin: 0 16px;
+        }
+    }
+
+    &__warehouse-info {
+        @include tablet {
+            display: flex;
+            justify-content: space-evenly;
+            // width: 100%;
+        }
+    }
+
+    &__warehouse-contact {
+        display: flex;
+        flex-direction: column; 
+        
+        @include tablet {
+            flex-direction: row;
+        }
     }
 }
