@@ -1,11 +1,6 @@
-import './EditWarehouse.scss';
+import './WarehouseForm.scss'
 
-export default function EditWarehouse() {
-
-
-    // Form validation
-
-
+export default function WarehouseForm() {
     return (
         <section className='edit-warehouse'>
             <h1 className='edit-warehouse__title'>Edit Warehouse</h1>
