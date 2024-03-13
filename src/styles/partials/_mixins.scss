@@ -1,27 +1,89 @@
 @use 'variables' as *;
 
+
+
 /*media queuries*/
 
 @mixin tablet {
-    @media screen and (min-width: $tablet-breakpoint) {
-      @content;
-
-      
-    }
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+    @include headings;
+    @include paragraphs;
   }
-  
-  @mixin desktop {
-    @media screen and (min-width: $desktop-breakpoint) {
-      @content;
+}
 
-
-    }
+@mixin desktop {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+    @include headings;
+    @include paragraphs;
   }
+}
+
+@mixin headings {
+  @include H(1, 32px, 40px, $instock-black);
+  @include H(2, 24px, 32px, $instock-black);
+  @include H(3, 14px, 22px, $instock-black);
+  @include H(4, 12px, 18px, $instock-black);
+}
+
+@mixin paragraphs {
+  @include P(1, 16px, 28px, $slate);
+  @include P(2, 14px, 22px, $instock-black);
+  @include P(3, 16px, 28px, $instock-black);
+}
+
+@mixin H($size, $font-size, $line-height, $color: null) {
+  font-family: $font;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: 600;
+  @if $color {
+    color: $color;
+  }
+}
+
+@mixin P($size, $font-size, $line-height, $color: null) {
+  font-family: $font;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: 400;
+  @if $color {
+    color: $color;
+  }
+}
+
 
   @mixin mobile {
     @media screen and (min-width: $mobile-breakpoint) {
       @content;
 
-      
-    }
+    @include H(1, 28px, 36px, $instock-black);
+    @include H(2, 20px, 28px, $instock-black);
+    @include H(3, 13px, 20px, $instock-black);
+    @include H(4, 11px, 16px, $instock-black);
+    @include P(1, 15px, 26px, $slate);
+    @include P(2, 13px, 20px, $instock-black);
+    @include P(3, 11px, 16px, $instock-black);
   }
+}
+
+@mixin H($size, $font-size, $line-height, $color: null) {
+  font-family: $font;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: 600;
+  @if $color {
+    color: $color;
+  }
+}
+
+@mixin P($size, $font-size, $line-height, $color: null) {
+  font-family: $font;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: 400;
+  @if $color {
+    color: $color;
+  }
+}
