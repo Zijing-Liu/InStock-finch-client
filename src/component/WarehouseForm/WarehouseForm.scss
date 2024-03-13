@@ -82,6 +82,7 @@
             color: $instock-black;
             font-size: 0.7rem;
             font-weight: 500;
+            width: 100%;
 
             @include tablet {
                 font-weight: 600;
@@ -92,7 +93,7 @@
         &-input {
             border-radius: 20px;
             border: 1px solid $cloud;
-            width: 95%;
+            width: 90%;
             height: 2rem;
             margin: 3px 0 5px 0;
             padding: 0 16px 0 16px;

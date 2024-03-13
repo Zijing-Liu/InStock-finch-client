@@ -1,7 +1,7 @@
 import './WarehouseForm.scss'
 import { useState } from 'react'
 
-export default function WarehouseForm() {
+export default function WarehouseForm({ formDetails }) {
 
     const [error, setError] = useState({
         warehouseName: '',
@@ -70,7 +70,7 @@ export default function WarehouseForm() {
 
     return (
         <section className='warehouse'>
-            <h1 className='warehouse__title'>Edit Warehouse</h1>
+            <h1 className='warehouse__title'>{formDetails.title}</h1>
             <form action="post" className='warehouse__form' onSubmit={handleSubmit}>
                 <div className='warehouse__form-fields'>
                     <div className='warehouse__form-section'>
@@ -176,7 +176,7 @@ export default function WarehouseForm() {
                 </div>
                 <div className='warehouse__form-buttons'>
                     <button className='warehouse__form-buttons--cancel'>Cancel</button>
-                    <button className='warehouse__form-buttons--save' type='submit' > Save</button>
+                    <button className='warehouse__form-buttons--save' type='submit' >{formDetails.button}</button>
                     {/* For cancel button: onClick={() => navigate('/') */}
                 </div>
             </form>
