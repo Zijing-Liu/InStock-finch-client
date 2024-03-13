@@ -2,10 +2,10 @@ import React from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 import "./EditInventory.scss";
 
+
 function EditInventory() {
   const Warehouses = ["Manhattan", "Washingon", "San Fran"];
-  const categories = [
-    "Apparel",
+  const categories = ["Apparel",
     "Accessories",
     "Electronics",
     "Electronics",
@@ -14,20 +14,20 @@ function EditInventory() {
   ];
   return (
     <>
-      <main>
-        <div className="edit-title__box">
-          <img src={arrowIcon} alt="arrow-icon" />
-          <h1>Edit Inventory Item</h1>
-          <hr></hr>
+      <main className="edit">
+        <div className="edit__title-box">
+          <img className="edit__image" src={arrowIcon} alt="arrow-icon" />
+          <h2>Edit Inventory Item</h2>
         </div>
+        <hr></hr>
 
         <form className="form">
           <div className="form__contianer">
             <div className="form__box">
-              <h2 className="form__title">Item Details</h2>
+              <h3 className="form__title">Item Details</h3>
 
               <label htmlFor="name">Item Name</label>
-              <input
+              <input className="form__input"
                 type="text"
                 placeholder="Item Name"
                 id="name"
@@ -36,6 +36,7 @@ function EditInventory() {
 
               <label htmlFor="description">Description</label>
               <textarea
+              className="form__input form__input--text"
                 type="text"
                 placeholder='This 50", 4K LED TV provides a crystal-clear picture and vivid colors.'
                 id="description"
@@ -44,7 +45,8 @@ function EditInventory() {
               ></textarea>
 
               <label htmlFor="category">Category</label>
-              <select id="category" name="category">
+              <select id="category" name="category" className="form__input form__input--select">
+ 
                 {categories.map((category) => {
                   return (
                     <>
@@ -53,32 +55,36 @@ function EditInventory() {
                   );
                 })}
               </select>
-
-              <hr></hr>
             </div>
-
+            <hr></hr>
             <div className="form__box">
-              <h2 className="form__title">Item Availability</h2>
+              <h3 className="form__title">Item Availability</h3>
               <label htmlFor="status">Status</label>
+              <div>
+                <input
+                className="form__input"
+                  type="radio"
+                  id="in-stock"
+                  name="status"
+                  value="in-stock"
+                ></input>
+                <label htmlFor="in-stock">In Stock</label>
+              </div>
 
-              <input
-                type="radio"
-                id="in-stock"
-                name="status"
-                value="in-stock"
-              ></input>
-              <label htmlFor="in-stock">In Stock</label>
-
-              <input
-                type="radio"
-                id="out-of-stock"
-                name="status"
-                value="out-of-stock"
-              ></input>
-              <label htmlFor="out-of-stock">Out Of Stock</label>
+              <div>
+                <input
+                className="form__input"
+                  type="radio"
+                  id="out-of-stock"
+                  name="status"
+                  value="out-of-stock"
+                ></input>
+                <label htmlFor="out-of-stock">Out Of Stock</label>
+              </div>
 
               <label htmlFor="quantity">Quantity</label>
               <input
+              className="form__input"
                 type="number"
                 placeholder="Quantity"
                 id="quantity"
@@ -86,7 +92,7 @@ function EditInventory() {
               ></input>
 
               <label htmlFor="warehouse">Warehouse</label>
-              <select id="warehouse" name="warehouse">
+              <select id="warehouse" name="warehouse" className="form__input form__input--select">
                 {Warehouses.map((warehouse) => {
                   return (
                     <>
