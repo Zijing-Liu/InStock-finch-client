@@ -1,17 +1,6 @@
-@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/variables" as *;
-
-// @mixin table-header{
-//     font-size: 11px;
-//     line-height: 16px;
-//     color: $slate;
-//     text-transform: uppercase;
-// }
-
-// @mixin lables-links-buttons {
-//     font-size: 13px;
-//     line-height: 20px;
-// }
+@use "../../styles/partials/typography" as *;
 
 
 .list{

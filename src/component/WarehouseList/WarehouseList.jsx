@@ -5,7 +5,6 @@ import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
 import sort from "../../assets/Icons/sort-24px.svg"
 import { Link } from "react-router-dom";
-import data from "../../data.json"
 
 function WarehouseList() {
     const warehouseObj = {
@@ -13,7 +12,6 @@ function WarehouseList() {
         button: "+ Add New Warehouse"
     }
 
-    console.log(data)
     return (
         <section className="list">
             <div className="list__main-container">
@@ -82,21 +80,5 @@ function WarehouseList() {
         </section>
     )
 }
-
-//        {warehouseListData.Map((warehouse)=> {
-//     return(
-//         <div key={warehouse.id}>
-//             <h2>Warehouse</h2>
-//             {/* Link/navigate to warehouseDetails */}
-//             <p>{warehouse.name}</p>
-//             <h2>Address</h2>
-//             <p>{warehouse.address} {warehouse.city} {warehouse.country}</p>
-//             <h2>Contact Name</h2>
-//             <p>{warehouse.contact_name}</p>
-//             <h2>Contact Information</h2>
-//             <p>{warehouse.contact_phone} {warehouse.contact_email}</p>
-//         </div>
-//     )}
-// )}
 
 export default WarehouseList;
