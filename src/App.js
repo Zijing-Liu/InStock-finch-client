@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Warehouses from "./pages/Warehouses/Warehouses";
 import Inventory from "./pages/Inventory/Inventory";
 import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
@@ -13,23 +13,22 @@ function App() {
       <header className="App-header">Welcome</header>
 
       <BrowserRouter>
-      <Routes>
-        <Route path="/warehouses" element={<Warehouses />} />
-        <Route path="/inventory" element={<Inventory />} />
+        <Routes>
+          <Route path="/warehouses" element={<Warehouses />} />
+          <Route path="/inventory" element={<Inventory />} />
 
-        <Route path="/warehouses/add" element={<AddWarehouse />} />
-        <Route path="/inventory/add" element={<AddInventory />} />
+          <Route path="/warehouses/add" element={<AddWarehouse />} />
+          <Route path="/inventory/add" element={<AddInventory />} />
 
-        <Route path="/inventory/:ID" element={<InventoryDetails />} />
-        <Route path="/warehouses/:ID" element={<WarehouseDetails />} />
+          <Route path="/inventory/:ID" element={<InventoryDetails />} />
+          <Route path="/warehouses/:ID" element={<WarehouseDetails />} />
 
-        <Route path="/inventory/edit/:ID" element={<EditInventory />} />
-        <Route path="/warehouses/edit/:ID" element={<EditWarehouse />} />
+          <Route path="/inventory/edit/:ID" element={<EditInventory />} />
+          <Route path="/warehouses/edit/:ID" element={<EditWarehouse />} />
 
-        <Route path="*" element={<Navigate to="/warehouses" />} />
-
-      </Routes>
-    </BrowserRouter>
+          <Route path="*" element={<Navigate to="/warehouses" />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
