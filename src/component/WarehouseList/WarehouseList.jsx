@@ -1,27 +1,4 @@
 import "./WarehouseList.scss";
-<<<<<<< HEAD
-import SearchLogo from "../../assets/Icons/search-24px.svg"
-
-function WarehouseList() {
-    return (
-        <section>
-            <div>
-                <h1>Warehouses</h1>
-                <div>
-                    <input className="" type="text" name="search-bar" placeholder="Search"></input>
-                    <button>
-                        <img src={SearchLogo} />
-                    </button>
-                </div>
-                <button>+Add a New Warehouse</button>
-            </div>
-            <div>
-                <h2>Warehouse</h2>
-                {/* Link/navigate to warehouseDetails */}
-                <p>Test Warehouse</p>
-                <h2>Address</h2>
-                <p>123 street, Test City, Canada</p>
-=======
 import searchLogo from "../../assets/Icons/search-24px.svg";
 import deleteBtn from "../../assets/Icons/delete_outline-24px.svg"
 import editBtn from "../../assets/Icons/edit-24px.svg"
@@ -50,16 +27,12 @@ function WarehouseList() {
                 <img src={deleteBtn} />
                 </div>
                 <div>
->>>>>>> develop
                 <h2>Contact Name</h2>
                 <p>John Doe</p>
                 <h2>Contact Information</h2>
                 <p>123-456-7890 abc@test.xyz</p>
-<<<<<<< HEAD
-=======
                 <img src={editBtn} alt="" />
                 </div>
->>>>>>> develop
             </div>
         </section>
     )
