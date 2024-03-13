@@ -1,17 +1,17 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-@mixin table-header{
-    font-size: 11px;
-    line-height: 16px;
-    color: $slate;
-    text-transform: uppercase;
-}
+// @mixin table-header{
+//     font-size: 11px;
+//     line-height: 16px;
+//     color: $slate;
+//     text-transform: uppercase;
+// }
 
-@mixin lables-links-buttons {
-    font-size: 13px;
-    line-height: 20px;
-}
+// @mixin lables-links-buttons {
+//     font-size: 13px;
+//     line-height: 20px;
+// }
 
 
 .list{
@@ -82,6 +82,7 @@
 
         @include tablet {
             margin-left: 16px;
+            color: $white;
         }
 
         @include tablet {
@@ -107,7 +108,6 @@
     p {
         font-size: 13px;
         line-height: 16px;
-        margin: 11px 0;
         margin: 8px 0;
     }
 
@@ -135,9 +135,10 @@
 
     &__header {
         display: none;
+        background-color: $light-grey;
 
         @include tablet {
-            margin: 0 16px;
+            padding: 0 16px;
             display: flex;
         }
     }
@@ -156,6 +157,7 @@
     }
 
     &__warehouse {
+        
         @include tablet{
             width: 25%;
             text-decoration: none;
@@ -206,6 +208,7 @@
 
     &__action {
         margin: auto;
+        align-self: center;
     }
 
     &__warehouse-container-mobile {
