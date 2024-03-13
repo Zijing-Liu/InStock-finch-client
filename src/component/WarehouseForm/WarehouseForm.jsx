@@ -5,14 +5,18 @@ export default function WarehouseForm() {
 
     const [error, setError] = useState("")
 
-    function handleChange() {
+    function handleChange(event) {
+
+    }
+
+    function handleSubmit(event) {
 
     }
 
     return (
         <section className='edit-warehouse'>
             <h1 className='edit-warehouse__title'>Edit Warehouse</h1>
-            <form action="" className='edit-warehouse__form'>
+            <form action="" className='edit-warehouse__form' onSubmit={handleSubmit}>
                 <div className='edit-warehouse__form-fields'>
                     <div className='edit-warehouse__form-section'>
                         <h2 className='edit-warehouse__form-heading'>Warehouse Details</h2>
@@ -39,10 +43,10 @@ export default function WarehouseForm() {
                 </div>
                 <div className='edit-warehouse__form-buttons'>
                     <button className='edit-warehouse__form-buttons--cancel'>Cancel</button>
-                    <button className='edit-warehouse__form-buttons--save' type='submit'>Save</button>
-                    {/* For cancel button: onClick={() => navigate('/') */}
-                </div>
-            </form>
-        </section>
+                    <button className='edit-warehouse__form-buttons--save' type='submit' onClick={() => navigate('/') > Save</button>
+                {/* For cancel button: onClick={() => navigate('/') */}
+            </div>
+        </form>
+        </section >
     )
 }
