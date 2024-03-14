@@ -139,6 +139,10 @@
             border: none;
             background-color: transparent;
         }
+
+        :nth-child(2) {
+            padding-left: 15px;
+          }
     }
 
     &__header-mobile {
