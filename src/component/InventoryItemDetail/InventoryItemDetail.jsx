@@ -53,7 +53,10 @@ function InventoryItemDetail() {
           />
           <h1>{itemData.item_name}</h1>
         </div>
-        <button className="inventory-item__edit">
+        <button
+          className="inventory-item__edit"
+          onClick={() => navigator(`/edit/${ID}`)}
+        >
           <p className="inventory-item__edit-text">Edit</p>
           <img
             className="inventory-item__edit-icon"
