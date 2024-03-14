@@ -9,6 +9,7 @@
     margin-right: auto;
     border-radius: 4px;
     box-shadow: 0 2px 5px $cloud;
+    margin-bottom: 2rem;
 
     @include desktop {
         max-width: 1020px;
