@@ -1,0 +1,29 @@
+@use "../../styles/partials/typography.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/breakpoints.scss" as *;
+
+.add-inventory {
+  &__header {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid $cloud;
+    align-items: center;
+    @include tablet {
+      padding: 2rem, 2rem;
+    }
+    @include desktop {
+      padding: 40px;
+    }
+  }
+
+  &__iconAndTitle {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+  &__heading {
+    @include page-header;
+    text-wrap: wrap;
+    width: 100%;
+  }
+}
