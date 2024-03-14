@@ -1,5 +1,7 @@
-@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/typography.scss' as *;
 @use '../../styles/partials/variables.scss' as *;
+@use '../../styles/partials/breakpoints.scss' as *;
+
 
 * {
     box-sizing: border-box;
@@ -43,6 +45,11 @@
             background-repeat: no-repeat;
             padding-left: 18px;
             background-position: 0 50%;
+
+            @include tablet {
+                margin-bottom: 15px;
+
+            }
         }
 
         &-fields {
@@ -62,6 +69,7 @@
                 padding: 0 30px 0 30px;
                 margin: 30px 0;
                 border-top: none;
+                width: 100%;
             }
 
             &--contact {
@@ -102,7 +110,7 @@
             padding: 0 16px 0 16px;
 
             @include tablet {
-                margin: 5px 0 15px 0;
+                margin: 5px 0 10px 0;
             }
 
             &:focus-visible {
