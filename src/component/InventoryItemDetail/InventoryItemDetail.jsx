@@ -12,7 +12,6 @@ function InventoryItemDetail() {
   const navigator = useNavigate();
   const [itemData, setItemData] = useState({});
   const [warehouseName, setWarehouseName] = useState("");
-
   useEffect(() => {
     const getItemDetails = async () => {
       try {
