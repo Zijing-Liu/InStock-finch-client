@@ -13,18 +13,21 @@ function WarehouseList() {
 
     const warehouseObj = {
         title: "Warehouses",
-        button: "+ Add New Warehouse"
+        button: "+ Add New Warehouse",
+        id: 1
     }
 
     function onClose() {
-        setDeleteWarehouseOpen(false)
+
+        // setDeleteWarehouseOpen(false)
     }
 
     function clickHandler() {
         alert("i've been clicked")
-        setDeleteWarehouseOpen(true)
+        console.log(warehouseObj.id)
+        // setDeleteWarehouseOpen(true)
     }
-
+    // console.log(warehouseObj.id)
     console.log(isDeleteWarehouseopen)
 
     return (
@@ -55,47 +58,50 @@ function WarehouseList() {
                 </div>
                 <h2 className="list__action">Actions</h2>
             </div>
-
-            <div className="list__mobile-container">
-                <div className="list__warehouse-info">
-                    <h2 className="list__header-mobile">Warehouse</h2>
-                    <Link to="warehouse/:id" className="list__warehouse">
-                        <div className="list__icons">
-                            <p className="list__address">Test Warehouse</p> <img src={chevron} />
-                        </div>
-                    </Link>
-                    <h2 className="list__header-mobile">Address</h2>
-                    <p>123 street, <br /> Test City, Canada</p>
-                    <button className="list__btn-mobile" onClick={clickHandler}> <img src={deleteBtn} /> </button>
-                </div>
-                <div className="list__warehouse-contact">
-                    <h2 className="list__header-mobile">Contact Name</h2>
-                    <p>John Doe</p>
-                    <h2 className="list__header-mobile">Contact Information</h2>
-                    <p>123-456-7890 <br /> abc@test.xyz</p>
-                    <button className="list__btn-mobile" onClick={clickHandler}> <img src={editBtn} /> </button>
-                </div>
-                <Link to="/warehouses/edit/:ID" className="list__list-btns">
-                    <img src={editBtn} />
-                </Link>
-            </div>
-
-            <div className="list__warehouse-container">
-                <Link to="warehouse/:id" className="list__warehouse">
-                    <div className="list__icons list__icons--active">
-                        <p className="list__address">Test Warehouse</p> <img src={chevron} />
+            <div key={warehouseObj.id}>
+                <div className="list__mobile-container">
+                    <div className="list__warehouse-info">
+                        <h2 className="list__header-mobile">Warehouse</h2>
+                        <Link to={`/warehouses/${warehouseObj.id}`} className="list__warehouse">
+                            <div className="list__icons">
+                                <p className="list__address">Test Warehouse</p> <img src={chevron} />
+                            </div>
+                        </Link>
+                        <h2 className="list__header-mobile">Address</h2>
+                        <p>123 street, <br /> Test City, Canada</p>
+                        <button className="list__btn-mobile" onClick={clickHandler}> <img src={deleteBtn} /> </button>
                     </div>
-                </Link>
-                <p className="list__address">123 street, Test City, Canada</p>
-                <p className="list__name"> John Doe</p>
-                <p className="list__info">123-456-7890 <br /> abc@test.xyz</p>
-                <div className="list__list-btns"> <button onClick={clickHandler}><img src={deleteBtn} /></button>
-                    <Link to="/warehouses/edit/:ID">
+                    <div className="list__warehouse-contact">
+                        <h2 className="list__header-mobile">Contact Name</h2>
+                        <p>John Doe</p>
+                        <h2 className="list__header-mobile">Contact Information</h2>
+                        <p>123-456-7890 <br /> abc@test.xyz</p>
+                        <button className="list__btn-mobile" onClick={clickHandler}> <img src={editBtn} /> </button>
+                    </div>
+                    <Link to={`/warehouses/edit/${warehouseObj.id}`} className="list__list-btns">
                         <img src={editBtn} />
                     </Link>
                 </div>
-            </div>
 
+                <div className="list__warehouse-container">
+                    <Link to={`/warehouses/${warehouseObj.id}`} className="list__warehouse">
+                        <div className="list__icons list__icons--active">
+                            <p className="list__address">Test Warehouse</p> <img src={chevron} />
+                        </div>
+                    </Link>
+                    <p className="list__address">123 street, Test City, Canada</p>
+                    <p className="list__name"> John Doe</p>
+                    <p className="list__info">123-456-7890 <br /> abc@test.xyz</p>
+                    <div className="list__list-btns">
+                        <button onClick={clickHandler}>
+                            <img src={deleteBtn} />
+                        </button>
+                        <Link to={`/warehouses/edit/${warehouseObj.id}`}>
+                            <img src={editBtn} />
+                        </Link>
+                    </div>
+                </div>
+            </div>
         </section>
     )
 }
