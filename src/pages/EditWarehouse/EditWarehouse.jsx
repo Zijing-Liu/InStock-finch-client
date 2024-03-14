@@ -5,7 +5,8 @@ import { useParams } from 'react-router-dom';
 
 export default function EditWarehouse() {
 
-  useParams()
+  const { ID } = useParams()
+
   const [error, setError] = useState({
     warehouseName: '',
     streetAddress: '',
@@ -77,10 +78,10 @@ export default function EditWarehouse() {
     }
     if (!formData.email) {
       newError.email = "This field is required";
-
-    } else if (!isValidEmail(formData.email)) {
+    }
+    if (!isValidEmail(formData.email)) {
       newError.email = "Please enter valid email";
-    } else if (!isValidPhoneNumber(formData.phoneNumber)) {
+    } if (!isValidPhoneNumber(formData.phoneNumber)) {
       newError.phoneNumber = "Please enter valid phone number";
     }
 
