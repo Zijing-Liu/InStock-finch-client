@@ -49,7 +49,7 @@ function EditInventory() {
       });
     }
   };
-
+console.log(formData)
   // check form validation
   const isFormValid = () => {
     let isValid = true;
@@ -174,7 +174,7 @@ function EditInventory() {
               Status
             </label>
             <div className="form__status">
-              <div className="form__check">
+              <div className={formData.status === "In Stock" ? "form__check form__check--checked" : "form__check" }>
                 <input
                   className="form__input form__input--check"
                   type="radio"
@@ -192,7 +192,7 @@ function EditInventory() {
                 </label>
               </div>
 
-              <div className="form__check">
+              <div className={formData.status === "Out Of Stock" ? "form__check form__check--checked" : "form__check" }>
                 <input
                   className="form__input form__input--check"
                   type="radio"
