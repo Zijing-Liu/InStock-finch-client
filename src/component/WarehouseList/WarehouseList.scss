@@ -22,15 +22,14 @@
         @include tablet {
             display: flex;
             justify-content: space-between;
+            padding: 0 36px 16px;
         }
 
-    }
-
-    &__search-spacing {
-        @include tablet {
-        display: flex;
+        @include desktop {
+            padding:  0 63px 16px;
         }
     }
+
 
     &__search-container{
         border: 1px solid $slate;
@@ -41,9 +40,15 @@
         height: 36px;
         margin-bottom: 16px;
 
+        &:focus-within {
+            border: 1px solid $instock-indigo;
+        }
+
+
         @include tablet {
             margin: 0;
             width: fit-content;
+            margin-left: auto;
         }
         
     }
@@ -51,6 +56,11 @@
     &__search {
         border: none;
         margin-left: 16px;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     &__search-btn{
@@ -69,38 +79,41 @@
         background-color: $instock-indigo;
         border: none;
 
-        @include tablet {
-            margin-left: 16px;
-            color: $white;
+        &:hover {
+            background-color: $graphite;
+            // transition: 1s;
         }
 
         @include tablet {
+            margin-left: 16px;
+            color: $white;
             width: auto;
             text-wrap: nowrap;
         }
     }
 
     h2 {
-        font-size: 11px;
-        line-height: 16px;
+    @include table-header;
         color: $slate;
         text-transform: uppercase;
+        padding: 0;
     }
 
     h1 {
-        font-size: 28px;
-        line-height: 36px;
-        margin: 10px;
+    @include page-header;
+    padding: 0;
     }
 
     p {
-        font-size: 13px;
-        line-height: 16px;
-        margin: 8px 0;
+      @include body-medium;
+        margin: 0 0 8px 0;
     }
 
     &__btn-mobile {
         align-self: flex-end;
+        border: none;
+        background-color: $white;
+        padding: 0;
 
         @include tablet {
             display: none;
@@ -114,9 +127,19 @@
             display: flex;
             margin-left: auto;
         }
+
+        button {
+            border: none;
+            background-color: transparent;
+        }
+
+        :nth-child(2) {
+            padding-left: 15px;
+          }
     }
 
     &__header-mobile {
+
         @include tablet {
             display: none;
         }
@@ -127,8 +150,12 @@
         background-color: $light-grey;
 
         @include tablet {
-            padding: 0 16px;
+            padding: 0 36px;
             display: flex;
+        }
+
+        @include desktop {
+            padding: 0 63;
         }
     }
 
@@ -146,24 +173,32 @@
     }
 
     &__warehouse {
-        
+        text-decoration: none;
+        color: $instock-indigo;
+        font-weight: 600;
+
         @include tablet{
             width: 25%;
-            text-decoration: none;
-            color: $instock-indigo;
-            font-weight: 600;
         }
 
         @include desktop{
             width: 25%;
         }
+
+        p {
+            width: auto;
+            padding-right: 4px;
+            margin-bottom: 0;
+        }
     }
 
     &__address {
+  
         @include tablet{
             width: 20%;
             text-wrap: wrap;
             padding: 8px;
+
         }
 
         @include desktop{
@@ -173,6 +208,7 @@
     }
 
     &__name {
+
         @include tablet{
             width: 20%;
             padding: 8px;
@@ -186,8 +222,8 @@
     &__info {
         @include tablet{
             width: 20%;
-            word-wrap: wrap;
-            padding: 8px;
+            text-wrap: wrap;
+            padding: 4px;
         }
 
         @include tablet{
@@ -201,7 +237,6 @@
     }
 
     &__mobile-container {
-
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -221,25 +256,26 @@
 
         @include tablet {
             display: flex;
-            margin: 0 16px;
+            padding: 0 36px;
             align-items: center;
+        }
+
+        @include desktop {
+            padding: 0 63px;
+
+            &:hover {
+                background-color: rgb(46, 102, 229, 0.1);
+            }
         }
     }
 
     &__warehouse-info {
-        @include tablet {
-            display: flex;
-            justify-content: space-evenly;
-            // width: 100%;
-        }
+        margin-bottom: 8px;
     }
 
     &__warehouse-contact {
         display: flex;
         flex-direction: column; 
-        
-        @include tablet {
-            flex-direction: row;
-        }
+        margin-bottom: 8px;
     }
 }
