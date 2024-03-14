@@ -23,17 +23,20 @@ function EditInventory() {
 
   const [formData, setFormData] = useState(initalInventory);
 
-  const [getFormValidation, setGetFormValidation] = useState(false);
+  const [getFormValidation, setGetFormValidation] = useState(true);
+  const [submitChange, setSubmitChange] = useState(false);
 
   const [error, setError] = useState({});
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-    console.log('i am clicked');
-    console.log(getFormValidation)
-    // check validation
+    // console.log('i am clicked');
+
+    // to make the function works in the use effect
+    setSubmitChange(!submitChange);
+
     if (!getFormValidation) {
-      return;
+      console.log("this should not work ");
     }
 
     // update data
@@ -68,11 +71,11 @@ function EditInventory() {
         formData={formData}
         handleOnClick={handleOnClick}
         handleOnSubmit={handleOnSubmit}
+        submitChange={submitChange}
         setGetFormValidation={setGetFormValidation}
         getFormValidation={getFormValidation}
         error={error}
         setError={setError}
-
       />
     </div>
   );

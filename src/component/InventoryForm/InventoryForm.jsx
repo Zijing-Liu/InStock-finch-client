@@ -1,4 +1,4 @@
-// import "/InventoryForm.scss";
+import "./InventoryForm.scss";
 import { useEffect } from "react";
 
 function InventoryForm({
@@ -6,11 +6,14 @@ function InventoryForm({
   formData,
   handleOnClick,
   setFormData,
-  setGetFormValidation,
-  getFormValidation,
+  submitChange,
   setError,
   error,
+  setGetFormValidation,
+  getFormValidation,
 }) {
+
+    // mock data should be replaced with real one . 
   const Warehouses = ["Manhattan", "Washington", "San Francisco"];
   const categories = [
     "Apparel",
@@ -39,7 +42,6 @@ function InventoryForm({
       });
     }
   };
-  console.log(formData);
 
   // Set the form validation function to the state
   useEffect(() => {
@@ -63,12 +65,15 @@ function InventoryForm({
       // Update the error state
       setError(errors);
       // Update the getFormValidation state
+
       setGetFormValidation(isValid);
 
-      return isValid;
+      //   return isValid;
     };
     isFormValid();
-  }, [formData, setGetFormValidation, setError]);
+  }, [submitChange]);
+
+  console.log("isvalid", getFormValidation);
 
   return (
     <>
