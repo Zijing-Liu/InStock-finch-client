@@ -1,11 +1,13 @@
 import './EditWarehouse.scss'
 import { useState } from "react";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export default function EditWarehouse() {
 
-  const { ID } = useParams()
+  const { ID } = useParams();
+  const navigate = useNavigate();
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
   const [error, setError] = useState({
     warehouseName: '',
@@ -87,12 +89,11 @@ export default function EditWarehouse() {
 
     setError(newError);
 
-
     console.log(formData)
 
     const updateDetails = async () => {
       try {
-        await axios.put(`http://localhost:3000`, formData)
+        await axios.put(`${baseURL}${ID}`, formData)
         console.log(formData)
       } catch (error) {
         console.log(error)
@@ -138,7 +139,6 @@ export default function EditWarehouse() {
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.city ? '#C94515' : '' }}
-
             />
             {error.city && <div className="warehouse__form-error">{error.city}</div>}
 
@@ -150,7 +150,6 @@ export default function EditWarehouse() {
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.country ? '#C94515' : '' }}
-
             />
             {error.country && <div className="warehouse__form-error">{error.country}</div>}
 
@@ -165,7 +164,6 @@ export default function EditWarehouse() {
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.contactName ? '#C94515' : '' }}
-
             />
             {error.contactName && <div className="warehouse__form-error">{error.contactName}</div>}
 
@@ -177,7 +175,6 @@ export default function EditWarehouse() {
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.position ? '#C94515' : '' }}
-
             />
             {error.position && <div className="warehouse__form-error">{error.position}</div>}
 
@@ -189,7 +186,6 @@ export default function EditWarehouse() {
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.phoneNumber ? '#C94515' : '' }}
-
             />
             {error.phoneNumber && <div className="warehouse__form-error">{error.phoneNumber}</div>}
 
@@ -201,16 +197,14 @@ export default function EditWarehouse() {
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.email ? '#C94515' : '' }}
-
             />
             {error.email && <div className="warehouse__form-error">{error.email}</div>}
 
           </div>
         </div>
         <div className='warehouse__form-buttons'>
-          <button className='warehouse__form-buttons--cancel'>Cancel</button>
+          <button className='warehouse__form-buttons--cancel' onClick={() => navigate('/')}>Cancel</button>
           <button className='warehouse__form-buttons--save' type='submit' >Save</button>
-          {/* For cancel button? >>>>> onClick={() => navigate('/') */}
         </div>
       </form>
     </section >
