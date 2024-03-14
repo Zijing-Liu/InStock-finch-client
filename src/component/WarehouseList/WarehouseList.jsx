@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useState, Modal } from "react";
 import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse"
 
-function WarehouseList() {
+function WarehouseList({warehouseData}) {
     const [isDeleteWarehouseOpen, setDeleteWarehouseOpen] = useState(false)
 
     const warehouseObj = {
@@ -48,28 +48,30 @@ function WarehouseList() {
                     </div>
                     <h2 className="list__action">Actions</h2>
                 </div>
-
-                <div key={warehouseObj.id}>
+        {warehouseData.map((warehouse) => {
+            {console.log(warehouse)}
+            return(
+                <div key={warehouse.id}>
                     <div className="list__mobile-container">
-                        <div className="list__warehouse-info">
+                        <div className="list__mobile-warehouse">
                             <h2 className="list__header-mobile">Warehouse</h2>
-                            <Link to={`/warehouses/${warehouseObj.id}`} className="list__warehouse">
+                            <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse">
                                 <div className="list__icons">
-                                    <p className="list__address">Test Warehouse</p> <img src={chevron} />
+                                    <p className="list__address">{warehouse.warehouse_name}</p> <img src={chevron} />
                                 </div>
                             </Link>
                             <h2 className="list__header-mobile">Address</h2>
-                            <p>123 street, <br /> Test City, Canada</p>
+                            <p className="list__address-text">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
                             <button className="list__btn-mobile" onClick={() => setDeleteWarehouseOpen(true)}> 
                             <img src={deleteBtn} /> 
                             </button>
                         </div>
-                        <div className="list__warehouse-contact">
+                        <div className="list__mobile-warehouse">
                             <h2 className="list__header-mobile">Contact Name</h2>
-                            <p>John Doe</p>
+                            <p>{warehouse.contact_name}</p>
                             <h2 className="list__header-mobile">Contact Information</h2>
-                            <p>123-456-7890 <br /> abc@test.xyz</p>
-                            <Link to={`/warehouses/edit/${warehouseObj.id}`} className="list__btn-mobile">
+                            <p>{warehouse.contact_phone} <br /> {warehouse.contact_email}</p>
+                            <Link to={`/warehouses/edit/${warehouse.id}`} className="list__btn-mobile list__btn-mobile--edit">
                                 <img src={editBtn} />
                             </Link>
                         </div>
@@ -78,12 +80,12 @@ function WarehouseList() {
                     <div className="list__warehouse-container">
                         <Link to={`/warehouses/${warehouseObj.id}`} className="list__warehouse">
                             <div className="list__icons list__icons--active">
-                                <p className="list__address">Test Warehouse</p> <img src={chevron} />
+                                <p className="list__address">{warehouse.warehouse_name}</p> <img src={chevron} />
                             </div>
                         </Link>
-                        <p className="list__address">123 street, Test City, Canada</p>
-                        <p className="list__name"> John Doe</p>
-                        <p className="list__info">123-456-7890 <br /> abc@test.xyz</p>
+                        <p className="list__address">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
+                        <p className="list__name"> {warehouse.contact_name} </p>
+                        <p className="list__info">{warehouse.contact_phone} <br /> {warehouse.contact_email}</p>
                         <div className="list__list-btns">
                             
                             <button onClick={() => setDeleteWarehouseOpen(true)}>
@@ -96,6 +98,8 @@ function WarehouseList() {
                         </div>
                     </div>
                 </div>
+            )}
+                )}
             </div>
         </section>
     )
