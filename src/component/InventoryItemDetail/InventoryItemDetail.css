@@ -9,18 +9,13 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
 }
-@media (min-width: 768px) {
-  .inventory-item {
-    margin: 2rem;
-  }
-}
 .inventory-item__header {
   font-family: "Titillium Web", sans-serif;
   font-size: 28px;
   line-height: 36px;
   font-weight: 600;
   padding: 1rem 2rem;
-  border-bottom: 2px solid #bdc5d5;
+  border-bottom: 1 px solid #bdc5d5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,6 +29,11 @@
 @media (min-width: 768px) {
   .inventory-item__header {
     padding: 2rem, 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .inventory-item__header {
+    padding: 40px;
   }
 }
 .inventory-item__iconAndTitle {
@@ -51,6 +51,12 @@
     justify-content: flex-start;
     padding: 2rem 2rem;
     gap: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .inventory-item__body {
+    padding: 40px;
+    gap: 2.5rem;
   }
 }
 @media (min-width: 768px) {
@@ -95,6 +101,7 @@
     font-size: 13px;
     line-height: 20px;
     font-weight: 400;
+    font-weight: 600;
     color: white;
     display: inline;
     padding: 0;
@@ -113,8 +120,13 @@
 }
 @media (min-width: 768px) {
   .inventory-item__status-and-quantity {
-    gap: 5rem;
+    gap: 5.5625rem;
     justify-content: flex-start;
+  }
+}
+@media (min-width: 1280px) {
+  .inventory-item__status-and-quantity {
+    gap: 10.5rem;
   }
 }
 .inventory-item__label {
@@ -143,6 +155,23 @@
     line-height: 22px;
   }
 }
-.inventory-item__text--status {
-  background-color: green;
+.inventory-item__status {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
+  padding: 4px 8px 4px 8px;
+  font-weight: 600;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #158463;
+  background-color: rgba(21, 132, 99, 0.07);
+  border-radius: 20px;
+}
+@media (min-width: 768px) {
+  .inventory-item__status {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+  }
 }/*# sourceMappingURL=InventoryItemDetail.css.map */
