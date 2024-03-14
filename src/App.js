@@ -9,6 +9,7 @@ import EditInventory from "./pages/EditInventory/EditInventory";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Header from "./component/Header/Header";
 function App() {
+
   return (
     <div className="App">
       <Header />

@@ -2,11 +2,87 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.modal {
-    background-color: $slate;
-    opacity: 0.2;
+.background {
+    display: flex;
+    background-color: rgb(92, 102, 126, 0.2);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    justify-content: center;
 
+}
+
+.modal {
     &__container {
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
         background-color: $white;
+        z-index: 2;
+
+        @include tablet {
+            padding: 0 36px;
+        }
+
+        @include desktop {
+            padding: 0 63px;
+        }
+    }
+
+    &__close {
+        margin: 16px 0 16px auto;
+        // margin-left: auto;
+        border: none;
+        background-color: transparent;
+    }
+
+    &__btns-container {
+        display: flex;
+        justify-content: space-between;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+    }
+
+    &__btn {
+        border: none;
+        background-color: transparent;
+        @include label-links-buttons;
+        width: 49%;
+        height: 36px;
+        border-radius: 20px;
+
+        @include tablet {
+            height: 38px;
+            width: auto;
+            padding: 0 16px;
+        }
+
+        &:nth-child(2) {
+            @include tablet {
+            margin-left: 16px;
+            }
+        }
+
+            &--delete {
+                background-color: $red;
+                color: $white;
+
+                &:hover {
+                    background-color: $graphite;
+                }
+            }
+
+            &--cancel {
+                background-color: $white;
+                color: $cloud;
+                border: 1px solid $cloud;
+
+                &:hover {
+                    color: $instock-indigo;
+                    border: 1px solid $instock-indigo;
+                }
+            }
     }
 }
