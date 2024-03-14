@@ -3,18 +3,24 @@ import { useNavigate, useParams } from "react-router-dom";
 import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
 import editIconWhite from "../../assets/Icons/edit-24px-white.svg";
 import axios from "axios";
+
 import "./InventoryItemDetail.scss";
 function InventoryItemDetail() {
   // get the data from api
-  // const base_url = process.env.REACT_APP_BASE_URL;
-  // const inventoryItemID = useParams();
+  const base_url = process.env.REACT_APP_BASE_URL;
+  console.log(base_url);
+  // the inventory id param will be obtained once the inventory list are mapped out
+  // const {ID} = useParams();
   const navigator = useNavigate();
-  // const getItemDetails = async () => {
-  //   const response = await axios.get(`${base_url}/${inventoryItemID}`);
-  //   console.log();
-  //   return;
-  // };
-  // useEffect(() => {});
+  // set up the states
+
+  useEffect(() => {
+    const getItemDetails = async () => {
+      const response = await axios.get(`${base_url}/inventories/1`);
+      console.log(response);
+    };
+    getItemDetails();
+  }, []);
   return (
     <article className="inventory-item">
       <div className="inventory-item__header">
