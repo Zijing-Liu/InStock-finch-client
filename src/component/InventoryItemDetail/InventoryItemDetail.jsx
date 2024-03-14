@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
 import editIconWhite from "../../assets/Icons/edit-24px-white.svg";
 import axios from "axios";
@@ -53,17 +53,16 @@ function InventoryItemDetail() {
           />
           <h1>{itemData.item_name}</h1>
         </div>
-        <button
-          className="inventory-item__edit"
-          onClick={() => navigator(`/edit/${ID}`)}
-        >
-          <p className="inventory-item__edit-text">Edit</p>
-          <img
-            className="inventory-item__edit-icon"
-            src={editIconWhite}
-            alt="Edit Icon"
-          />
-        </button>
+        <Link itemData={itemData}>
+          <button className="inventory-item__edit">
+            <p className="inventory-item__edit-text">Edit</p>
+            <img
+              className="inventory-item__edit-icon"
+              src={editIconWhite}
+              alt="Edit Icon"
+            />
+          </button>
+        </Link>
       </div>
       <div className="inventory-item__body">
         <div className="inventory-item__body-left">
