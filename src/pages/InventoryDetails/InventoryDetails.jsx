@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function InventoryDetails() {
-  return (
-    <div>inventoryDetails</div>
-  )
+  return <div>inventoryDetails</div>;
 }
 
-export default InventoryDetails
+export default InventoryDetails;
