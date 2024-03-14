@@ -1,9 +1,10 @@
 @use "../../styles/partials/variables" as *;
-@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/typography" as *;
+
 
 .edit {
   box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
-  margin: 1rem;
 
   &__title-box {
     padding: 0rem 1rem;
@@ -22,22 +23,42 @@
     padding: 0rem 1rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    @include tablet {
+      padding: 0rem 2rem;
+    }
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+    }
   }
 
   &__input {
-    border: 1px solid $cloud;
     border-radius: 20px;
-    height: 36px;
-    position: relative;
-    margin-bottom: 1rem;
-    padding: 0rem 1rem;
+    border: 1px solid $cloud;
+    width: 100%;
+    height: 2.5rem;
+    margin: 4px 0 0px 0;
+    padding: 0 16px 0 16px;
+
+    @include tablet {
+      margin: 5px 0 10px 0;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $instock-indigo;
+    }
 
     &--error {
       color: $red;
       border: $red;
       font-size: 0.7rem;
       margin-bottom: 5px;
-      background-image: url('../../assets/Icons/error-24px.svg');
+      background-image: url("../../assets/Icons/error-24px.svg");
       background-size: 15px;
       background-repeat: no-repeat;
       padding-left: 18px;
@@ -45,11 +66,11 @@
 
       @include tablet {
         margin-bottom: 15px;
+      }
     }
-   
-    }
-    &--red{
-      border:$red 1px solid ;
+
+    &--red {
+      border: $red 1px solid;
     }
 
     &::placeholder {
@@ -61,7 +82,8 @@
       height: 120px;
 
       &::placeholder {
-        padding: 0.2rem 1rem;
+        padding: 2rem 1rem;
+        font-family: $font;
       }
     }
 
@@ -72,47 +94,59 @@
       position: relative;
       background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
         95% 50%;
+
+      &:focus-visible {
+        background: url("../../assets/Icons/arrow_drop_down-24px-blue.svg")
+          no-repeat 95% 50%;
+      }
     }
+
     &--check {
       margin-bottom: 0rem;
     }
-    
   }
+
   &__status {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
   }
+
   &__check {
     display: flex;
     align-items: center;
     font-size: 16px;
     width: 50%;
-  
-    &--checked{
-      color:$slate ;
+
+    &--checked {
+      color: $slate;
     }
   }
+
   &__label {
-    margin-bottom: 0.5rem;
+    margin-top: 16px;
+    font-size: 13px;
     font-weight: 600;
-    font-size: 16px;
 
     &--stock {
+      margin-top: 0px;
       font-weight: 400;
-      font-size: 14px;
-      width: 100%;
-      margin-bottom: 0rem;
     }
   }
 
   &__btn-box {
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
     padding: 1rem;
     background-color: rgba(247, 248, 249, 0.7);
+    @include tablet {
+      justify-content: end;
+      padding-right: 3rem;
+    }
   }
+
   &__btn {
     background-color: $instock-indigo;
     color: $white;
@@ -121,8 +155,15 @@
     border: none;
     border-radius: 20px;
     width: 50%;
+    cursor: pointer;
+
+    @include tablet {
+      width: 8%;
+      height: 35px;
+    }
+
     &--white {
-      color: $instock-indigo;
+      color: $slate;
       background-color: $white;
       border: 1px solid $cloud;
       margin-right: 1rem;

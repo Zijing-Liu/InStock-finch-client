@@ -100,7 +100,7 @@ console.log(formData)
   };
 
   return (
-    <main className="edit">
+    <div className="edit">
       <div className="edit__title-box">
         <img className="edit__image" src={arrowIcon} alt="arrow-icon" />
         <h2>Edit Inventory Item</h2>
@@ -140,7 +140,7 @@ console.log(formData)
               placeholder={formData.description}
               id="description"
               name="description"
-              rows="4"
+              rows=""
               value={formData.description}
               onChange={handleInputChange}
             ></textarea>
@@ -176,7 +176,6 @@ console.log(formData)
             <div className="form__status">
               <div className={formData.status === "In Stock" ? "form__check form__check--checked" : "form__check" }>
                 <input
-                  className="form__input form__input--check"
                   type="radio"
                   id="in-stock"
                   name="status"
@@ -194,7 +193,6 @@ console.log(formData)
 
               <div className={formData.status === "Out Of Stock" ? "form__check form__check--checked" : "form__check" }>
                 <input
-                  className="form__input form__input--check"
                   type="radio"
                   id="out-of-stock"
                   name="status"
@@ -266,7 +264,7 @@ console.log(formData)
           </button>
         </div>
       </form>
-    </main>
+    </div>
   );
 }
 
