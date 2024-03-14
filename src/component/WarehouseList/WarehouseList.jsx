@@ -5,16 +5,27 @@ import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
 import sort from "../../assets/Icons/sort-24px.svg"
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse"
 
 function WarehouseList() {
+    const [isDeleteWarehouseopen, setDeleteWarehouseOpen] = useState(false)
+
     const warehouseObj = {
         title: "Warehouses",
         button: "+ Add New Warehouse"
     }
 
-    function clickHandler() {
-        alert("I've been clicked!")
+    function onClose() {
+        setDeleteWarehouseOpen(false)
     }
+
+    function clickHandler() {
+        alert("i've been clicked")
+        setDeleteWarehouseOpen(true)
+    }
+
+    console.log(isDeleteWarehouseopen)
 
     return (
         <section className="list">

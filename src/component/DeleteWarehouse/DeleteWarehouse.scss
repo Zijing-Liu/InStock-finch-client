@@ -1,0 +1,12 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.modal {
+    background-color: $slate;
+    opacity: 0.2;
+
+    &__container {
+        background-color: $white;
+    }
+}
