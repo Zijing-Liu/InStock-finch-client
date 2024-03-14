@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 import "./EditInventory.scss";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate} from "react-router-dom";
 import InventoryForm from "../../component/InventoryForm/InventoryForm";
 
 function EditInventory() {
   const { ID } = useParams();
+
+// Go back to the previous page
+const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   // mock data to test
 
@@ -62,7 +68,7 @@ function EditInventory() {
   return (
     <div className="edit">
       <div className="edit__title-box">
-        <img className="edit__image" src={arrowIcon} alt="arrow-icon" />
+        <img className="edit__image" src={arrowIcon} alt="arrow-icon" onClick={handleGoBack} />
         <h2>Edit Inventory Item</h2>
       </div>
       <hr />
