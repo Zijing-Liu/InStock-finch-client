@@ -58,6 +58,7 @@ function WarehouseList() {
                 </div>
                 <h2 className="list__action">Actions</h2>
             </div>
+            
             <div key={warehouseObj.id}>
                 <div className="list__mobile-container">
                     <div className="list__warehouse-info">
