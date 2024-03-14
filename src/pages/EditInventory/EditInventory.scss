@@ -2,54 +2,126 @@
 @use "../../styles/partials/mixins" as *;
 
 .edit {
-    box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
-    margin: 1rem;
-    
+  box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
+  margin: 1rem;
 
-    &__title-box {
-        padding: 0rem 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  &__title-box {
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    &__image {
-        padding-right: 10px;
-    }
+  &__image {
+    padding-right: 10px;
+  }
 }
 
 .form {
-    &__box {
-        padding: 0rem 1rem;
-        display: flex;
-        flex-direction: column;
+  &__box {
+    padding: 0rem 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    border: 1px solid $cloud;
+    border-radius: 20px;
+    height: 36px;
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 0rem 1rem;
+
+    &--error {
+      color: $red;
+      border: $red;
+      font-size: 0.7rem;
+      margin-bottom: 5px;
+      background-image: url('../../assets/Icons/error-24px.svg');
+      background-size: 15px;
+      background-repeat: no-repeat;
+      padding-left: 18px;
+      background-position: 0 50%;
+
+      @include tablet {
+        margin-bottom: 15px;
+    }
+   
+    }
+    &--red{
+      border:$red 1px solid ;
     }
 
-    &__input {
-        border: 1px solid $cloud;
-        border-radius: 20px;
-        height: 36px;
-        position: relative; /* Make the parent container relative */
-
-        &::placeholder {
-            padding: 0rem 1rem;
-            color: $instock-black;
-        }
-
-        &--text {
-            height: 120px;
-
-            &::placeholder {
-                padding: 0.2rem 1rem;
-            }
-        }
-
-        &--select {
-            appearance: none;
-            padding: 5px;
-            text-indent: 1rem;
-            position: relative;
-            background: url('../../assets/Icons/arrow_drop_down-24px.svg') no-repeat 95% 50%;
-        }
+    &::placeholder {
+      padding: 0rem 1rem;
+      color: $instock-black;
     }
+
+    &--text {
+      height: 120px;
+
+      &::placeholder {
+        padding: 0.2rem 1rem;
+      }
+    }
+
+    &--select {
+      appearance: none;
+      padding: 5px;
+      text-indent: 1rem;
+      position: relative;
+      background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
+        95% 50%;
+    }
+    &--check {
+      margin-bottom: 0rem;
+    }
+    
+  }
+  &__status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  &__check {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    width: 50%;
+  }
+  &__label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 16px;
+
+    &--stock {
+      font-weight: 400;
+      font-size: 14px;
+      width: 100%;
+      margin-bottom: 0rem;
+    }
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgba(247, 248, 249, 0.7);
+  }
+  &__btn {
+    background-color: $instock-indigo;
+    color: $white;
+    width: 139px;
+    height: 36px;
+    border: none;
+    border-radius: 20px;
+    width: 50%;
+    &--white {
+      color: $instock-indigo;
+      background-color: $white;
+      border: 1px solid $cloud;
+      margin-right: 1rem;
+    }
+  }
 }
