@@ -8,7 +8,7 @@ import AddInventory from "./pages/AddInventory/AddInventory";
 import EditInventory from "./pages/EditInventory/EditInventory";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Header from "./component/Header/Header";
-import InventoryItemDetail from "./component/InventoryItemDetail/InventoryItemDetail";
+import InventoryItemDetail from "./pages/InventoryDetails/InventoryDetails";
 function App() {
   return (
     <div className="App">
