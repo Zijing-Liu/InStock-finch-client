@@ -9,16 +9,26 @@ function InventoryItemDetail() {
   // get the data from api
   const base_url = process.env.REACT_APP_BASE_URL;
   const { ID } = useParams();
-  // const id = 1;
   const navigator = useNavigate();
   const [itemData, setItemData] = useState({});
+  const [warehouseName, setWarehouseName] = useState("");
+
   useEffect(() => {
     const getItemDetails = async () => {
       try {
+        // get the item details
         const response = await axios.get(`${base_url}inventories/${ID}`);
-        // setLoaded(true);
-        const itemDeatil = response.data;
-        setItemData(itemDeatil);
+        const itemDetail = response.data;
+        setItemData(itemDetail);
+        // get the warehouse name the item is located at
+        if (!itemDetail.warehouse_id) {
+          throw Error("unable to get warehouse id");
+        } else {
+          const warehouse = await axios.get(
+            `${base_url}warehouses/${itemData.warehouse_id}`
+          );
+          setWarehouseName(warehouse.data.warehouse_name);
+        }
       } catch (error) {
         console.log(
           "there is a problem fetch the inventory item details",
@@ -26,13 +36,7 @@ function InventoryItemDetail() {
         );
       }
     };
-    // TODO: get warehouse name from API
-    // const getWareHouseID = async () => {
-    //   const response = await axios.get(`${base_url}warehouses/${warehouseID}`);
-    //   setWarehouse(response.data.warehouse_name);
-    // };
     getItemDetails();
-    // getWareHouseID;
   }, [ID]);
 
   return (
@@ -77,7 +81,7 @@ function InventoryItemDetail() {
             </span>
           </div>
           <h4 className="inventory-item__label">Warehouse:</h4>
-          <p className="inventory-item__text">{itemData.warehouse_id}</p>
+          <p className="inventory-item__text">{warehouseName}</p>
         </div>
       </div>
     </article>
