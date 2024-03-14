@@ -209,7 +209,7 @@ export default function EditWarehouse() {
         <div className='warehouse__form-buttons'>
           <button className='warehouse__form-buttons--cancel'>Cancel</button>
           <button className='warehouse__form-buttons--save' type='submit' >Save</button>
-          {/* For cancel button: onClick={() => navigate('/') */}
+          {/* For cancel button? >>>>> onClick={() => navigate('/') */}
         </div>
       </form>
     </section >
