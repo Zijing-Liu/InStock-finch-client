@@ -16,17 +16,18 @@ function InventoryItemDetail() {
   useEffect(() => {
     const getItemDetails = async () => {
       try {
-        // get the item details
+        // get the item details from api
         const response = await axios.get(`${base_url}inventories/${ID}`);
         const itemDetail = response.data;
         setItemData(itemDetail);
-        // get the warehouse name the item is located at
+        // get the warehouse name the item is located at from api
         if (!itemDetail.warehouse_id) {
           throw Error("unable to get warehouse id");
         } else {
           const warehouse = await axios.get(
             `${base_url}warehouses/${itemData.warehouse_id}`
           );
+          console.log(warehouse.data);
           setWarehouseName(warehouse.data.warehouse_name);
         }
       } catch (error) {
