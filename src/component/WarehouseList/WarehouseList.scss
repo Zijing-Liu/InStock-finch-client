@@ -15,7 +15,6 @@
     }
 
     &__main-container{
-        border-bottom: 1px solid $cloud;
         padding: 0 16px 16px;
         align-items: center;
 
@@ -101,7 +100,8 @@
 
     h1 {
     @include page-header;
-    padding: 0;
+    padding: 16px 0;
+    margin: 0
     }
 
     p {
@@ -110,15 +110,22 @@
     }
 
     &__btn-mobile {
-        align-self: flex-end;
+        align-self: flex-start;
         border: none;
         background-color: $white;
         padding: 0;
+        margin-top: auto;
+
+        &--edit {
+            align-self: flex-end; 
+
+        }
 
         @include tablet {
             display: none;
         }
     }
+
 
     &__list-btns {
         display: none;
@@ -132,10 +139,6 @@
             border: none;
             background-color: transparent;
         }
-
-        :nth-child(2) {
-            padding-left: 15px;
-          }
     }
 
     &__header-mobile {
@@ -176,9 +179,11 @@
         text-decoration: none;
         color: $instock-indigo;
         font-weight: 600;
+        margin-bottom: 8px;
 
         @include tablet{
             width: 25%;
+            margin-bottom: 0;
         }
 
         @include desktop{
@@ -241,6 +246,7 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         padding: 0 16px;
+        border-top: 1px solid $cloud;
 
         @include tablet {
             display: none;
@@ -258,6 +264,7 @@
             display: flex;
             padding: 0 36px;
             align-items: center;
+            border-top: 1px solid $cloud;
         }
 
         @include desktop {
@@ -269,13 +276,12 @@
         }
     }
 
-    &__warehouse-info {
-        margin-bottom: 8px;
-    }
-
-    &__warehouse-contact {
+    &__mobile-warehouse {
         display: flex;
         flex-direction: column; 
-        margin-bottom: 8px;
+        padding-bottom: 8px;
+        width: 30%;
+        text-wrap: wrap;
+        align-items: start;
     }
 }
