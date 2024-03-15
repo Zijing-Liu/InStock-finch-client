@@ -34,7 +34,7 @@ function WarehouseDetails() {
   useEffect(() => {
     const warehouseDataTest = async () => {
       try {
-        const response = await axios.get(`${baseURL}api/warehouses/${ID}`)
+        const response = await axios.get(`${baseURL}warehouses/${ID}`)
         setSelectedWarehouse(response.data)
         console.log(response.data)
       } catch (error) {
