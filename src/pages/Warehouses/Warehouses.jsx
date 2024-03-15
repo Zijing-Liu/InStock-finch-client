@@ -26,7 +26,7 @@ if (!warehouseData) {
 }
 
   return (
-    <div>
+    <div className='list'>
       <WarehouseList warehouseData={warehouseData}/>
     </div>
   )
