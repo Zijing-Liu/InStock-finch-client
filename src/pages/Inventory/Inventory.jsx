@@ -13,10 +13,10 @@ useEffect(() => {
       const data = await axios.get(`${baseURL}inventories`)
       setInventoryData(data.data)
     }catch(error){
-      console.log("inventory list data error")
+      console.log("Inventory list data error:", error);
     }
-  }
-  warehouseData();
+  };
+  inventoryData();
 }, []);
 
 
@@ -28,7 +28,7 @@ return (
   <div>
     <div>Inventory</div>
     <div>
-      <InventoryList warehouseData={inventoryData} />
+      <InventoryList inventoryData={inventoryData} />
     </div>
   </div>
 );

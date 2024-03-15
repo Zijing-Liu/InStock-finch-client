@@ -1,12 +1,12 @@
 import React from 'react'
-import "./Inventory.scss";
+import "./InventoryList.scss";
 import searchLogo from "../../assets/Icons/search-24px.svg";
-import sort from "../../assets/Icons/sort-24px.svg"
-import { useState } from "react";
-import WarehouseCard from "../WarehouseCard/WarehouseCard";
+//import sort from "../../assets/Icons/sort-24px.svg"
+//import { useState } from "react";
+//import WarehouseCard from "../WarehouseCard/WarehouseCard";
 
 
-function Inventory({warehouseData}) {
+function Inventory({inventoryData}) {
 
     const inventortyObj = {
         title: "Inventory",
@@ -28,15 +28,15 @@ function Inventory({warehouseData}) {
                     <button className="list__btn">{inventoryObj.button}</button>
                 </div>
 
-        {warehouseData.map((warehouse) => {
+        {/* {warehouseData.map((warehouse) => {
             return(
                 <WarehouseCard 
                 warehouse={warehouse}
                 
                 key={warehouse.id}
                 />
-            )}
-                )}
+            )} */}
+                {/* )} */}
             </div>
         </section>
     )
