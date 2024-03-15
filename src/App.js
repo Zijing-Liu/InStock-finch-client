@@ -15,7 +15,6 @@ import InventoryItemDetail from "./pages/InventoryDetails/InventoryDetails";
 
 
 function App() {
-
   return (
     <BrowserRouter>
       <Layout>
