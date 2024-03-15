@@ -39,22 +39,6 @@ function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId
                 </div>
             </div>
 
-            <div className="list__header">
-                <div className="list__icons list__warehouse">
-                    <h2>Warehouse</h2> <img src={sort} />
-                </div>
-                <div className="list__icons list__address">
-                    <h2>Address</h2> <img src={sort} />
-                </div>
-                <div className="list__icons list__name">
-                    <h2>Contact Name</h2> <img src={sort} />
-                </div>
-                <div className="list__icons list__info">
-                    <h2>Contact Information</h2> <img src={sort} />
-                </div>
-                <h2 className="list__action">Actions</h2>
-            </div>
-
             <div className="list__warehouse-container">
                 <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse">
                     <div className="list__icons list__icons--active">
