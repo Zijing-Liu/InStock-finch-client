@@ -55,11 +55,11 @@ function InventoryForm({
     });
   }
   // If quantity is set to 0, set status to "Out Of Stock"
-  else if (name === "quantity" && parseInt(value) === 0) {
+  else if (name === "quantity" && value === 0) {
     setItemDetails({
       ...itemDetails,
       status: "Out Of Stock",
-      [name]: parseInt(value),
+      [name]: value,
     });
   }
   // For warehouse selection, find the warehouse object by its name and update the warehouse ID
@@ -185,8 +185,7 @@ console.log(itemDetails);
 
               <div
                 className={
-                  itemDetails.status === "Out Of Stock" &&
-                  itemDetails.quantity === 0
+                  itemDetails.status === "Out Of Stock" 
                     ? "form__check form__check--checked"
                     : "form__check"
                 }
@@ -197,9 +196,7 @@ console.log(itemDetails);
                   name="status"
                   value="Out Of Stock"
                   checked={
-                    itemDetails.status === "Out Of Stock" ||
-                    itemDetails.quantity === 0
-                  }
+                    itemDetails.status === "Out Of Stock"}
                   onChange={handleInputChange}
                 />
                 <label

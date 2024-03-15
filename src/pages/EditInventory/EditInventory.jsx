@@ -73,6 +73,8 @@ function EditInventory() {
     return isValid;
   };
 
+  console.log('updated',itemDetails)
+
   // handle updating data when save btn clicked
 
   const handleOnSubmit = async (event) => {
@@ -80,11 +82,23 @@ function EditInventory() {
 
     isFormValid();
 
+    // create new obj to send because the create, update time should not be send 
+    const dataTosend={
+      category: itemDetails.category,
+        description: itemDetails.description,
+        item_name: itemDetails.item_name,
+        quantity: itemDetails.quantity,
+        status: itemDetails.status,
+        warehouse_id: itemDetails.warehouse_id
+    }
+    console.log("send",dataTosend)
+  
+
     //update data
     try {
       const response = await axios.patch(
-        `${base_url}inventory/edit/${ID}`,
-        itemDetails
+        `${base_url}inventories/${ID}`,
+        dataTosend
       );
       // Return the response data
       return response.data;
