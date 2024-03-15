@@ -61,6 +61,11 @@
     }
   }
 
+  &__edit:hover {
+    background-color: $graphite;
+    cursor: pointer;
+  }
+
   &__edit {
     width: 36px;
     height: 36px;
@@ -127,7 +132,4 @@
     border-radius: 1.25rem;
     margin-top: 0;
   }
-}
-button:hover {
-  background-color: $graphite;
 }
