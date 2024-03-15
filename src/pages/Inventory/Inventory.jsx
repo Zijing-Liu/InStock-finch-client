@@ -3,7 +3,7 @@ import InventoryList from "../../component/InventoryList/InventoryList"
 import axios from "axios";
 import { useState, useEffect } from "react"
 
-export default function Warehouses() {
+export default function Inventory() {
 const baseURL = process.env.REACT_APP_BASE_URL
 const [inventoryData, setInventoryData] = useState(null)
 
@@ -20,16 +20,13 @@ useEffect(() => {
 }, []);
 
 
-if (!InventoryData) {
+if (!inventoryData) {
   return <div>loading...</div>;
 }
 
 return (
-  <div>
-    <div>Inventory</div>
-    <div>
+  <div className='list'>
       <InventoryList inventoryData={inventoryData} />
     </div>
-  </div>
 );
 }
