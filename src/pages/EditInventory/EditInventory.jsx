@@ -9,7 +9,6 @@ function EditInventory() {
   const { ID } = useParams();
   const base_url = process.env.REACT_APP_BASE_URL;
 
-
   // Go back to the previous page when clicking the back arrow
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -34,7 +33,7 @@ function EditInventory() {
           const warehouse = await axios.get(
             `${base_url}warehouses/${itemDetail.warehouse_id}`
           );
-            setWarehouse(warehouse.data);
+          setWarehouse(warehouse.data);
         }
       } catch (error) {
         console.log(
@@ -63,8 +62,12 @@ function EditInventory() {
       errors.description = "This field is required";
       isValid = false;
     }
-    if (itemDetails.quantity < 0) {
+    if (itemDetails.quantity < 0 || itemDetails.quantity === "") {
       errors.quantity = "Invalid input";
+      isValid = false;
+    }
+    if (itemDetails.quantity === 0 && itemDetails.status === "In Stock") {
+      errors.quantity = "The quantity can not be 0 while status in stock !";
       isValid = false;
     }
     // Update the error state
@@ -73,26 +76,20 @@ function EditInventory() {
     return isValid;
   };
 
-  console.log('updated',itemDetails)
-
   // handle updating data when save btn clicked
-
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-
     isFormValid();
 
-    // create new obj to send because the create, update time should not be send 
-    const dataTosend={
+    // create new obj to send because the create, update time should not be send
+    const dataTosend = {
       category: itemDetails.category,
-        description: itemDetails.description,
-        item_name: itemDetails.item_name,
-        quantity: itemDetails.quantity,
-        status: itemDetails.status,
-        warehouse_id: itemDetails.warehouse_id
-    }
-    console.log("send",dataTosend)
-  
+      description: itemDetails.description,
+      item_name: itemDetails.item_name,
+      quantity: Number(itemDetails.quantity),
+      status: itemDetails.status,
+      warehouse_id: itemDetails.warehouse_id,
+    };
 
     //update data
     try {
@@ -101,6 +98,7 @@ function EditInventory() {
         dataTosend
       );
       // Return the response data
+      console.log(response.data);
       return response.data;
     } catch (error) {
       console.error("Error updating data:", error);

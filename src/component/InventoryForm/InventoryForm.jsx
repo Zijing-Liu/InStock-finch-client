@@ -14,7 +14,6 @@ function InventoryForm({
   const [Warehouses, setWareHouses] = useState();
   // const [selectedWarehouse,SetselectedWarehouse] =useState();
 
-
   const categories = [
     "Apparel",
     "Accessories",
@@ -29,7 +28,7 @@ function InventoryForm({
       try {
         // get all warehouses from api
         const warehouses = await axios.get(`${base_url}warehouses`);
-        console.log("data", warehouses.data);
+        // console.log("data", warehouses.data);
         setWareHouses(warehouses.data);
       } catch (error) {
         console.log("there is a problem fetch the warehouses", error);
@@ -42,50 +41,41 @@ function InventoryForm({
     return <div>Loading...</div>;
   }
 
- // handle inputs change
- const handleInputChange = (event) => {
-  const { name, value } = event.target;
+  // handle inputs change
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
 
-  // If status is "Out Of Stock", set quantity to 0
-  if (name === "status" && value === "Out Of Stock") {
-    setItemDetails({
-      ...itemDetails,
-      quantity: 0,
-      [name]: value,
-    });
-  }
-  // If quantity is set to 0, set status to "Out Of Stock"
-  else if (name === "quantity" && value === 0) {
-    setItemDetails({
-      ...itemDetails,
-      status: "Out Of Stock",
-      [name]: value,
-    });
-  }
-  // For warehouse selection, find the warehouse object by its name and update the warehouse ID
-  else if (name === "warehouse_id") {
-    const selectedWarehouse = Warehouses.find(
-      (warehouse) => warehouse.warehouse_name === value
-    );
-    if (selectedWarehouse) {
+    // If status is "Out Of Stock", set quantity to 0
+    if (name === "status" && value === "Out Of Stock") {
       setItemDetails({
         ...itemDetails,
-        warehouse_id: selectedWarehouse.id,
-        warehouse_name:selectedWarehouse.warehouse_name
+        quantity: 0,
+        [name]: value,
       });
     }
-    console.log('selected',selectedWarehouse)
-  }
-  // For other inputs, simply update the state
-  else {
-    setItemDetails({
-      ...itemDetails,
-      [name]: value,
-    });
-  }
-};
-console.log(itemDetails);
-  
+    // For warehouse selection, find the warehouse object by its name and update the warehouse ID
+    else if (name === "warehouse_id") {
+      const selectedWarehouse = Warehouses.find(
+        (warehouse) => warehouse.warehouse_name === value
+      );
+      if (selectedWarehouse) {
+        setItemDetails({
+          ...itemDetails,
+          warehouse_id: selectedWarehouse.id,
+          warehouse_name: selectedWarehouse.warehouse_name,
+        });
+      }
+
+    }
+    // For other inputs, simply update the state
+    else {
+      setItemDetails({
+        ...itemDetails,
+        [name]: value,
+      });
+    }
+  };
+
 
   return (
     <>
@@ -185,7 +175,7 @@ console.log(itemDetails);
 
               <div
                 className={
-                  itemDetails.status === "Out Of Stock" 
+                  itemDetails.status === "Out Of Stock"
                     ? "form__check form__check--checked"
                     : "form__check"
                 }
@@ -195,8 +185,7 @@ console.log(itemDetails);
                   id="out-of-stock"
                   name="status"
                   value="Out Of Stock"
-                  checked={
-                    itemDetails.status === "Out Of Stock"}
+                  checked={itemDetails.status === "Out Of Stock"}
                   onChange={handleInputChange}
                 />
                 <label
@@ -238,7 +227,11 @@ console.log(itemDetails);
               id="warehouse"
               name="warehouse_id"
               className="form__input form__input--select"
-              value={itemDetails.warehouse_name ? itemDetails.warehouse_name : Currentwarehouse.warehouse_name}
+              value={
+                itemDetails.warehouse_name
+                  ? itemDetails.warehouse_name
+                  : Currentwarehouse.warehouse_name
+              }
               onChange={handleInputChange}
             >
               {Warehouses.map((warehouse) => (
