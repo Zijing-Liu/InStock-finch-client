@@ -63,7 +63,6 @@ function InventoryForm({
           warehouse_name: selectedWarehouse.warehouse_name,
         });
       }
-
     }
     // For other inputs, simply update the state
     else {
@@ -73,7 +72,6 @@ function InventoryForm({
       });
     }
   };
-
 
   return (
     <>
