@@ -2,12 +2,16 @@ import './EditWarehouse.scss'
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function EditWarehouse() {
 
   const { ID } = useParams();
   const navigate = useNavigate();
   const baseURL = process.env.REACT_APP_BASE_URL;
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   const [selectedWarehouse, setSelectedWarehouse] = useState({
     warehouse_name: '',
@@ -125,7 +129,10 @@ export default function EditWarehouse() {
 
   return (
     <section className='warehouse'>
-      <h1 className='warehouse__title'>Edit Warehouse</h1>
+      <div className="warehouse__title-box">
+        <img className="warehouse__icon" src={arrowBackIcon} alt="arrow-icon" onClick={handleGoBack} />
+        <h1 className='warehouse__title'>Edit Warehouse</h1>
+      </div>
       {Object.keys(selectedWarehouse).length > 0 && (
         <form action="post" className='warehouse__form' onSubmit={handleSubmit}>
           <div className='warehouse__form-fields'>
@@ -225,7 +232,7 @@ export default function EditWarehouse() {
             </div>
           </div>
           <div className='warehouse__form-buttons'>
-            <button className='warehouse__form-buttons--cancel' onClick={() => navigate('/')}>Cancel</button>
+            <button className='warehouse__form-buttons--cancel' onClick={handleGoBack}>Cancel</button>
             <button className='warehouse__form-buttons--save' type='submit' >Save</button>
           </div>
         </form>

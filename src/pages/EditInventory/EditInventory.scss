@@ -11,18 +11,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @include tablet{
+
+    @include tablet {
       justify-content: flex-start;
     }
-    
+
   }
-&__title{
-@include page-header ;
-}
+
+  &__title {
+    @include page-header;
+  }
+
   &__image {
     padding-right: 10px;
     cursor: pointer;
   }
 }
-
-
