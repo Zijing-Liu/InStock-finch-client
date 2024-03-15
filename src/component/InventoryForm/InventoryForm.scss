@@ -37,6 +37,10 @@
       outline: 1px solid $instock-indigo;
     }
 
+    &__placeholder {
+      @include body-medium;
+      color: $slate;
+    }
     &--error {
       color: $red;
       border: $red;

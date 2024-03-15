@@ -130,12 +130,19 @@ function InventoryForm({
               value={itemDetails.category}
               onChange={handleInputChange}
             >
+              {/* Placeholder option */}
+              <option value="" className="form__placeholder">
+                Please select
+              </option>
               {categories.map((category, i) => (
                 <option key={i} value={category}>
                   {category}
                 </option>
               ))}
             </select>
+            {error.item_name && (
+              <p className="form__input--error">{error.item_name}</p>
+            )}
           </div>
 
           <hr />
@@ -230,12 +237,18 @@ function InventoryForm({
               }
               onChange={handleInputChange}
             >
+              <option value="" className="form__placeholder">
+                Please select
+              </option>
               {Warehouses.map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.warehouse_name}>
                   {warehouse.warehouse_name}
                 </option>
               ))}
             </select>
+            {error.item_name && (
+              <p className="form__input--error">{error.item_name}</p>
+            )}
           </div>
         </div>
 

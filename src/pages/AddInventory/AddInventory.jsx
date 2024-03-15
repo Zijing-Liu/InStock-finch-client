@@ -14,7 +14,7 @@ function AddInventory() {
     navigate(-1);
   };
 
-  const [itemDetails, setItemDetails] = useState({}); //to save the added data
+  const [itemDetails, setItemDetails] = useState({ quantity: 0 }); //to save the added data
   const [error, setError] = useState({});
 
   if (!itemDetails) {
@@ -31,6 +31,15 @@ function AddInventory() {
       isValid = false;
     }
     if (!itemDetails.description || itemDetails.description.length < 2) {
+      errors.description = "This field is required";
+      isValid = false;
+    }
+
+    if (!itemDetails.warehouse_id) {
+      errors.description = "This field is required";
+      isValid = false;
+    }
+    if (!itemDetails.category) {
       errors.description = "This field is required";
       isValid = false;
     }
@@ -71,12 +80,12 @@ function AddInventory() {
       warehouse_id: itemDetails.warehouse_id,
       warehouse_name: itemDetails.warehouse_name,
     };
-
+    console.log(dataTosend);
     //update data
     try {
       const response = await axios.post(`${base_url}inventories`, dataTosend);
       // navigate to the previous page
-      // handleGoBack();
+      handleGoBack();
       // Return the response data
       console.log(response);
       return response.data;
