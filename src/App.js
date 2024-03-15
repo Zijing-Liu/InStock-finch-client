@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import "./App.scss";
 import Warehouses from "./pages/Warehouses/Warehouses";
 import Inventory from "./pages/Inventory/Inventory";
 import InventoryDetails from "./pages/InventoryDetails/InventoryDetails";
@@ -7,12 +8,16 @@ import AddWarehouse from "./pages/AddWarehouse/AddWarehouse";
 import AddInventory from "./pages/AddInventory/AddInventory";
 import EditInventory from "./pages/EditInventory/EditInventory";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
+import Layout from "./component/Layout/Layout";
+
 import Header from "./component/Header/Header";
+import InventoryItemDetail from "./pages/InventoryDetails/InventoryDetails";
+
+
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/warehouses" element={<Warehouses />} />
           <Route path="/inventory" element={<Inventory />} />
@@ -28,8 +33,8 @@ function App() {
 
           <Route path="*" element={<Navigate to="/warehouses" />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </Layout>
+    </BrowserRouter>
   );
 }
 
