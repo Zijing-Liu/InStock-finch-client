@@ -1,0 +1,91 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+
+.warehouse-details {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px $cloud;
+    padding: 20px;
+
+    @include desktop {
+        max-width: 1020px;
+    }
+
+    &__header {
+        padding: 0 16px 16px;
+        align-items: center;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 36px 16px;
+        }
+
+        @include desktop {
+            padding: 0 63px 16px;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__address-wrapper {}
+
+    &__contact-wrapper {
+        display: flex;
+    }
+
+    &__sort-bar {
+        display: none;
+        // only display for mobile
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__inventory {
+
+        &-title--mobile {
+            margin: 15px 0;
+            font-size: 0.8rem;
+
+            @include tablet {
+                display: none;
+            }
+
+        }
+
+        &-card {
+            border-top: 1px solid $cloud;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-bottom: 20px;
+
+            @include tablet {
+                flex-direction: row;
+            }
+        }
+
+        &-group {
+            display: flex;
+            justify-content: space-between;
+
+            @include tablet {
+                justify-content: space-between;
+            }
+        }
+    }
+}
