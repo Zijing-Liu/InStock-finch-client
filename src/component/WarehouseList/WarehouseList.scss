@@ -1,0 +1,206 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+
+.list{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px $cloud;
+    margin-bottom: 2rem;
+
+    @include desktop {
+        max-width: 1020px;
+    }
+
+    &__main-container{
+        padding: 0 16px 16px;
+        align-items: center;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 36px 16px;
+        }
+
+        @include desktop {
+            padding:  0 63px 16px;
+        }
+    }
+
+
+    &__search-container{
+        border: 1px solid $slate;
+        width: 100%;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        height: 36px;
+        margin-bottom: 16px;
+
+        &:focus-within {
+            border: 1px solid $instock-indigo;
+        }
+
+
+        @include tablet {
+            margin: 0;
+            width: fit-content;
+            margin-left: auto;
+        }
+        
+    }
+
+    &__search {
+        border: none;
+        margin-left: 16px;
+        width: 100%;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__search-btn{
+        border: none;
+        background-color: $white;
+        margin-right: 11px;
+        border-radius: 10px;
+    }
+
+    &__btn {
+        width: 100%;
+        border-radius: 20px;
+        padding: 0 16px;
+        height: 36px;
+        color: $white;
+        background-color: $instock-indigo;
+        border: none;
+
+        &:hover {
+            background-color: $graphite;
+            transition: 1s;
+        }
+
+        @include tablet {
+            margin-left: 16px;
+            color: $white;
+            width: auto;
+            text-wrap: nowrap;
+        }
+    }
+
+    &__header {
+        display: none;
+        background-color: $light-grey;
+
+        @include tablet {
+            padding: 0 36px;
+            display: flex;
+        }
+
+        @include desktop {
+            padding: 0 63;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &--active {
+            &:hover {
+                text-decoration: underline;
+                color: $instock-indigo;
+            }
+        }
+    }
+
+    &__warehouse {
+        text-decoration: none;
+        color: $instock-indigo;
+        font-weight: 600;
+        margin-bottom: 8px;
+
+        @include tablet{
+            width: 25%;
+            margin-bottom: 0;
+        }
+
+        @include desktop{
+            width: 25%;
+        }
+
+        p {
+            width: auto;
+            padding-right: 4px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__address {
+  
+        @include tablet{
+            width: 20%;
+            text-wrap: wrap;
+            padding: 8px;
+
+        }
+
+        @include desktop{
+            width: 20%;
+            text-wrap: wrap;
+        }
+    }
+
+    &__name {
+
+        @include tablet{
+            width: 20%;
+            padding: 8px;
+        }
+
+        @include desktop{
+            width: 20%;
+        }
+    }
+
+    &__info {
+        @include tablet{
+            width: 20%;
+            text-wrap: wrap;
+            padding: 4px;
+        }
+
+        @include tablet{
+            width: 20%;
+        }
+    }
+
+    &__action {
+        margin-left: auto;
+        align-self: center;
+    }
+
+    h2 {
+    @include table-header;
+        color: $slate;
+        text-transform: uppercase;
+        padding: 0;
+    }
+
+    h1 {
+    @include page-header;
+    padding: 16px 0;
+    margin: 0
+    }
+
+    p {
+      @include body-medium;
+        margin: 0 0 8px 0;
+    }
+   
+}
