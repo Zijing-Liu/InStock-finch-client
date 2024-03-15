@@ -1,0 +1,130 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+
+.inventory-item {
+  margin: 1rem;
+  height: fit-content;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+
+  &__header {
+    padding: 1rem;
+    border-bottom: 1px solid $cloud;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      padding: 2rem 2rem 1.5rem 2rem;
+    }
+    @include desktop {
+      padding: 2rem 2.5rem 1.5rem 2rem;
+    }
+  }
+  &__heading {
+    @include page-header;
+    margin: 0;
+  }
+
+  &__iconAndTitle {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__body {
+    padding: 1rem 1rem;
+    @include tablet {
+      display: flex;
+      justify-content: flex-start;
+      padding: 2rem 2rem;
+      gap: 2rem;
+    }
+    @include desktop {
+      padding: 40px;
+      gap: 2.5rem;
+    }
+  }
+  &__body-left {
+    @include tablet {
+      flex-basis: 100%;
+      border-right: 1px $cloud solid;
+      padding-right: 2rem;
+    }
+  }
+  &__body-right {
+    @include tablet {
+      flex-basis: 100%;
+    }
+  }
+
+  &__edit {
+    width: 36px;
+    height: 36px;
+    background-color: $instock-indigo;
+    border-radius: 50%;
+    border: 0px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include tablet {
+      height: 38px;
+      border-radius: 1rem;
+      gap: 10px;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      width: max-content;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    width: max-content;
+  }
+  &__edit-text {
+    display: none;
+    @include tablet {
+      @include label-links-buttons;
+      font-weight: 600;
+      color: $white;
+      display: inline;
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+    }
+  }
+
+  &__status-and-quantity {
+    display: flex;
+    justify-content: flex-start;
+    gap: 4rem;
+    @include tablet {
+      gap: 5.5625rem;
+      justify-content: flex-start;
+    }
+    @include desktop {
+      gap: 10.5rem;
+    }
+  }
+  &__label {
+    @include table-header;
+    margin-bottom: 0.25rem;
+    color: $slate;
+  }
+  &__text {
+    @include body-medium;
+    margin-top: 0;
+  }
+  &__status {
+    @include table-header;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    font-weight: 600;
+    width: fit-content;
+    color: $green;
+    background-color: rgba(21, 132, 99, 0.07);
+    border-radius: 1.25rem;
+    margin-top: 0;
+  }
+}
