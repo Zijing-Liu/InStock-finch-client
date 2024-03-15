@@ -12,7 +12,6 @@ function WarehouseList({warehouseData}) {
 
     return (
         <section>
-            <div className="list">
                 <div className="list__main-container">
                     <h1 className="list__title-text">{warehouseObj.title}</h1>
                     <div className="list__search-container">
@@ -48,7 +47,6 @@ function WarehouseList({warehouseData}) {
                 />
             )}
                 )}
-            </div>
         </section>
     )
 }
