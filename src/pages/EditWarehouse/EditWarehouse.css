@@ -1,0 +1,161 @@
+/*Titillium Web font - Google  TypeKit*/
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+/*colors*/
+* {
+  box-sizing: border-box;
+}
+
+.warehouse {
+  width: 90%;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  margin: 20px auto;
+  color: #13182c;
+}
+@media (min-width: 1280px) {
+  .warehouse {
+    width: 80%;
+  }
+}
+.warehouse__title {
+  padding: 25px 0 25px 50px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  background-image: url("../../assets/Icons/arrow_back-24px.svg");
+  background-repeat: no-repeat;
+  background-position: 20px 50%;
+}
+@media (min-width: 768px) {
+  .warehouse__title {
+    font-size: 1.8rem;
+    border-bottom: 1px solid #bdc5d5;
+  }
+}
+.warehouse__form-error {
+  color: #c94515;
+  border: #c94515;
+  font-size: 0.7rem;
+  margin-bottom: 5px;
+  background-image: url("../../assets/Icons/error-24px.svg");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  padding-left: 18px;
+  background-position: 0 50%;
+}
+@media (min-width: 768px) {
+  .warehouse__form-error {
+    margin-bottom: 15px;
+  }
+}
+.warehouse__form-fields {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .warehouse__form-fields {
+    flex-direction: row;
+  }
+}
+.warehouse__form-section {
+  border-top: 1px solid #bdc5d5;
+  padding: 5px 20px 20px 20px;
+}
+@media (min-width: 768px) {
+  .warehouse__form-section {
+    padding: 0 30px 0 30px;
+    margin: 30px 0;
+    border-top: none;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .warehouse__form-section--contact {
+    border-left: 1px solid #bdc5d5;
+  }
+}
+.warehouse__form-heading {
+  font-size: 1rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .warehouse__form-heading {
+    font-size: 1.2rem;
+    margin: 0 0 30px 0;
+  }
+}
+.warehouse__form-label {
+  color: #13182c;
+  font-size: 0.7rem;
+  font-weight: 500;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .warehouse__form-label {
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+}
+.warehouse__form-input {
+  border-radius: 20px;
+  border: 1px solid #bdc5d5;
+  width: 100%;
+  height: 2rem;
+  margin: 3px 0 5px 0;
+  padding: 0 16px 0 16px;
+}
+@media (min-width: 768px) {
+  .warehouse__form-input {
+    margin: 5px 0 10px 0;
+  }
+}
+.warehouse__form-input:focus-visible {
+  outline: 1px solid #2e66e5;
+}
+.warehouse__form-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f7f8f9;
+  padding: 15px 0;
+}
+@media (min-width: 768px) {
+  .warehouse__form-buttons {
+    justify-content: flex-end;
+    padding: 20px 0;
+  }
+}
+.warehouse__form-buttons--cancel {
+  cursor: pointer;
+  border-radius: 20px;
+  border: 1px solid #bdc5d5;
+  background-color: white;
+  color: #5c667e;
+  width: 7rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .warehouse__form-buttons--cancel {
+    width: 8%;
+    height: 35px;
+  }
+}
+.warehouse__form-buttons--save {
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  background-color: #2e66e5;
+  color: white;
+  height: 25px;
+  width: 7rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .warehouse__form-buttons--save {
+    width: 8%;
+    height: 35px;
+    margin: 0 20px;
+  }
+}/*# sourceMappingURL=EditWarehouse.css.map */
