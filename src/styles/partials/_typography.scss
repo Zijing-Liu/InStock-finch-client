@@ -38,11 +38,11 @@
   font-family: $font;
   font-size: 11px;
   line-height: 16px;
-  font-weight: 400;
+  font-weight: 600;
   @include tablet {
     font-size: 12px;
     line-height: 18px;
-    font-weight: 400;
+    font-weight: 600;
   }
 }
 
