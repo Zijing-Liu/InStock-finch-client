@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import deleteBtn from "../../assets/Icons/delete_outline-24px.svg"
 import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
-import sort from "../../assets/Icons/sort-24px.svg"
+
 
 function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId }) {
 
