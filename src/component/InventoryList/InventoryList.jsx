@@ -2,7 +2,7 @@ import React from 'react'
 import "./InventoryList.scss";
 import searchLogo from "../../assets/Icons/search-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg"
-import WarehouseCard from "../WarehouseCard/WarehouseCard";
+import InventoryCard from "../InventoryCard/InventoryCard.jsx";
 
 
 function InventoryList({inventoryData}) {
@@ -47,7 +47,7 @@ function InventoryList({inventoryData}) {
 
             {inventoryData.map((inventory, index) => {
     return (
-        <WarehouseCard 
+        <InventoryCard 
             inventory={inventory}
             key={index} // Using array index as key
         />
