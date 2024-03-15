@@ -28,6 +28,7 @@ function InventoryForm({
         // get all warehouses from api
         const warehouses = await axios.get(`${base_url}warehouses`);
         setWareHouses(warehouses.data);
+        console.log("here is all current warehouses");
       } catch (error) {
         console.log("there is a problem fetch the warehouses", error);
       }

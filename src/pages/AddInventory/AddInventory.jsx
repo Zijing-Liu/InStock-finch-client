@@ -27,11 +27,13 @@ function AddInventory() {
     const errors = {};
 
     if (!itemDetails.item_name || itemDetails.item_name.length < 2) {
-      errors.item_name = "This field is required";
+      errors.item_name =
+        "This field is required, and please enter a name with more than 2 charactors";
       isValid = false;
     }
     if (!itemDetails.description || itemDetails.description.length < 2) {
-      errors.description = "This field is required";
+      errors.description =
+        "This field is required, and please enter a name with more than 2 charactors";
       isValid = false;
     }
 
@@ -99,6 +101,7 @@ function AddInventory() {
     event.preventDefault();
     setItemDetails(setItemDetails);
     setError({});
+    handleGoBack();
   };
   return (
     <div className="add-inventory">
