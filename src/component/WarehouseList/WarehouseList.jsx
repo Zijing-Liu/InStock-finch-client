@@ -11,16 +11,20 @@ import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse"
 
 function WarehouseList({warehouseData}) {
     const [isDeleteWarehouseOpen, setDeleteWarehouseOpen] = useState(false)
+    const [deleteWarehouseId, setDeleteWarehouseId] = useState(null)
 
     const warehouseObj = {
         title: "Warehouses",
         button: "+ Add New Warehouse",
-        id: 1
+    }
+
+    function handleOnClick() {
+        setDeleteWarehouseOpen(true)
     }
 
     return (
         <section>
-            {isDeleteWarehouseOpen && <DeleteWarehouse setDeleteWarehouseOpen={setDeleteWarehouseOpen} warehouseObj={warehouseObj}/>}
+            {isDeleteWarehouseOpen && <DeleteWarehouse setDeleteWarehouseOpen={setDeleteWarehouseOpen} warehouseData={warehouseData}/>}
             <div className="list">
                 <div className="list__main-container">
                     <h1>{warehouseObj.title}</h1>
@@ -49,7 +53,6 @@ function WarehouseList({warehouseData}) {
                     <h2 className="list__action">Actions</h2>
                 </div>
         {warehouseData.map((warehouse) => {
-            {console.log(warehouse)}
             return(
                 <div key={warehouse.id}>
                     <div className="list__mobile-container">
@@ -62,7 +65,7 @@ function WarehouseList({warehouseData}) {
                             </Link>
                             <h2 className="list__header-mobile">Address</h2>
                             <p className="list__address-text">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
-                            <button className="list__btn-mobile" onClick={() => setDeleteWarehouseOpen(true)}> 
+                            <button className="list__btn-mobile" onClick={handleOnClick}> 
                             <img src={deleteBtn} /> 
                             </button>
                         </div>
@@ -78,7 +81,7 @@ function WarehouseList({warehouseData}) {
                     </div>
 
                     <div className="list__warehouse-container">
-                        <Link to={`/warehouses/${warehouseObj.id}`} className="list__warehouse">
+                        <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse">
                             <div className="list__icons list__icons--active">
                                 <p className="list__address">{warehouse.warehouse_name}</p> <img src={chevron} />
                             </div>
@@ -88,7 +91,8 @@ function WarehouseList({warehouseData}) {
                         <p className="list__info">{warehouse.contact_phone} <br /> {warehouse.contact_email}</p>
                         <div className="list__list-btns">
                             
-                            <button onClick={() => setDeleteWarehouseOpen(true)}>
+                            <button onClick= {() => {console.log(`${warehouse.id}`)}}>
+                             {/* {() => setDeleteWarehouseOpen(true)}> */}
                                 <img src={deleteBtn} />
                             </button>
 
