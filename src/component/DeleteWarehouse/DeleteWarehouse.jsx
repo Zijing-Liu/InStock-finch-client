@@ -10,10 +10,10 @@ function DeleteWarehouse({ setDeleteWarehouseOpen, warehouseData, deleteWarehous
 
 
     const handleDeleteWarehouse = () => {
-        console.log(deleteWarehouseId)
         try {
             const deleteWarehouse = async () => {
-                const deleteWarehouseAPI = await axios.delete(`${baseURL}/warehouses/${deleteWarehouseId}`)
+                console.log(deleteWarehouseId)
+                const deleteWarehouseAPI = await axios.delete(`${baseURL}warehouses/${deleteWarehouseId}`)
                 console.log(deleteWarehouseAPI)
             }
             deleteWarehouse();
@@ -21,8 +21,6 @@ function DeleteWarehouse({ setDeleteWarehouseOpen, warehouseData, deleteWarehous
         catch (error) {
             console.log("handleDeleteWarehouse error")
         }
-
-        alert("worked")
     }
 
     return (
