@@ -120,11 +120,10 @@ function EditInventory() {
           alt="arrow-icon"
           onClick={handleGoBack}
         />
-        <h1 class="edit__title">Edit Inventory Item</h1>
+        <h1 className="edit__title">Edit Inventory Item</h1>
       </div>
       <hr />
       <InventoryForm
-        //  itemDetails={itemDetails}
         setItemDetails={setItemDetails}
         setFormData={setItemDetails}
         Currentwarehouse={warehouse}
