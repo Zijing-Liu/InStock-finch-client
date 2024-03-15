@@ -10,7 +10,7 @@ const [inventoryData, setInventoryData] = useState(null)
 useEffect(() => {
   const inventoryData = async() => {
     try{
-      const data = await axios.get(`${baseURL}warehouses`)
+      const data = await axios.get(`${baseURL}inventories`)
       setInventoryData(data.data)
     }catch(error){
       console.log("inventory list data error")
@@ -20,15 +20,15 @@ useEffect(() => {
 }, []);
 
 
-if (!warehouseData) {
+if (!InventoryData) {
   return <div>loading...</div>;
 }
 
 return (
   <div>
-    <div>Warehouses</div>
+    <div>Inventory</div>
     <div>
-      <WarehouseList warehouseData={warehouseData} />
+      <InventoryList warehouseData={inventoryData} />
     </div>
   </div>
 );
