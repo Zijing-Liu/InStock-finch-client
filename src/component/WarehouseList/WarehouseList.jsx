@@ -1,9 +1,7 @@
 import "./WarehouseList.scss";
 import searchLogo from "../../assets/Icons/search-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg"
-import { useState } from "react";
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
-import sort from "../../assets/Icons/sort-24px.svg"
 
 function WarehouseList({warehouseData}) {
 
@@ -11,7 +9,6 @@ function WarehouseList({warehouseData}) {
         title: "Warehouses",
         button: "+ Add New Warehouse",
     }
-
 
     return (
         <section>
@@ -21,7 +18,7 @@ function WarehouseList({warehouseData}) {
                     <div className="list__search-container">
                         <input className="list__search" type="text" name="search-bar" placeholder="Search..."></input>
                         <button className="list__search-btn">
-                            <img src={searchLogo} className="list__search-img" />
+                            <img src={searchLogo} className="list__search-img" alt="sort"/>
                         </button>
                     </div>
                     <button className="list__btn">{warehouseObj.button}</button>
@@ -29,16 +26,16 @@ function WarehouseList({warehouseData}) {
 
                 <div className="list__header">
                 <div className="list__icons list__warehouse">
-                    <h2>Warehouse</h2> <img src={sort} />
+                    <h2>Warehouse</h2> <img src={sort} alt="sort" />
                 </div>
                 <div className="list__icons list__address">
-                    <h2>Address</h2> <img src={sort} />
+                    <h2>Address</h2> <img src={sort} alt="sort" />
                 </div>
                 <div className="list__icons list__name">
-                    <h2>Contact Name</h2> <img src={sort} />
+                    <h2>Contact Name</h2> <img src={sort} alt="sort" />
                 </div>
                 <div className="list__icons list__info">
-                    <h2>Contact Information</h2> <img src={sort} />
+                    <h2>Contact Information</h2> <img src={sort} alt="sort" />
                 </div>
                 <h2 className="list__action">Actions</h2>
             </div>
@@ -47,8 +44,6 @@ function WarehouseList({warehouseData}) {
             return(
                 <WarehouseCard 
                 warehouse={warehouse}
-                // setDeleteWarehouseOpen={setDeleteWarehouseOpen}
-                // setDeleteWarehouseId = {setDeleteWarehouseId}
                 key={warehouse.id}
                 />
             )}

@@ -19,13 +19,13 @@ function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId
                     <h2 className="list__header-mobile">Warehouse</h2>
                     <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse">
                         <div className="list__icons">
-                            <p className="list__address">{warehouse.warehouse_name}</p> <img src={chevron} />
+                            <p className="list__address">{warehouse.warehouse_name}</p> <img src={chevron} alt="chevron" />
                         </div>
                     </Link>
                     <h2 className="list__header-mobile">Address</h2>
                     <p className="list__address-text">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
                     <button className="list__btn-mobile" onClick={handleOnClick}>
-                        <img src={deleteBtn} />
+                        <img src={deleteBtn} alt="delete button" />
                     </button>
                 </div>
                 <div className="list__mobile-warehouse">
@@ -34,7 +34,7 @@ function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId
                     <h2 className="list__header-mobile">Contact Information</h2>
                     <p>{warehouse.contact_phone} <br /> {warehouse.contact_email}</p>
                     <Link to={`/warehouses/edit/${warehouse.id}`} className="list__btn-mobile list__btn-mobile--edit">
-                        <img src={editBtn} />
+                        <img src={editBtn} alt="edit button" />
                     </Link>
                 </div>
             </div>
@@ -42,7 +42,7 @@ function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId
             <div className="list__warehouse-container">
                 <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse">
                     <div className="list__icons list__icons--active">
-                        <p className="list__address">{warehouse.warehouse_name}</p> <img src={chevron} />
+                        <p className="list__address">{warehouse.warehouse_name}</p> <img src={chevron} alt="chevron" />
                     </div>
                 </Link>
                 <p className="list__address">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
@@ -50,11 +50,11 @@ function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId
                 <p className="list__info">{warehouse.contact_phone} <br /> {warehouse.contact_email}</p>
                 <div className="list__list-btns">
                     <button onClick={handleOnClick}>
-                        <img src={deleteBtn} />
+                        <img src={deleteBtn} alt="delete button" />
                     </button>
 
                     <Link to={`/warehouses/edit/${warehouse.id}`}>
-                        <img src={editBtn} />
+                        <img src={editBtn} alt="edit button" />
                     </Link>
                 </div>
             </div>
