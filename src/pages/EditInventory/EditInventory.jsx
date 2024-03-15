@@ -1,85 +1,125 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg";
 import "./EditInventory.scss";
 import axios from "axios";
-import { useParams , useNavigate} from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import InventoryForm from "../../component/InventoryForm/InventoryForm";
 
 function EditInventory() {
   const { ID } = useParams();
+  const base_url = process.env.REACT_APP_BASE_URL;
 
-// Go back to the previous page
-const navigate = useNavigate();
+
+  // Go back to the previous page when clicking the back arrow
+  const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
   };
 
-  // mock data to test
+  const [itemDetails, setItemDetails] = useState({}); //to save the updated data
+  const [error, setError] = useState({});
+  const [warehouse, setWarehouse] = useState({});
 
-  const initalInventory = {
-    id: 1,
-    warehouse_id: 2,
-    item_name: "Television",
-    description:
-      'This 50", 4K LED TV provides a crystal-clear picture and vivid colors.',
-    category: "Electronics",
-    status: "In Stock",
-    quantity: 500,
+  useEffect(() => {
+    const getItemDetails = async () => {
+      try {
+        // get the item details from api
+        const response = await axios.get(`${base_url}inventories/${ID}`);
+        const itemDetail = response.data;
+        setItemDetails(itemDetail);
+        // get the warehouse name the item is located at from api
+        if (!itemDetail.warehouse_id) {
+          throw Error("unable to get warehouse id");
+        } else {
+          const warehouse = await axios.get(
+            `${base_url}warehouses/${itemDetail.warehouse_id}`
+          );
+            setWarehouse(warehouse.data);
+        }
+      } catch (error) {
+        console.log(
+          "there is a problem fetch the inventory item details",
+          error
+        );
+      }
+    };
+    getItemDetails();
+  }, [ID]);
+
+  if (!itemDetails) {
+    return <div>loading...</div>;
+  }
+
+  // check form validation
+  const isFormValid = () => {
+    let isValid = true;
+    const errors = {};
+
+    if (itemDetails.item_name.length < 2) {
+      errors.item_name = "This field is required";
+      isValid = false;
+    }
+    if (itemDetails.description.length < 2) {
+      errors.description = "This field is required";
+      isValid = false;
+    }
+    if (itemDetails.quantity < 0) {
+      errors.quantity = "Invalid input";
+      isValid = false;
+    }
+    // Update the error state
+    setError(errors);
+
+    return isValid;
   };
 
-  const [formData, setFormData] = useState(initalInventory);
-
-  const [getFormValidation, setGetFormValidation] = useState(true);
-  const [submitChange, setSubmitChange] = useState(false);
-
-  const [error, setError] = useState({});
+  // handle updating data when save btn clicked
 
   const handleOnSubmit = async (event) => {
     event.preventDefault();
-    // console.log('i am clicked');
 
-    // to make the function works in the use effect
-    setSubmitChange(!submitChange);
+    isFormValid();
 
-    if (!getFormValidation) {
-      console.log("this should not work ");
+    //update data
+    try {
+      const response = await axios.patch(
+        `${base_url}inventory/edit/${ID}`,
+        itemDetails
+      );
+      // Return the response data
+      return response.data;
+    } catch (error) {
+      console.error("Error updating data:", error);
     }
-
-    // update data
-    // try {
-    //   const response = await axios.put(
-    //     `${process.env.REACT_APP_BASE_URL}inventory/edit/${id}`,
-    //     formData
-    //   );
-    //   // Return the response data
-    //   return response.data;
-    // } catch (error) {
-    //   console.error("Error updating data:", error);
-    // }
   };
 
   // to handle form cancel
   const handleOnClick = (event) => {
     event.preventDefault();
-    setFormData(initalInventory);
+    setItemDetails(setItemDetails);
     setError({});
   };
 
   return (
     <div className="edit">
       <div className="edit__title-box">
-        <img className="edit__image" src={arrowIcon} alt="arrow-icon" onClick={handleGoBack} />
+        <img
+          className="edit__image"
+          src={arrowIcon}
+          alt="arrow-icon"
+          onClick={handleGoBack}
+        />
         <h2>Edit Inventory Item</h2>
       </div>
       <hr />
       <InventoryForm
-        setFormData={setFormData}
-        formData={formData}
+        //  itemDetails={itemDetails}
+        setItemDetails={setItemDetails}
+        setFormData={setItemDetails}
+        Currentwarehouse={warehouse}
+        itemDetails={itemDetails}
         handleOnClick={handleOnClick}
         handleOnSubmit={handleOnSubmit}
-        submitChange={submitChange}
-        setGetFormValidation={setGetFormValidation}
-        getFormValidation={getFormValidation}
         error={error}
         setError={setError}
       />

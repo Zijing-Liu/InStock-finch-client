@@ -1,20 +1,20 @@
 import "./InventoryForm.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function InventoryForm({
   handleOnSubmit,
-  formData,
+  itemDetails,
   handleOnClick,
-  setFormData,
-  submitChange,
-  setError,
   error,
-  setGetFormValidation,
-  getFormValidation,
+  Currentwarehouse,
+  setItemDetails,
 }) {
+  const base_url = process.env.REACT_APP_BASE_URL;
+  const [Warehouses, setWareHouses] = useState();
+  // const [selectedWarehouse,SetselectedWarehouse] =useState();
 
-    // mock data should be replaced with real one . 
-  const Warehouses = ["Manhattan", "Washington", "San Francisco"];
+
   const categories = [
     "Apparel",
     "Accessories",
@@ -24,56 +24,68 @@ function InventoryForm({
     "Health",
   ];
 
-  // handle inputs change
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
+  useEffect(() => {
+    const getWareHouses = async () => {
+      try {
+        // get all warehouses from api
+        const warehouses = await axios.get(`${base_url}warehouses`);
+        console.log("data", warehouses.data);
+        setWareHouses(warehouses.data);
+      } catch (error) {
+        console.log("there is a problem fetch the warehouses", error);
+      }
+    };
+    getWareHouses();
+  }, []);
 
-    // If status is "Out Of Stock", set quantity to 0
-    if (name === "status" && value === "Out Of Stock") {
-      setFormData({
-        ...formData,
-        quantity: 0,
-        [name]: value,
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
+  if (!Warehouses) {
+    return <div>Loading...</div>;
+  }
+
+ // handle inputs change
+ const handleInputChange = (event) => {
+  const { name, value } = event.target;
+
+  // If status is "Out Of Stock", set quantity to 0
+  if (name === "status" && value === "Out Of Stock") {
+    setItemDetails({
+      ...itemDetails,
+      quantity: 0,
+      [name]: value,
+    });
+  }
+  // If quantity is set to 0, set status to "Out Of Stock"
+  else if (name === "quantity" && parseInt(value) === 0) {
+    setItemDetails({
+      ...itemDetails,
+      status: "Out Of Stock",
+      [name]: parseInt(value),
+    });
+  }
+  // For warehouse selection, find the warehouse object by its name and update the warehouse ID
+  else if (name === "warehouse_id") {
+    const selectedWarehouse = Warehouses.find(
+      (warehouse) => warehouse.warehouse_name === value
+    );
+    if (selectedWarehouse) {
+      setItemDetails({
+        ...itemDetails,
+        warehouse_id: selectedWarehouse.id,
+        warehouse_name:selectedWarehouse.warehouse_name
       });
     }
-  };
-
-  // Set the form validation function to the state
-  useEffect(() => {
-    // check form validation
-    const isFormValid = () => {
-      let isValid = true;
-      const errors = {};
-
-      if (formData.item_name.length < 2) {
-        errors.item_name = "This field is required";
-        isValid = false;
-      }
-      if (formData.description.length < 2) {
-        errors.description = "This field is required";
-        isValid = false;
-      }
-      if (formData.quantity < 0) {
-        errors.quantity = "Invalid input";
-        isValid = false;
-      }
-      // Update the error state
-      setError(errors);
-      // Update the getFormValidation state
-
-      setGetFormValidation(isValid);
-
-      //   return isValid;
-    };
-    isFormValid();
-  }, [submitChange]);
-
-  console.log("isvalid", getFormValidation);
+    console.log('selected',selectedWarehouse)
+  }
+  // For other inputs, simply update the state
+  else {
+    setItemDetails({
+      ...itemDetails,
+      [name]: value,
+    });
+  }
+};
+console.log(itemDetails);
+  
 
   return (
     <>
@@ -92,10 +104,10 @@ function InventoryForm({
                   : `form__input`
               }
               type="text"
-              placeholder={formData.item_name}
+              placeholder={itemDetails.item_name}
               id="name"
               name="item_name"
-              value={formData.item_name}
+              value={itemDetails.item_name}
               onChange={handleInputChange}
             />
             {error.item_name && (
@@ -111,11 +123,11 @@ function InventoryForm({
                   ? ` form__input form__input--text form__input--red`
                   : `form__input form__input--text`
               }
-              placeholder={formData.description}
+              placeholder={itemDetails.description}
               id="description"
               name="description"
               rows=""
-              value={formData.description}
+              value={itemDetails.description}
               onChange={handleInputChange}
             ></textarea>
             {error.description && (
@@ -129,7 +141,7 @@ function InventoryForm({
               id="category"
               name="category"
               className="form__input form__input--select"
-              value={formData.category}
+              value={itemDetails.category}
               onChange={handleInputChange}
             >
               {categories.map((category, i) => (
@@ -150,7 +162,7 @@ function InventoryForm({
             <div className="form__status">
               <div
                 className={
-                  formData.status === "In Stock"
+                  itemDetails.status === "In Stock"
                     ? "form__check form__check--checked"
                     : "form__check"
                 }
@@ -160,7 +172,7 @@ function InventoryForm({
                   id="in-stock"
                   name="status"
                   value="In Stock"
-                  checked={formData.status === "In Stock"}
+                  checked={itemDetails.status === "In Stock"}
                   onChange={handleInputChange}
                 />
                 <label
@@ -173,7 +185,8 @@ function InventoryForm({
 
               <div
                 className={
-                  formData.status === "Out Of Stock"
+                  itemDetails.status === "Out Of Stock" &&
+                  itemDetails.quantity === 0
                     ? "form__check form__check--checked"
                     : "form__check"
                 }
@@ -183,7 +196,10 @@ function InventoryForm({
                   id="out-of-stock"
                   name="status"
                   value="Out Of Stock"
-                  checked={formData.status === "Out Of Stock"}
+                  checked={
+                    itemDetails.status === "Out Of Stock" ||
+                    itemDetails.quantity === 0
+                  }
                   onChange={handleInputChange}
                 />
                 <label
@@ -194,7 +210,7 @@ function InventoryForm({
                 </label>
               </div>
             </div>
-            {formData.status === "In Stock" && (
+            {itemDetails.status === "In Stock" && (
               <>
                 <label htmlFor="quantity" className="form__label">
                   Quantity
@@ -206,10 +222,10 @@ function InventoryForm({
                       : "form__input"
                   }
                   type="number"
-                  placeholder={formData.quantity}
+                  placeholder={itemDetails.quantity}
                   id="quantity"
                   name="quantity"
-                  value={formData.quantity}
+                  value={itemDetails.quantity}
                   onChange={handleInputChange}
                 />
                 {error.quantity && (
@@ -225,12 +241,12 @@ function InventoryForm({
               id="warehouse"
               name="warehouse_id"
               className="form__input form__input--select"
-              value={formData.warehouse_id}
+              value={itemDetails.warehouse_name ? itemDetails.warehouse_name : Currentwarehouse.warehouse_name}
               onChange={handleInputChange}
             >
-              {Warehouses.map((warehouse, i) => (
-                <option key={i} value={warehouse}>
-                  {warehouse}
+              {Warehouses.map((warehouse) => (
+                <option key={warehouse.id} value={warehouse.warehouse_name}>
+                  {warehouse.warehouse_name}
                 </option>
               ))}
             </select>
