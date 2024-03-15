@@ -1,5 +1,5 @@
 import './EditWarehouse.scss'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -9,35 +9,46 @@ export default function EditWarehouse() {
   const navigate = useNavigate();
   const baseURL = process.env.REACT_APP_BASE_URL;
 
-  const [error, setError] = useState({
-    warehouseName: '',
-    streetAddress: '',
+  const [selectedWarehouse, setSelectedWarehouse] = useState({
+    warehouse_name: '',
+    address: '',
     city: '',
     country: '',
-    contactName: '',
-    position: '',
-    phoneNumber: '',
-    email: '',
+    contact_name: '',
+    contact_position: '',
+    contact_phone: '',
+    contact_email: '',
   });
 
-  ///// Placeholder until backend is connected
-  const [formData, setFormData] = useState({
-    warehouseName: 'Brooklyn',
-    streetAddress: '918 Morris Lane',
-    city: 'Brooklyn',
-    country: 'USA',
-    contactName: 'Parmin Aujla',
-    position: 'Warehouse Manager',
-    phoneNumber: '+1 (646) 123-1234',
-    email: 'paujla@instock.com',
+  const [error, setError] = useState({
+    warehouse_name: '',
+    address: '',
+    city: '',
+    country: '',
+    contact_name: '',
+    contact_position: '',
+    contact_phone: '',
+    contact_email: '',
   });
+
+  useEffect(() => {
+    const warehouseDataTest = async () => {
+      try {
+        const response = await axios.get(`${baseURL}api/warehouses/${ID}`)
+        setSelectedWarehouse(response.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    warehouseDataTest();
+  }, [])
 
   function handleChange(event) {
     const fieldName = event.target.name;
     const fieldValue = event.target.value;
-    const newFormData = { ...formData };
+    const newFormData = { ...selectedWarehouse };
     newFormData[fieldName] = fieldValue;
-    setFormData(newFormData)
+    setSelectedWarehouse(newFormData)
   };
 
   function isValidEmail(email) {
@@ -57,44 +68,41 @@ export default function EditWarehouse() {
 
     const newError = {};
 
-    if (!formData.warehouseName) {
-      newError.warehouseName = "This field is required";
+    if (!selectedWarehouse.warehouse_name) {
+      newError.warehouse_name = "This field is required";
     }
-    if (!formData.streetAddress) {
-      newError.streetAddress = "This field is required";
+    if (!selectedWarehouse.address) {
+      newError.address = "This field is required";
     }
-    if (!formData.city) {
+    if (!selectedWarehouse.city) {
       newError.city = "This field is required";
     }
-    if (!formData.country) {
+    if (!selectedWarehouse.country) {
       newError.country = "This field is required";
     }
-    if (!formData.contactName) {
-      newError.contactName = "This field is required";
+    if (!selectedWarehouse.contact_name) {
+      newError.contact_name = "This field is required";
     }
-    if (!formData.position) {
-      newError.position = "This field is required";
+    if (!selectedWarehouse.contact_position) {
+      newError.contact_position = "This field is required";
     }
-    if (!formData.phoneNumber) {
-      newError.phoneNumber = "This field is required";
+    if (!selectedWarehouse.contact_phone) {
+      newError.contact_phone = "This field is required";
     }
-    if (!formData.email) {
-      newError.email = "This field is required";
+    if (!selectedWarehouse.contact_email) {
+      newError.contact_email = "This field is required";
     }
-    if (!isValidEmail(formData.email)) {
-      newError.email = "Please enter valid email";
-    } if (!isValidPhoneNumber(formData.phoneNumber)) {
-      newError.phoneNumber = "Please enter valid phone number";
+    if (!isValidEmail(selectedWarehouse.contact_email)) {
+      newError.contact_email = "Please enter valid email";
+    } if (!isValidPhoneNumber(selectedWarehouse.contact_phone)) {
+      newError.contact_phone = "Please enter valid phone number";
     }
 
     setError(newError);
 
-    console.log(formData)
-
     const updateDetails = async () => {
       try {
-        await axios.put(`${baseURL}${ID}`, formData)
-        console.log(formData)
+        await axios.put(`${baseURL}api/warehouses/${ID}`, selectedWarehouse)
       } catch (error) {
         console.log(error)
       }
@@ -112,30 +120,30 @@ export default function EditWarehouse() {
             <label htmlFor="warehouseName" className='warehouse__form-label'>Warehouse Name</label>
             <input
               type="text"
-              name="warehouseName"
-              value={formData.warehouseName}
+              name="warehouse_name"
+              value={selectedWarehouse.warehouse_name}
               className='warehouse__form-input'
               onChange={handleChange}
-              style={{ borderColor: error.warehouseName ? '#C94515' : '' }}
+              style={{ borderColor: error.warehouse_name ? '#C94515' : '' }}
             />
-            {error.warehouseName && <div className="warehouse__form-error">{error.warehouseName}</div>}
+            {error.warehouse_name && <div className="warehouse__form-error">{error.warehouse_name}</div>}
 
             <label htmlFor="streetAddress" className='warehouse__form-label'>Street Address</label>
             <input
               type="text"
-              name="streetAddress"
-              value={formData.streetAddress}
+              name="address"
+              value={selectedWarehouse.address}
               className='warehouse__form-input'
               onChange={handleChange}
-              style={{ borderColor: error.streetAddress ? '#C94515' : '' }}
+              style={{ borderColor: error.address ? '#C94515' : '' }}
             />
-            {error.streetAddress && <div className="warehouse__form-error">{error.streetAddress}</div>}
+            {error.address && <div className="warehouse__form-error">{error.address}</div>}
 
             <label htmlFor="city" className='warehouse__form-label'>City</label>
             <input
               type="text"
               name="city"
-              value={formData.city}
+              value={selectedWarehouse.city}
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.city ? '#C94515' : '' }}
@@ -146,7 +154,7 @@ export default function EditWarehouse() {
             <input
               type="text"
               name="country"
-              value={formData.country}
+              value={selectedWarehouse.country}
               className='warehouse__form-input'
               onChange={handleChange}
               style={{ borderColor: error.country ? '#C94515' : '' }}
@@ -159,46 +167,46 @@ export default function EditWarehouse() {
             <label htmlFor="contactName" className='warehouse__form-label'>Contact Name</label>
             <input
               type="text"
-              name="contactName"
-              value={formData.contactName}
+              name="contact_name"
+              value={selectedWarehouse.contact_name}
               className='warehouse__form-input'
               onChange={handleChange}
-              style={{ borderColor: error.contactName ? '#C94515' : '' }}
+              style={{ borderColor: error.contact_name ? '#C94515' : '' }}
             />
-            {error.contactName && <div className="warehouse__form-error">{error.contactName}</div>}
+            {error.contact_name && <div className="warehouse__form-error">{error.contact_name}</div>}
 
             <label htmlFor="position" className='warehouse__form-label'>Position</label>
             <input
               type="text"
-              name="position"
-              value={formData.position}
+              name="contact_position"
+              value={selectedWarehouse.contact_position}
               className='warehouse__form-input'
               onChange={handleChange}
-              style={{ borderColor: error.position ? '#C94515' : '' }}
+              style={{ borderColor: error.contact_position ? '#C94515' : '' }}
             />
-            {error.position && <div className="warehouse__form-error">{error.position}</div>}
+            {error.contact_position && <div className="warehouse__form-error">{error.contact_position}</div>}
 
             <label htmlFor="phoneNumber" className='warehouse__form-label'>Phone Number</label>
             <input
               type="text"
-              name="phoneNumber"
-              value={formData.phoneNumber}
+              name="contact_phone"
+              value={selectedWarehouse.contact_phone}
               className='warehouse__form-input'
               onChange={handleChange}
-              style={{ borderColor: error.phoneNumber ? '#C94515' : '' }}
+              style={{ borderColor: error.contact_phone ? '#C94515' : '' }}
             />
-            {error.phoneNumber && <div className="warehouse__form-error">{error.phoneNumber}</div>}
+            {error.contact_phone && <div className="warehouse__form-error">{error.contact_phone}</div>}
 
             <label htmlFor="email" className='warehouse__form-label'>Email</label>
             <input
               type="text"
-              name="email"
-              value={formData.email}
+              name="contact_email"
+              value={selectedWarehouse.contact_email}
               className='warehouse__form-input'
               onChange={handleChange}
-              style={{ borderColor: error.email ? '#C94515' : '' }}
+              style={{ borderColor: error.contact_email ? '#C94515' : '' }}
             />
-            {error.email && <div className="warehouse__form-error">{error.email}</div>}
+            {error.contact_email && <div className="warehouse__form-error">{error.contact_email}</div>}
 
           </div>
         </div>
