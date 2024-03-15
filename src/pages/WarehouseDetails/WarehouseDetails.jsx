@@ -4,11 +4,16 @@ import editIcon from "../../assets/Icons/edit-24px.svg"
 import sortIcon from "../../assets/Icons/sort-24px.svg"
 import chevronIcon from "../../assets/Icons/chevron_right-24px.svg"
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg"
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 function WarehouseDetails() {
+
+  const navigate = useNavigate();
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   // Pass down props from warehouselist??
   const inventoryItem = [
@@ -36,13 +41,12 @@ function WarehouseDetails() {
       try {
         const response = await axios.get(`${baseURL}warehouses/${ID}`)
         setSelectedWarehouse(response.data)
-        console.log(response.data)
       } catch (error) {
         console.log("warehouseList data error")
       }
     }
     warehouseDataTest();
-  }, [])
+  }, [ID])
 
 
   if (!selectedWarehouse) {
@@ -57,7 +61,7 @@ function WarehouseDetails() {
       <div className="warehouse-details" key={selectedWarehouse.id}>
         <div className="warehouse-details__header" >
           <div className='warehouse-details__header-container'>
-            <img src={arrowIcon} className="warehouse-details__edit-icon" alt='edit icon'></img>
+            <img className="warehouse__icon" src={arrowIcon} alt="arrow-icon" onClick={handleGoBack} />
             <h1 className='warehouse-details__title-name'>{selectedWarehouse.warehouse_name}</h1>
           </div>
           <img src={editIcon} className="warehouse-details__edit-icon" alt='edit icon'></img>
@@ -137,12 +141,10 @@ function WarehouseDetails() {
                 <p className="inv-list__name inv-list__status"> {item.status} </p>
                 <p className="inv-list__info">{item.quantity}</p>
                 <div className="inv-list__list-btns">
-
                   <button onClick={() => alert(`id: ${item.id}`)}>
                     <img src={deleteIcon} alt='delete icon' />
                   </button>
-
-                  <Link to={`/warehouses/edit/${item.id}`}>
+                  <Link to={`/inventory/edit/${item.id}`}>
                     <img src={editIcon} alt='edit icon' />
                   </Link>
                 </div>
