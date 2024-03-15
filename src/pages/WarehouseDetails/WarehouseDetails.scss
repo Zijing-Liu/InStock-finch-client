@@ -49,7 +49,7 @@
     &__info {
         display: flex;
         flex-direction: column;
-        padding: 10px 22px;
+        padding: 10px 22px 15px 22px;
 
         @include tablet {
             flex-direction: row;
@@ -65,12 +65,16 @@
     &__heading {
         @include table-header;
         margin-bottom: 6px;
+        font-size: 0.6rem;
+        color: $slate;
+        font-weight: 600;
     }
 
     &__content {
         @include body-small;
         margin: 0;
         line-height: 1.5;
+        color: $instock-black;
     }
 
     &__contact-wrapper {
@@ -102,15 +106,23 @@
     }
 
     &__small-heading {
-        @include table-header;
-        color: $slate;
-        text-transform: uppercase;
-        padding: 0;
+        @extend .warehouse-details__heading;
     }
 
     &__paragraph {
         @include body-medium;
         margin: 0 0 8px 0;
+    }
+
+    &__status {
+        text-transform: uppercase;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        font-weight: 600;
+        // width: fit-content;
+        color: $green;
+        background-color: rgba(21, 132, 99, 0.07);
+        border-radius: 1.25rem;
+        margin-top: 0;
     }
 
 
@@ -246,7 +258,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly;
-        // padding: 0 16px;
+        padding: 10px 0;
         gap: 15%;
         border-top: 1px solid $cloud;
 

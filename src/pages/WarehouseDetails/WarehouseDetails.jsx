@@ -118,7 +118,7 @@ function WarehouseDetails() {
                 </div>
                 <div className="inv-list__mobile-inventory">
                   <h2 className="inv-list__small-heading">STATUS</h2>
-                  <p className='inv-list__paragraph'>{item.status}</p>
+                  <p className='inv-list__paragraph inv-list__status'>{item.status}</p>
                   <h2 className="inv-list__small-heading">QTY</h2>
                   <p className='inv-list__paragraph'>{item.quantity}</p>
                   <Link to={`/warehouses/edit/${item.id}`} className="inv-list__btn-mobile inv-list__btn-mobile--edit">
@@ -134,7 +134,7 @@ function WarehouseDetails() {
                   </div>
                 </Link>
                 <p className="inv-list__address">{item.category}</p>
-                <p className="inv-list__name"> {item.status} </p>
+                <p className="inv-list__name inv-list__status"> {item.status} </p>
                 <p className="inv-list__info">{item.quantity}</p>
                 <div className="inv-list__list-btns">
 
