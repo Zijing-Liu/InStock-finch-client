@@ -51,7 +51,7 @@ function InventoryItemDetail() {
               navigator("/inventory");
             }}
           />
-          <h1>{itemData.item_name}</h1>
+          <h1 className="inventory-item__heading">{itemData.item_name}</h1>
         </div>
         <Link
           to={`/inventory/edit/${ID}`}
@@ -71,7 +71,7 @@ function InventoryItemDetail() {
       <div className="inventory-item__body">
         <div className="inventory-item__body-left">
           <h4 className="inventory-item__label">ITEM DESCRIPTION:</h4>
-          <p className="inventory-item__text"> {itemData.description}</p>
+          <p className="inventory-item__text">{itemData.description}</p>
           <h4 className="inventory-item__label">CATEGORY:</h4>
           <p className="inventory-item__text">{itemData.category}</p>
         </div>
@@ -79,14 +79,18 @@ function InventoryItemDetail() {
           <div className="inventory-item__status-and-quantity">
             <div>
               <h4 className="inventory-item__label">STATUS:</h4>
-              <p className="inventory-item__status">{itemData.status}</p>
+              <p className="inventory-item__status">
+                {!itemData.status
+                  ? itemData.status
+                  : itemData.status.toUpperCase()}
+              </p>
             </div>
             <span>
-              <h4 className="inventory-item__label">Quantity:</h4>
+              <h4 className="inventory-item__label">QUANTITY:</h4>
               <p className="inventory-item__text">{itemData.quantity}</p>
             </span>
           </div>
-          <h4 className="inventory-item__label">Warehouse:</h4>
+          <h4 className="inventory-item__label">WAREHOUSE:</h4>
           <p className="inventory-item__text">{warehouseName}</p>
         </div>
       </div>
