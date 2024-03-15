@@ -67,7 +67,7 @@ function EditInventory() {
       isValid = false;
     }
     if (itemDetails.quantity === 0 && itemDetails.status === "In Stock") {
-      errors.quantity = "The quantity can not be 0 while status in stock !";
+      errors.quantity = "The quantity can not be 0 while status in stock!";
       isValid = false;
     }
     // Update the error state
