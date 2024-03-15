@@ -34,14 +34,15 @@ export default function EditWarehouse() {
   useEffect(() => {
     const warehouseDataTest = async () => {
       try {
-        const response = await axios.get(`${baseURL}api/warehouses/${ID}`)
+        const response = await axios.get(`${baseURL}warehouses/${ID}`)
         setSelectedWarehouse(response.data)
+        // console.log("response.data:", response.data)
       } catch (error) {
         console.log(error)
       }
     }
     warehouseDataTest();
-  }, [])
+  }, [ID])
 
   function handleChange(event) {
     const fieldName = event.target.name;
@@ -65,7 +66,6 @@ export default function EditWarehouse() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
     const newError = {};
 
     if (!selectedWarehouse.warehouse_name) {
@@ -100,9 +100,22 @@ export default function EditWarehouse() {
 
     setError(newError);
 
+    const submitDataObj = {
+      warehouse_id: selectedWarehouse.id,
+      warehouse_name: selectedWarehouse.warehouse_name,
+      address: selectedWarehouse.address,
+      city: selectedWarehouse.city,
+      country: selectedWarehouse.country,
+      contact_name: selectedWarehouse.contact_name,
+      contact_position: selectedWarehouse.contact_position,
+      contact_phone: selectedWarehouse.contact_phone,
+      contact_email: selectedWarehouse.contact_email,
+    }
+
     const updateDetails = async () => {
       try {
-        await axios.put(`${baseURL}api/warehouses/${ID}`, selectedWarehouse)
+        const response = await axios.patch(`${baseURL}warehouses/${ID}`, submitDataObj)
+        console.log(response)
       } catch (error) {
         console.log(error)
       }
@@ -113,108 +126,110 @@ export default function EditWarehouse() {
   return (
     <section className='warehouse'>
       <h1 className='warehouse__title'>Edit Warehouse</h1>
-      <form action="post" className='warehouse__form' onSubmit={handleSubmit}>
-        <div className='warehouse__form-fields'>
-          <div className='warehouse__form-section'>
-            <h2 className='warehouse__form-heading'>Warehouse Details</h2>
-            <label htmlFor="warehouseName" className='warehouse__form-label'>Warehouse Name</label>
-            <input
-              type="text"
-              name="warehouse_name"
-              value={selectedWarehouse.warehouse_name}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.warehouse_name ? '#C94515' : '' }}
-            />
-            {error.warehouse_name && <div className="warehouse__form-error">{error.warehouse_name}</div>}
+      {Object.keys(selectedWarehouse).length > 0 && (
+        <form action="post" className='warehouse__form' onSubmit={handleSubmit}>
+          <div className='warehouse__form-fields'>
+            <div className='warehouse__form-section'>
+              <h2 className='warehouse__form-heading'>Warehouse Details</h2>
+              <label htmlFor="warehouseName" className='warehouse__form-label'>Warehouse Name</label>
+              <input
+                type="text"
+                name="warehouse_name"
+                value={selectedWarehouse.warehouse_name}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.warehouse_name ? '#C94515' : '' }}
+              />
+              {error.warehouse_name && <div className="warehouse__form-error">{error.warehouse_name}</div>}
 
-            <label htmlFor="streetAddress" className='warehouse__form-label'>Street Address</label>
-            <input
-              type="text"
-              name="address"
-              value={selectedWarehouse.address}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.address ? '#C94515' : '' }}
-            />
-            {error.address && <div className="warehouse__form-error">{error.address}</div>}
+              <label htmlFor="streetAddress" className='warehouse__form-label'>Street Address</label>
+              <input
+                type="text"
+                name="address"
+                value={selectedWarehouse.address}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.address ? '#C94515' : '' }}
+              />
+              {error.address && <div className="warehouse__form-error">{error.address}</div>}
 
-            <label htmlFor="city" className='warehouse__form-label'>City</label>
-            <input
-              type="text"
-              name="city"
-              value={selectedWarehouse.city}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.city ? '#C94515' : '' }}
-            />
-            {error.city && <div className="warehouse__form-error">{error.city}</div>}
+              <label htmlFor="city" className='warehouse__form-label'>City</label>
+              <input
+                type="text"
+                name="city"
+                value={selectedWarehouse.city}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.city ? '#C94515' : '' }}
+              />
+              {error.city && <div className="warehouse__form-error">{error.city}</div>}
 
-            <label htmlFor="country" className='warehouse__form-label'>Country</label>
-            <input
-              type="text"
-              name="country"
-              value={selectedWarehouse.country}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.country ? '#C94515' : '' }}
-            />
-            {error.country && <div className="warehouse__form-error">{error.country}</div>}
+              <label htmlFor="country" className='warehouse__form-label'>Country</label>
+              <input
+                type="text"
+                name="country"
+                value={selectedWarehouse.country}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.country ? '#C94515' : '' }}
+              />
+              {error.country && <div className="warehouse__form-error">{error.country}</div>}
 
+            </div>
+            <div className='warehouse__form-section warehouse__form-section--contact'>
+              <h2 className='warehouse__form-heading'>Contact Details</h2>
+              <label htmlFor="contactName" className='warehouse__form-label'>Contact Name</label>
+              <input
+                type="text"
+                name="contact_name"
+                value={selectedWarehouse.contact_name}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.contact_name ? '#C94515' : '' }}
+              />
+              {error.contact_name && <div className="warehouse__form-error">{error.contact_name}</div>}
+
+              <label htmlFor="position" className='warehouse__form-label'>Position</label>
+              <input
+                type="text"
+                name="contact_position"
+                value={selectedWarehouse.contact_position}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.contact_position ? '#C94515' : '' }}
+              />
+              {error.contact_position && <div className="warehouse__form-error">{error.contact_position}</div>}
+
+              <label htmlFor="phoneNumber" className='warehouse__form-label'>Phone Number</label>
+              <input
+                type="text"
+                name="contact_phone"
+                value={selectedWarehouse.contact_phone}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.contact_phone ? '#C94515' : '' }}
+              />
+              {error.contact_phone && <div className="warehouse__form-error">{error.contact_phone}</div>}
+
+              <label htmlFor="email" className='warehouse__form-label'>Email</label>
+              <input
+                type="text"
+                name="contact_email"
+                value={selectedWarehouse.contact_email}
+                className='warehouse__form-input'
+                onChange={handleChange}
+                style={{ borderColor: error.contact_email ? '#C94515' : '' }}
+              />
+              {error.contact_email && <div className="warehouse__form-error">{error.contact_email}</div>}
+
+            </div>
           </div>
-          <div className='warehouse__form-section warehouse__form-section--contact'>
-            <h2 className='warehouse__form-heading'>Contact Details</h2>
-            <label htmlFor="contactName" className='warehouse__form-label'>Contact Name</label>
-            <input
-              type="text"
-              name="contact_name"
-              value={selectedWarehouse.contact_name}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.contact_name ? '#C94515' : '' }}
-            />
-            {error.contact_name && <div className="warehouse__form-error">{error.contact_name}</div>}
-
-            <label htmlFor="position" className='warehouse__form-label'>Position</label>
-            <input
-              type="text"
-              name="contact_position"
-              value={selectedWarehouse.contact_position}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.contact_position ? '#C94515' : '' }}
-            />
-            {error.contact_position && <div className="warehouse__form-error">{error.contact_position}</div>}
-
-            <label htmlFor="phoneNumber" className='warehouse__form-label'>Phone Number</label>
-            <input
-              type="text"
-              name="contact_phone"
-              value={selectedWarehouse.contact_phone}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.contact_phone ? '#C94515' : '' }}
-            />
-            {error.contact_phone && <div className="warehouse__form-error">{error.contact_phone}</div>}
-
-            <label htmlFor="email" className='warehouse__form-label'>Email</label>
-            <input
-              type="text"
-              name="contact_email"
-              value={selectedWarehouse.contact_email}
-              className='warehouse__form-input'
-              onChange={handleChange}
-              style={{ borderColor: error.contact_email ? '#C94515' : '' }}
-            />
-            {error.contact_email && <div className="warehouse__form-error">{error.contact_email}</div>}
-
+          <div className='warehouse__form-buttons'>
+            <button className='warehouse__form-buttons--cancel' onClick={() => navigate('/')}>Cancel</button>
+            <button className='warehouse__form-buttons--save' type='submit' >Save</button>
           </div>
-        </div>
-        <div className='warehouse__form-buttons'>
-          <button className='warehouse__form-buttons--cancel' onClick={() => navigate('/')}>Cancel</button>
-          <button className='warehouse__form-buttons--save' type='submit' >Save</button>
-        </div>
-      </form>
+        </form>
+      )}
     </section >
   )
 }
