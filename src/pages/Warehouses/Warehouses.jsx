@@ -6,6 +6,8 @@ import { useState, useEffect } from "react"
 export default function Warehouses() {
 const baseURL = process.env.REACT_APP_BASE_URL
 const [warehouseData, setWarehouseData] = useState(null)
+const [deleteWarehouse, setDeleteWarehouse] = useState(null)
+
 
 useEffect(() => {
   const warehouseData = async() => {
@@ -17,7 +19,7 @@ useEffect(() => {
     }
   }
   warehouseData();
-}, [])
+}, [deleteWarehouse])
 
 if (!warehouseData) {
   return(
@@ -27,7 +29,7 @@ if (!warehouseData) {
 
   return (
     <div>
-      <WarehouseList warehouseData={warehouseData}/>
+      <WarehouseList warehouseData={warehouseData} setDeleteWarehouse={setDeleteWarehouse} />
     </div>
   )
 }

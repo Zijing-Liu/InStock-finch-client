@@ -1,22 +1,23 @@
 import "./DeleteWarehouse.scss"
+import {useNavigate} from "react-router-dom"
 import close from "../../assets/Icons/close-24px.svg"
 import axios from "axios";
 
 
 //sorce: https://dev.to/franciscomendes10866/how-to-create-a-modal-in-react-3coc
 
-function DeleteWarehouse({ setDeleteWarehouseOpen, warehouseData, deleteWarehouseId }) {
+function DeleteWarehouse({ setDeleteWarehouseOpen, warehouseData, deleteWarehouseId, setDeleteWarehouse }) {
     const baseURL = process.env.REACT_APP_BASE_URL
-
+    let navigate = useNavigate()
 
     const handleDeleteWarehouse = () => {
         try {
             const deleteWarehouse = async () => {
-                console.log(deleteWarehouseId)
                 const deleteWarehouseAPI = await axios.delete(`${baseURL}warehouses/${deleteWarehouseId}`)
-                console.log(deleteWarehouseAPI)
+                setDeleteWarehouse(deleteWarehouseAPI)
             }
             deleteWarehouse();
+            setDeleteWarehouseOpen(false)
         }
         catch (error) {
             console.log("handleDeleteWarehouse error")

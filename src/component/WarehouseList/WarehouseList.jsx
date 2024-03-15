@@ -1,15 +1,15 @@
 import "./WarehouseList.scss";
 import searchLogo from "../../assets/Icons/search-24px.svg";
 import { useState } from "react";
-// import { useParams } from "react-router-dom";
 import DeleteWarehouse from "../DeleteWarehouse/DeleteWarehouse";
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import sort from "../../assets/Icons/sort-24px.svg";
 
 
-function WarehouseList({warehouseData}) {
+function WarehouseList({warehouseData, setDeleteWarehouse}) {
     const [isDeleteWarehouseOpen, setDeleteWarehouseOpen] = useState(false)
     const [deleteWarehouseId, setDeleteWarehouseId] = useState(null)
+
 
     const warehouseObj = {
         title: "Warehouses",
@@ -19,7 +19,7 @@ function WarehouseList({warehouseData}) {
 
     return (
         <section>
-            {isDeleteWarehouseOpen && <DeleteWarehouse setDeleteWarehouseOpen={setDeleteWarehouseOpen} warehouseData={warehouseData} deleteWarehouseId={deleteWarehouseId}/>}
+            {isDeleteWarehouseOpen && <DeleteWarehouse setDeleteWarehouseOpen={setDeleteWarehouseOpen} warehouseData={warehouseData} deleteWarehouseId={deleteWarehouseId} setDeleteWarehouse={setDeleteWarehouse}/>}
             <div className="list">
                 <div className="list__main-container">
                     <h1>{warehouseObj.title}</h1>
