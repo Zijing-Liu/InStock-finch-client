@@ -11,8 +11,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
-
+&__title{
+@include page-header ;
+}
   &__image {
     padding-right: 10px;
     cursor: pointer;

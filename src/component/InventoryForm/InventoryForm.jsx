@@ -12,7 +12,6 @@ function InventoryForm({
 }) {
   const base_url = process.env.REACT_APP_BASE_URL;
   const [Warehouses, setWareHouses] = useState();
-  // const [selectedWarehouse,SetselectedWarehouse] =useState();
 
   const categories = [
     "Apparel",
@@ -28,7 +27,6 @@ function InventoryForm({
       try {
         // get all warehouses from api
         const warehouses = await axios.get(`${base_url}warehouses`);
-        // console.log("data", warehouses.data);
         setWareHouses(warehouses.data);
       } catch (error) {
         console.log("there is a problem fetch the warehouses", error);

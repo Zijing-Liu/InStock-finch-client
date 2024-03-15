@@ -98,7 +98,6 @@ function EditInventory() {
         dataTosend
       );
       // Return the response data
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.error("Error updating data:", error);
@@ -121,7 +120,7 @@ function EditInventory() {
           alt="arrow-icon"
           onClick={handleGoBack}
         />
-        <h2>Edit Inventory Item</h2>
+        <h2 class="edit__title">Edit Inventory Item</h2>
       </div>
       <hr />
       <InventoryForm
