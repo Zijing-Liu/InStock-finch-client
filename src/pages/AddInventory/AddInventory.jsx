@@ -82,15 +82,11 @@ function AddInventory() {
       warehouse_id: itemDetails.warehouse_id,
       warehouse_name: itemDetails.warehouse_name,
     };
-    console.log(dataTosend);
     //update data
     try {
       const response = await axios.post(`${base_url}inventories`, dataTosend);
       // navigate to the previous page
       handleGoBack();
-      // Return the response data
-      console.log(response);
-      return response.data;
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -101,6 +97,7 @@ function AddInventory() {
     event.preventDefault();
     setItemDetails(setItemDetails);
     setError({});
+    // navigate to the previous page when cancel
     handleGoBack();
   };
   return (
@@ -124,6 +121,7 @@ function AddInventory() {
         error={error}
         setError={setError}
         Currentwarehouse={""}
+        showPlaceHolder={true}
       />
     </div>
   );

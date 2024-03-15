@@ -9,6 +9,7 @@ function InventoryForm({
   error,
   Currentwarehouse,
   setItemDetails,
+  showPlaceHolder,
 }) {
   const base_url = process.env.REACT_APP_BASE_URL;
   const [Warehouses, setWareHouses] = useState();
@@ -131,10 +132,11 @@ function InventoryForm({
               value={itemDetails.category}
               onChange={handleInputChange}
             >
-              {/* Placeholder option */}
-              <option value="" className="form__placeholder">
-                Please select
-              </option>
+              {showPlaceHolder && (
+                <option value="" className="form__placeholder">
+                  Please select
+                </option>
+              )}
               {categories.map((category, i) => (
                 <option key={i} value={category}>
                   {category}
@@ -238,9 +240,11 @@ function InventoryForm({
               }
               onChange={handleInputChange}
             >
-              <option value="" className="form__placeholder">
-                Please select
-              </option>
+              {showPlaceHolder && (
+                <option value="" className="form__placeholder">
+                  Please select
+                </option>
+              )}
               {Warehouses.map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.warehouse_name}>
                   {warehouse.warehouse_name}
