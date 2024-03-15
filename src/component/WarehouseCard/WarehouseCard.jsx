@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import deleteBtn from "../../assets/Icons/delete_outline-24px.svg"
 import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
-import sort from "../../assets/Icons/sort-24px.svg"
 
 function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId }) {
 
@@ -37,22 +36,6 @@ function WarehouseCard({ warehouse, setDeleteWarehouseOpen, setDeleteWarehouseId
                         <img src={editBtn} />
                     </Link>
                 </div>
-            </div>
-
-            <div className="list__header">
-                <div className="list__icons list__warehouse">
-                    <h2>Warehouse</h2> <img src={sort} />
-                </div>
-                <div className="list__icons list__address">
-                    <h2>Address</h2> <img src={sort} />
-                </div>
-                <div className="list__icons list__name">
-                    <h2>Contact Name</h2> <img src={sort} />
-                </div>
-                <div className="list__icons list__info">
-                    <h2>Contact Information</h2> <img src={sort} />
-                </div>
-                <h2 className="list__action">Actions</h2>
             </div>
 
             <div className="list__warehouse-container">
