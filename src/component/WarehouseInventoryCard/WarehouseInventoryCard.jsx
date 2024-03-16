@@ -8,16 +8,17 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 function WarehouseInventoryCard() {
-
     const baseURL = process.env.REACT_APP_BASE_URL
-    const [warehouseInv, setWarehouseInv] = useState(null)
+    // const [warehouseInv, setWarehouseInv] = useState(null)
+    const [list, setList] = useState(null) //Pass down to delete modal
+    // const [invItem, setInvItem] = useState(null)
     const { ID } = useParams();
 
     useEffect(() => {
         const warehouseDataTest = async () => {
             try {
                 const response = await axios.get(`${baseURL}warehouses/${ID}/inventories`)
-                setWarehouseInv(response.data)
+                setList(response.data)
             } catch (error) {
                 console.log("WareInv data error")
             }
@@ -25,7 +26,13 @@ function WarehouseInventoryCard() {
         warehouseDataTest();
     }, [ID])
 
-    if (!warehouseInv) {
+  function handleOnClick() {
+    alert()
+    }
+
+    console.log(list)
+
+    if (!list) {
         return <div>Loading...</div>
     }
 
@@ -47,7 +54,7 @@ function WarehouseInventoryCard() {
                 <h2 className="inv-list__action inv-list__small-heading">ACTIONS</h2>
             </div>
 
-            {warehouseInv.map((item) => {
+            {list.map((item) => {
                 return (
                     <div key={item.id}>
                         <div className="inv-list__mobile-container">
@@ -60,7 +67,7 @@ function WarehouseInventoryCard() {
                                 </Link>
                                 <h2 className="inv-list__small-heading">CATEGORY</h2>
                                 <p className="inv-list__paragraph inv-list__address-text inv-list__paragraph">{item.category}</p>
-                                <button className="inv-list__btn-mobile" onClick={() => alert(`id: ${item.id}`)}>
+                                <button className="inv-list__btn-mobile" onClick={() => handleOnClick()}>
                                     <img src={deleteBtn} alt='delete icon' />
                                 </button>
                             </div>
@@ -89,7 +96,7 @@ function WarehouseInventoryCard() {
                             </div>
                             <p className="inv-list__info">{item.quantity}</p>
                             <div className="inv-list__list-btns">
-                                <button className="inv-list__delete-btn" onClick={() => alert(`id: ${item.id}`)}>
+                                <button className="inv-list__delete-btn" onClick={() => handleOnClick}>
                                     <img src={deleteBtn} alt='delete icon' />
                                 </button>
                                 <Link to={`/inventory/edit/${item.id}`}>
