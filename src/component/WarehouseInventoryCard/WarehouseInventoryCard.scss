@@ -1,6 +1,7 @@
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
+@use "../../pages/WarehouseDetails/WarehouseDetails.scss" as *;
 
 .inv-list {
     width: 90%;
@@ -15,15 +16,14 @@
     }
 
     &__small-heading {
-        @include table-header;
-        color: $slate;
         text-transform: uppercase;
-        padding: 0;
+        @extend .warehouse-details__heading;
     }
 
     &__paragraph {
-        @include body-medium;
+        // @include body-medium;
         margin: 0 0 8px 0;
+        @extend .warehouse-details__content;
     }
 
     &__status {
@@ -35,6 +35,11 @@
         margin-top: 0;
         text-align: center;
         text-wrap: nowrap;
+        height: 1.5rem;
+
+        @include tablet {
+            height: 1.625rem;
+        }
 
         &--in-stock {
             color: $green;
@@ -50,8 +55,6 @@
         margin: 0;
         }
     }
-
-
 
     &__btn-mobile {
         align-self: flex-start;
@@ -196,8 +199,6 @@
         }
     }
 
-
-
     //mobile styling
     &__mobile-inventory {
         display: flex;
@@ -211,10 +212,10 @@
     &__mobile-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
         padding: 10px 0;
         gap: 15%;
         border-top: 1px solid $cloud;
+        padding: 10px 22px 15px 22px;;
 
         @include tablet {
             display: none;
