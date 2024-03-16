@@ -31,17 +31,27 @@
         padding: 0.25rem 0.5rem 0.25rem 0.5rem;
         font-weight: 600;
         width: fit-content;
-        color: $green;
-        background-color: rgba(21, 132, 99, 0.07);
         border-radius: 1.25rem;
         margin-top: 0;
         text-align: center;
-        // padding: 8px;
+        text-wrap: nowrap;
+
+        &--in-stock {
+            color: $green;
+            background-color: rgba(21, 132, 99, 0.07);
+        }
+    
+        &--no-stock {
+            color: $red;
+            background-color: rgb(201, 69, 21, 0.07);
+        }
 
         @include tablet {
         margin: 0;
         }
     }
+
+
 
     &__btn-mobile {
         align-self: flex-start;
@@ -95,7 +105,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 25%;
 
         &--active {
             &:hover {
@@ -141,12 +150,9 @@
     }
 
     &__name {
-        height: 24px;
         
         @include tablet {
             width: 25%;
-            padding: 8px;
-            height: 26px;
         }
 
         @include desktop {
@@ -220,3 +226,4 @@
     }
 
 }
+
