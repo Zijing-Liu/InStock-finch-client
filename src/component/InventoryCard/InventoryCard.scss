@@ -13,17 +13,9 @@ $red-7: rgba(201, 69, 21, 0.07);
     text-align: center;
     padding: .125rem .55rem;
     font-weight: 600;
-    border-radius: 5rem;
+    border-radius: 20px;
     color: $green;
     background-color: $green-7;
-
-    @include tablet {
-        font-weight: 600;
-    }
-
-    @include desktop {
-        font-weight: 600; 
-    }
   }
 
   .out-of-stock {
@@ -34,6 +26,8 @@ $red-7: rgba(201, 69, 21, 0.07);
 
 
 .list {
+
+
     &__table-text {
         @include table-header;
         color: $slate;
@@ -44,7 +38,17 @@ $red-7: rgba(201, 69, 21, 0.07);
     &__p {
         @include body-medium;
         margin: 0 0 8px 0;
-    }
+        
+
+        .in-stock & {
+            @include tablet {
+                border: 1px solid red;
+            }
+            
+        }
+
+        }
+    
 
     &__mobile-container {
         display: flex;
@@ -101,7 +105,7 @@ $red-7: rgba(201, 69, 21, 0.07);
             display: flex;
             padding: 0 36px;
             align-items: center;
-            border-top: 1px solid $cloud;
+            border-top: 1px solid $cloud;      
         }
 
         @include desktop {
@@ -111,6 +115,7 @@ $red-7: rgba(201, 69, 21, 0.07);
                 background-color: rgb(46, 102, 229, 0.1);
             }
         }
+        
     }
 
     &__list-btns {
@@ -198,10 +203,12 @@ $red-7: rgba(201, 69, 21, 0.07);
             width: 20%;
             text-wrap: wrap;
             padding: 4px;
-        }
+            
 
-        @include tablet {
-            width: 20%;
+            &--in-stock {
+                font-weight: 600;
+                border: 1px solid red;
+            }
         }
     }
 

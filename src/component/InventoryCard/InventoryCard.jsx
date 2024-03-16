@@ -6,13 +6,12 @@ import chevron from "../../assets/Icons/chevron_right-24px.svg"
 
 
 function InventoryCard({ inventory, getWarehouseName }) {
-   //console.log('WarehouseName:', getWarehouseName);
+   
    
    function getStatusClass(quantity) {
     return quantity > 0 ? 'in-stock' : 'out-of-stock';
   }
-  console.log(getStatusClass(0)); // Output: 'out-of-stock'
-console.log(getStatusClass(10)); // Output: 'in-stock'
+ 
 
     function handleOnClick() {
         alert("i've been clicked")
@@ -60,6 +59,8 @@ console.log(getStatusClass(10)); // Output: 'in-stock'
                     <button className="list__delete-btn" onClick={handleOnClick}>
                         <img src={deleteBtn} alt="delete button" />
                     </button>
+
+                    
 
                     <Link to={`/inventory/edit/${inventory.id}`}>
                         <img src={editBtn} alt="edit button" />

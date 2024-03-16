@@ -6,7 +6,6 @@ import InventoryCard from "../InventoryCard/InventoryCard.jsx";
 
 
 function InventoryList({ inventoryData, warehouseData }) {
-   // console.log('inventoryData:', inventoryData);
 
    const getWarehouseName = (inventoryItemId) => {
     const inventoryItem = inventoryData.find(item => item.id === inventoryItemId);
