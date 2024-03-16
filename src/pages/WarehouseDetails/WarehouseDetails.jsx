@@ -4,7 +4,7 @@ import WarehouseInventoryCard from "../../component/WarehouseInventoryCard/Wareh
 function WarehouseDetails() {
   return (
     <div>
-    <WarehouseInventoryCard />
+
     </div>
   )
 }
