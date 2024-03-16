@@ -1,0 +1,83 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal {
+    &__title {
+        @include page-header;
+        color: $instock-black;
+        width: 100%;
+    }
+
+    &__text {
+        @include body-large;
+        color: $instock-black;
+    }
+
+    &__btn {
+        background-color: $red;
+        color: $white;
+        width: 7rem;
+        height: 36px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        @include label-links-buttons;
+
+        &:hover {
+            background-color: $instock-black !important;
+        }
+
+        @include tablet {
+            width: auto;
+            height: 35px;
+        }
+
+        &--white {
+            color: $slate;
+            background-color: $white ;
+            border: 1px solid $cloud;
+            margin-right: 1rem;
+
+            &:hover {
+                border: 1px solid $instock-indigo !important;
+                color: $instock-indigo !important;
+                background-color: $white !important;
+            }
+        }
+    }
+}
+
+// edit existing styles in model
+.rounded-b {
+    @include tablet {
+        justify-content: end;
+    }
+}
+
+svg {
+    color: #13182c;
+}
+
+.bg-white {
+    height: 100%;
+    flex-direction: column;
+
+    @include tablet {
+        width: 672px;
+        height: 262px;
+    }
+}
+
+.w-full {
+    width: auto;
+}
+
+.max-w-md {
+    width: auto;
+    max-width: fit-content;
+}
