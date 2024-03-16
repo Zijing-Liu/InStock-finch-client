@@ -2,6 +2,35 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
+
+$green-7: rgba(0, 128, 0, 0.07);
+$red-7: rgba(201, 69, 21, 0.07);
+.in-stock {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    padding: .125rem .55rem;
+    font-weight: 600;
+    border-radius: 5rem;
+    color: $green;
+    background-color: $green-7;
+
+    @include tablet {
+        font-weight: 600;
+    }
+
+    @include desktop {
+        font-weight: 600; 
+    }
+  }
+
+  .out-of-stock {
+@extend .in-stock;
+    color: $red;
+    background-color: $red-7;
+  }
+
+
 .list {
     &__table-text {
         @include table-header;

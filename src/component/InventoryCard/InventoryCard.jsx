@@ -6,8 +6,13 @@ import chevron from "../../assets/Icons/chevron_right-24px.svg"
 
 
 function InventoryCard({ inventory, getWarehouseName }) {
-   //console.log('Inventory:', inventory);
-
+   //console.log('WarehouseName:', getWarehouseName);
+   
+   function getStatusClass(quantity) {
+    return quantity > 0 ? 'in-stock' : 'out-of-stock';
+  }
+  console.log(getStatusClass(0)); // Output: 'out-of-stock'
+console.log(getStatusClass(10)); // Output: 'in-stock'
 
     function handleOnClick() {
         alert("i've been clicked")
@@ -32,7 +37,7 @@ function InventoryCard({ inventory, getWarehouseName }) {
                 </div>
                 <div className="list__mobile-warehouse">
                     <h2 className="list__header-mobile list__table-text">Status</h2>
-                    <p className="list__p">{inventory.status}</p>
+                    <p className={`${getStatusClass(inventory.quantity)}`}>{inventory.status}</p>
                     <h2 className="list__header-mobile list__table-text">Qty</h2>
                     <p className="list__p">{inventory.quantity}</p>
                     <Link to={`/inventory/edit/${inventory.id}`} className="list__btn-mobile list__btn-mobile--edit">
@@ -48,7 +53,7 @@ function InventoryCard({ inventory, getWarehouseName }) {
                     </div>
                 </Link>
                 <p className="list__address list__p">{inventory.category}</p>
-                <p className="list__name list__p"> {inventory.status} </p>
+                <p className={`list__info list__p ${getStatusClass(inventory.quantity)}`}>{inventory.status}</p>
                 <p className="list__info list__p">{inventory.quantity}</p>
                 <p className="list__info list__p">{getWarehouseName(inventory.id)}</p>
                 <div className="list__list-btns">
