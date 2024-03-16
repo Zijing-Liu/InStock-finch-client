@@ -1,10 +1,7 @@
 import './WarehouseDetails.scss'
-import deleteIcon from "../../assets/Icons/delete_outline-24px.svg"
-import editIcon from "../../assets/Icons/edit-24px.svg"
-import sortIcon from "../../assets/Icons/sort-24px.svg"
-import chevronIcon from "../../assets/Icons/chevron_right-24px.svg"
+import editIconWhite from '../../assets/Icons/edit-24px-white.svg'
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg"
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
@@ -15,23 +12,6 @@ function WarehouseDetails() {
     navigate(-1);
   };
 
-  // Pass down props from warehouselist??
-  const inventoryItem = [
-    {
-      id: '1',
-      itemName: 'Television',
-      category: 'Electronics',
-      status: 'In Stock',
-      quantity: 500,
-    },
-    {
-      id: '2',
-      itemName: 'Television',
-      category: 'Electronics',
-      status: 'In Stock',
-      quantity: 500,
-    }
-  ]
   const baseURL = process.env.REACT_APP_BASE_URL
   const [selectedWarehouse, setSelectedWarehouse] = useState("")
   const { ID } = useParams();
@@ -51,22 +31,29 @@ function WarehouseDetails() {
 
   if (!selectedWarehouse) {
     return (
-      <div>loading...</div>
+      <div>Loading...</div>
     )
   }
 
   return (
     <section>
-
       <div className="warehouse-details" key={selectedWarehouse.id}>
         <div className="warehouse-details__header" >
           <div className='warehouse-details__header-container'>
             <img className="warehouse__icon" src={arrowIcon} alt="arrow-icon" onClick={handleGoBack} />
             <h1 className='warehouse-details__title-name'>{selectedWarehouse.warehouse_name}</h1>
           </div>
-          <img src={editIcon} className="warehouse-details__edit-icon" alt='edit icon'></img>
+          <Link to={`/warehouses/edit/${ID}`} className='warehouse-details__edit--tablet'>
+            <button className="warehouse-details__edit-button">
+              <img
+                // className="warehouse-details__edit-button"
+                src={editIconWhite}
+                alt="Edit Icon"
+              />
+              <p className="warehouse-details__edit-text--tablet">Edit</p>
+            </button>
+          </Link>
         </div>
-
 
         <div className="warehouse-details__info">
           <div className='warehouse-details__address-wrapper'>
@@ -86,75 +73,8 @@ function WarehouseDetails() {
             </div>
           </div>
         </div>
-
-
-        <div className="inv-list__header">
-          <div className="inv-list__icons inv-list__warehouse">
-            <h2 className='inv-list__small-heading'>INVENTORY ITEM</h2> <img src={sortIcon} alt='sort icon' />
-          </div>
-          <div className="inv-list__icons inv-list__address">
-            <h2 className='inv-list__small-heading'>CATEGORY</h2> <img src={sortIcon} alt='sort icon' />
-          </div>
-          <div className="inv-list__icons inv-list__name">
-            <h2 className='inv-list__small-heading'>STATUS</h2> <img src={sortIcon} alt='sort icon' />
-          </div>
-          <div className="inv-list__icons inv-list__info">
-            <h2 className='inv-list__small-heading'>QUANTITY</h2> <img src={sortIcon} alt='sort icon' />
-          </div>
-          <h2 className="inv-list__action inv-list__small-heading">ACTIONS</h2>
-        </div>
-        {inventoryItem.map((item) => {
-          return (
-            <div key={item.id}>
-              <div className="inv-list__mobile-container">
-                <div className="inv-list__mobile-inventory">
-                  <h2 className="inv-list__small-heading">INVENTORY ITEM</h2>
-                  <Link to={`/warehouses/${item.id}`} className="inv-list__inventory">
-                    <div className="inv-list__icons">
-                      <p className="inv-list__address inv-list__paragraph">{item.itemName}</p> <img src={chevronIcon} alt='chevron icon' />
-                    </div>
-                  </Link>
-                  <h2 className="inv-list__small-heading">CATEGORY</h2>
-                  <p className="inv-list__address-text inv-list__paragraph">{item.category}</p>
-                  <button className="inv-list__btn-mobile" onClick={() => alert(`id: ${item.id}`)}>
-                    <img src={deleteIcon} alt='delete icon' />
-                  </button>
-                </div>
-                <div className="inv-list__mobile-inventory">
-                  <h2 className="inv-list__small-heading">STATUS</h2>
-                  <p className='inv-list__paragraph inv-list__status'>{item.status}</p>
-                  <h2 className="inv-list__small-heading">QTY</h2>
-                  <p className='inv-list__paragraph'>{item.quantity}</p>
-                  <Link to={`/warehouses/edit/${item.id}`} className="inv-list__btn-mobile inv-list__btn-mobile--edit">
-                    <img src={editIcon} alt='edit icon' />
-                  </Link>
-                </div>
-              </div>
-
-              <div className="inv-list__inventory-container">
-                <Link to={`/warehouses/${item.id}`} className="inv-list__inventory">
-                  <div className="inv-list__icons inv-list__icons--active">
-                    <p className="inv-list__address">{item.itemName}</p> <img src={chevronIcon} alt='arrow icon' />
-                  </div>
-                </Link>
-                <p className="inv-list__address">{item.category}</p>
-                <p className="inv-list__name inv-list__status"> {item.status} </p>
-                <p className="inv-list__info">{item.quantity}</p>
-                <div className="inv-list__list-btns">
-                  <button onClick={() => alert(`id: ${item.id}`)}>
-                    <img src={deleteIcon} alt='delete icon' />
-                  </button>
-                  <Link to={`/inventory/edit/${item.id}`}>
-                    <img src={editIcon} alt='edit icon' />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )
-        }
-        )}
       </div>
-    </section>
+    </section >
   )
 }
 

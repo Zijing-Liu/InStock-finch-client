@@ -16,22 +16,73 @@
         align-items: center;
         border-bottom: 1px solid $cloud;
 
-
         @include tablet {
             display: flex;
             justify-content: space-between;
-            padding: 0 36px 16px;
+            padding: 0 36px;
         }
 
         @include desktop {
-            padding: 0 63px 16px;
+            padding: 0 63px;
         }
 
         &-container {
             display: flex;
             justify-content: flex-start;
         }
+    }
 
+    &__edit-button:hover {
+        background-color: $graphite;
+        cursor: pointer;
+    }
+
+    &__edit-icon--mobile {
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__edit--tablet {
+        color: white;
+        text-decoration: none;
+    }
+
+    &__edit-button {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        background-color: $instock-indigo;
+        border: 0px;
+        border-radius: 50%;
+        padding: 8px;
+
+
+        @include tablet {
+            border-radius: 50px;
+            gap: 8px;
+            width: max-content;
+            padding: 15px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        width: max-content;
+    }
+
+    &__edit-text--tablet {
+        display: none;
+
+        @include tablet {
+            @include label-links-buttons;
+            font-weight: 700;
+            color: $white;
+            display: inline;
+            padding: 0;
+            margin: 0;
+        }
     }
 
     &__title-name {
@@ -53,11 +104,15 @@
 
     &__address-wrapper {
         margin-bottom: 10px;
+
+        @include tablet {
+            width: 30%;
+        }
     }
 
     &__heading {
         @include table-header;
-        margin-bottom: 6px;
+        margin: 6px 0;
         font-size: 0.6rem;
         color: $slate;
         font-weight: 600;
@@ -68,227 +123,32 @@
         margin: 0;
         line-height: 1.5;
         color: $instock-black;
+
+        @include tablet {
+            width: 110px;
+        }
     }
 
     &__contact-wrapper {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
 
         @include tablet {
-            width: 55%;
+            width: 60%;
             justify-content: flex-start;
+            border-left: 1px solid $cloud;
         }
     }
-}
 
-
-
-////////////////////////////////
-
-
-.inv-list {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px $cloud;
-    margin-bottom: 2rem;
-
-    @include desktop {
-        max-width: 1020px;
-    }
-
-    &__small-heading {
-        @extend .warehouse-details__heading;
-    }
-
-    &__paragraph {
-        @include body-medium;
-        margin: 0 0 8px 0;
-    }
-
-    &__status {
-        text-transform: uppercase;
-        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-        font-weight: 600;
-        // width: fit-content;
-        color: $green;
-        background-color: rgba(21, 132, 99, 0.07);
-        border-radius: 1.25rem;
-        margin-top: 0;
-    }
-
-
-    &__btn-mobile {
-        align-self: flex-start;
-        border: none;
-        background-color: $white;
-        padding: 0;
-        margin-top: auto;
-
-        &--edit {
-            align-self: flex-end;
-
-        }
+    &__contact-name {
+        padding-right: 40px;
 
         @include tablet {
-            display: none;
-        }
-    }
-
-    &__list-btns {
-        display: none;
-
-        @include tablet {
-            display: flex;
-            margin-left: auto;
-        }
-
-        button {
-            border: none;
-            background-color: transparent;
-        }
-
-        :nth-child(2) {
-            padding-left: 15px;
-        }
-    }
-
-    &__header {
-        display: none;
-        background-color: $light-grey;
-
-        @include tablet {
-            padding: 0 36px;
-            display: flex;
+            padding: 0 40px;
         }
 
         @include desktop {
-            padding: 0 63;
+            padding-right: 100px;
         }
-    }
-
-    &__icons {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        &--active {
-            &:hover {
-                text-decoration: underline;
-                color: $instock-indigo;
-            }
-        }
-    }
-
-    &__inventory {
-        text-decoration: none;
-        color: $instock-indigo;
-        font-weight: 600;
-        margin-bottom: 8px;
-
-        @include tablet {
-            width: 25%;
-            margin-bottom: 0;
-        }
-
-        @include desktop {
-            width: 25%;
-        }
-
-        p {
-            width: auto;
-            padding-right: 4px;
-            margin-bottom: 0;
-        }
-    }
-
-    &__address {
-
-        @include tablet {
-            width: 20%;
-            text-wrap: wrap;
-            padding: 8px;
-
-        }
-
-        @include desktop {
-            width: 20%;
-            text-wrap: wrap;
-        }
-    }
-
-    &__name {
-
-        @include tablet {
-            width: 20%;
-            padding: 8px;
-        }
-
-        @include desktop {
-            width: 20%;
-        }
-    }
-
-    &__info {
-        @include tablet {
-            width: 20%;
-            text-wrap: wrap;
-            padding: 4px;
-        }
-
-        @include tablet {
-            width: 20%;
-        }
-    }
-
-    &__action {
-        margin-left: auto;
-        align-self: center;
-    }
-
-    &__mobile-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 10px 0;
-        gap: 15%;
-        border-top: 1px solid $cloud;
-
-        @include tablet {
-            display: none;
-        }
-
-        @include desktop {
-            display: none;
-        }
-    }
-
-    &__inventory-container {
-        display: none;
-
-        @include tablet {
-            display: flex;
-            padding: 0 36px;
-            align-items: center;
-            border-top: 1px solid $cloud;
-        }
-
-        @include desktop {
-            padding: 0 63px;
-
-            &:hover {
-                background-color: rgb(46, 102, 229, 0.1);
-            }
-        }
-    }
-
-    &__mobile-inventory {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 8px;
-        width: 30%;
-        text-wrap: wrap;
-        align-items: start;
     }
 }
