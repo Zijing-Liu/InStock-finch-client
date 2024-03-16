@@ -6,6 +6,7 @@ import chevron from "../../assets/Icons/chevron_right-24px.svg"
 
 
 function InventoryCard({ inventory }) {
+    console.log('Inventory:', inventory);
 
     function handleOnClick() {
         alert("i've been clicked")
@@ -22,16 +23,16 @@ function InventoryCard({ inventory }) {
                         </div>
                     </Link>
                     <h2 className="list__header-mobile list__table-text">Category</h2>
-                    <p className="list__address-text list__p">{inventory.category}, {inventory.status}, {inventory.quantity}</p>
+                    <p className="list__address-text list__p">{inventory.category}</p>
                     <button className="list__btn-mobile" onClick={handleOnClick}>
                         <img src={deleteBtn} alt="delete button" />
                     </button>
                 </div>
                 <div className="list__mobile-warehouse">
-                    <h2 className="list__header-mobile list__table-text">Contact Name</h2>
-                    {/* <p className="list__p">{warehouse.contact_name}</p> */}
-                    {/* <h2 className="list__header-mobile list__table-text">Contact Information</h2>
-                    <p className="list__p">{warehouse.contact_phone} <br /> {warehouse.contact_email}</p> */}
+                    <h2 className="list__header-mobile list__table-text">Status</h2>
+                    <p className="list__p">{inventory.status}</p>
+                    <h2 className="list__header-mobile list__table-text">Qty</h2>
+                    <p className="list__p">{inventory.quantity}</p>
                     <Link to={`/inventory/edit/${inventory.id}`} className="list__btn-mobile list__btn-mobile--edit">
                         <img src={editBtn} alt="edit button" />
                     </Link>
@@ -41,12 +42,13 @@ function InventoryCard({ inventory }) {
             <div className="list__warehouse-container">
                 <Link to={`/inventory/${inventory.id}`} className="list__warehouse list__table-text">
                     <div className="list__icons list__icons--active">
-                        {/* <p className="list__p list__warehouse list__warehouse-text">{inventory.warehouse_name}</p> <img src={chevron} alt="chevron" /> */}
+                        <p className="list__p list__warehouse list__warehouse-text">{inventory.item_name}</p> <img src={chevron} alt="chevron" />
                     </div>
                 </Link>
-                {/* <p className="list__address list__p">{warehouse.address}, {warehouse.city}, {warehouse.country}</p> */}
-                {/* <p className="list__name list__p"> {warehouse.contact_name} </p>
-                <p className="list__info list__p">{warehouse.contact_phone} <br /> {warehouse.contact_email}</p> */}
+                <p className="list__address list__p">{inventory.category}</p>
+                <p className="list__name list__p"> {inventory.status} </p>
+                <p className="list__info list__p">{inventory.quantity}</p>
+                <p className="list__info list__p">{inventory.warehouse_id}</p>
                 <div className="list__list-btns">
                     <button className="list__delete-btn" onClick={handleOnClick}>
                         <img src={deleteBtn} alt="delete button" />

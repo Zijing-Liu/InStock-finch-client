@@ -6,10 +6,11 @@ import InventoryCard from "../InventoryCard/InventoryCard.jsx";
 
 
 function InventoryList({inventoryData}) {
+   // console.log('inventoryData:', inventoryData);
 
     const inventoryObj = {
         title: "Inventory",
-        button: "+ Add New Warehouse",
+        button: "+ Add New Item",
     }
 
 
@@ -45,17 +46,15 @@ function InventoryList({inventoryData}) {
                 <h2 className="list__table-header list__action">Actions</h2>
             </div>
 
-            {inventoryData.map((inventory, index) => {
-    return (
-        <InventoryCard 
-            inventory={inventory}
-            key={index} // Using array index as key
-        />
-    );
-})}
+            {inventoryData.map((inventory) => (
+    <InventoryCard 
+        inventory={inventory}
+        key={inventory.id} // Using unique identifier as key
+    />
+))}
               
         </section>
-    )
-}
+    );
+};
 
 export default InventoryList;
