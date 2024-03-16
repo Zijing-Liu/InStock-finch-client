@@ -5,22 +5,26 @@ import { Button, Modal } from "flowbite-react";
 import { useState } from "react";
 import axios from "axios";
 
-function DeleteModel({ Allinventories, inventoryTodelete ,setIinventories }) {
+function DeleteModel({list ,setList , itemId ,listName ,itemName}) {
   const [openModal, setOpenModal] = useState(false);
 
-  // this should be added in the inventory page 
-  // const [inventories, setIinventories] = useState(Allinventories);
+  // here is the explination how to use this compenet 
+  // add all the following in your copmenent as props to pass it to here . 
+  // 1.const [list, setList] = useState(Allinventories or allWarehouses); that will be coming form your get request.
+  // 2.itemId => is the Id of the warehouse or the inventory you would like to delete .
+  // 3.listName => is warehouses or inventories that will be in rout and text .
+  // 4.ItemName => is the name of the warehouse or the inventory you would like to delete .
 
   // handle delete button
   const handleOnClick = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.delete(
-        `${process.env.REACT_APP_BASE_URL}in/${inventoryTodelete.id}`
+        `${process.env.REACT_APP_BASE_URL}${listName}/${itemId}`
       );
-      setIinventories(
-        Allinventories.filter(
-          (inventory) => inventory.id !== inventoryTodelete.id
+      setList(
+        list.filter(
+          (inventory) => inventory.id !== itemId
         )
       );
       setOpenModal(false);
@@ -44,12 +48,12 @@ function DeleteModel({ Allinventories, inventoryTodelete ,setIinventories }) {
         <Modal.Header />
         <Modal.Body>
           <div className="text-start">
-            <h1 className="modal__title mb-1">
+            <h1 className="modal__title mb-2">
               Delete Television inventory item?
             </h1>
             <h3 className=" modal__text">
-              Please confirm that you’d like to delete{inventoryTodelete.item_name} from
-              the inventory list. You won’t be able to undo this action.
+              Please confirm that you’d like to delete {itemName} from
+              the {listName} list. You won’t be able to undo this action.
             </h3>
           </div>
         </Modal.Body>

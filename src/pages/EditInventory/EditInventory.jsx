@@ -26,6 +26,7 @@ function EditInventory() {
         const response = await axios.get(`${base_url}inventories/${ID}`);
         const itemDetail = response.data;
         setItemDetails(itemDetail);
+        console.log(response.data)
         // get the warehouse name the item is located at from api
         if (!itemDetail.warehouse_id) {
           throw Error("unable to get warehouse id");
