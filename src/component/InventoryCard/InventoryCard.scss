@@ -7,7 +7,7 @@ $green-7: rgba(0, 128, 0, 0.07);
 $red-7: rgba(201, 69, 21, 0.07);
 
 
-.in-stock {
+p.in-stock {
     font-size: 14px;
     line-height: 22px;
     text-align: center;
@@ -16,13 +16,20 @@ $red-7: rgba(201, 69, 21, 0.07);
     border-radius: 20px;
     color: $green;
     background-color: $green-7;
+    text-transform: uppercase;
+
+        @include tablet {
+            color: $green;
+            font-weight: 600;
+        }
   }
 
-  .out-of-stock {
+ p.out-of-stock {
 @extend .in-stock;
     color: $red;
     background-color: $red-7;
   }
+
 
 
 .list {
@@ -38,17 +45,24 @@ $red-7: rgba(201, 69, 21, 0.07);
     &__p {
         @include body-medium;
         margin: 0 0 8px 0;
-        
+        }
 
-        .in-stock & {
+
+    &__p.in-stock {
+        @include tablet {
+            padding: .125rem .55rem !important;
+            margin-right: 1rem;
+        }
+    }
+
+        &__p.out-of-stock {
             @include tablet {
-                border: 1px solid red;
+                padding: .125rem .55rem !important;
+                margin-right: 1rem;
             }
-            
-        }
 
-        }
-    
+    }
+
 
     &__mobile-container {
         display: flex;
@@ -186,12 +200,13 @@ $red-7: rgba(201, 69, 21, 0.07);
         }
     }
 
-    &__name {
-
+    &__status {
         @include tablet {
             width: 20%;
             padding: 8px;
-        }
+   }
+
+        
 
         @include desktop {
             width: 20%;
@@ -203,12 +218,6 @@ $red-7: rgba(201, 69, 21, 0.07);
             width: 20%;
             text-wrap: wrap;
             padding: 4px;
-            
-
-            &--in-stock {
-                font-weight: 600;
-                border: 1px solid red;
-            }
         }
     }
 
