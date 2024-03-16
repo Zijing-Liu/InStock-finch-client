@@ -49,7 +49,7 @@ function DeleteModel({list ,setList , itemId ,listName ,itemName}) {
         <Modal.Body>
           <div className="text-start">
             <h1 className="modal__title mb-2">
-              Delete Television inventory item?
+              Delete {itemName} {listName} item?
             </h1>
             <h3 className=" modal__text">
               Please confirm that you’d like to delete {itemName} from
