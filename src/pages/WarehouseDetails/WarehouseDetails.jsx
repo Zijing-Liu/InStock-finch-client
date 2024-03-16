@@ -46,7 +46,6 @@ function WarehouseDetails() {
           <Link to={`/warehouses/edit/${ID}`} className='warehouse-details__edit--tablet'>
             <button className="warehouse-details__edit-button">
               <img
-                // className="warehouse-details__edit-button"
                 src={editIconWhite}
                 alt="Edit Icon"
               />
