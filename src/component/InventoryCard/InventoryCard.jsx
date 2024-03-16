@@ -5,12 +5,14 @@ import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
 
 
-function InventoryCard({ inventory }) {
-    console.log('Inventory:', inventory);
+function InventoryCard({ inventory, getWarehouseName }) {
+   //console.log('Inventory:', inventory);
+
 
     function handleOnClick() {
         alert("i've been clicked")
     }
+
 
     return (
         <div>
@@ -48,7 +50,7 @@ function InventoryCard({ inventory }) {
                 <p className="list__address list__p">{inventory.category}</p>
                 <p className="list__name list__p"> {inventory.status} </p>
                 <p className="list__info list__p">{inventory.quantity}</p>
-                <p className="list__info list__p">{inventory.warehouse_id}</p>
+                <p className="list__info list__p">{getWarehouseName(inventory.id)}</p>
                 <div className="list__list-btns">
                     <button className="list__delete-btn" onClick={handleOnClick}>
                         <img src={deleteBtn} alt="delete button" />

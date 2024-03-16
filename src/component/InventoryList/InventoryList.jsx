@@ -5,8 +5,20 @@ import sort from "../../assets/Icons/sort-24px.svg"
 import InventoryCard from "../InventoryCard/InventoryCard.jsx";
 
 
-function InventoryList({inventoryData}) {
+function InventoryList({ inventoryData, warehouseData }) {
    // console.log('inventoryData:', inventoryData);
+
+   const getWarehouseName = (inventoryItemId) => {
+    const inventoryItem = inventoryData.find(item => item.id === inventoryItemId);
+    if (inventoryItem) {
+      const warehouseId = inventoryItem.warehouse_id;
+      const matchingWarehouse = warehouseData.find(warehouse => warehouse.id === warehouseId);
+      return matchingWarehouse ? matchingWarehouse.warehouse_name : "Unknown Warehouse";
+    } else {
+      return "Unknown Inventory Item";
+    }
+  };
+
 
     const inventoryObj = {
         title: "Inventory",
@@ -46,11 +58,12 @@ function InventoryList({inventoryData}) {
                 <h2 className="list__table-header list__action">Actions</h2>
             </div>
 
-            {inventoryData.map((inventory) => (
-    <InventoryCard 
-        inventory={inventory}
-        key={inventory.id} // Using unique identifier as key
-    />
+            {inventoryData && warehouseData && inventoryData.map(inventoryItem => (
+        <InventoryCard 
+          inventory={inventoryItem}
+          key={inventoryItem.id}
+          getWarehouseName={getWarehouseName}
+        />
 ))}
               
         </section>
