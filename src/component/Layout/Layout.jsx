@@ -1,4 +1,4 @@
-import DeleteModel from '../DeleteModel/DeleteModel';
+
 import Header from '../Header/Header';
 // import Footer from './Footer/Footer';
 import './Layout.scss';
