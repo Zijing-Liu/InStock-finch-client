@@ -1,36 +1,71 @@
+"use client";
+import "./DeleteModel.scss";
+import deleteIcon from "../../assets/Icons/delete_outline-24px.svg";
+import { Button, Modal } from "flowbite-react";
+import { useState } from "react";
+import axios from "axios";
 
-'use client';
-import './DeleteModel.scss';
-import { Button, Modal } from 'flowbite-react';
-import { useState } from 'react';
-import { HiOutlineExclamationCircle } from 'react-icons/hi';
-
-
-function DeleteModel() {
+function DeleteModel({ Allinventories, inventoryTodelete ,setIinventories }) {
   const [openModal, setOpenModal] = useState(false);
 
+  // this should be added in the inventory page 
+  // const [inventories, setIinventories] = useState(Allinventories);
+
+  // handle delete button
+  const handleOnClick = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.delete(
+        `${process.env.REACT_APP_BASE_URL}in/${inventoryTodelete.id}`
+      );
+      setIinventories(
+        Allinventories.filter(
+          (inventory) => inventory.id !== inventoryTodelete.id
+        )
+      );
+      setOpenModal(false);
+    } catch (error) {
+      console.error("Error deleting post:", error);
+    }
+  };
   return (
     <>
-    <h1 className='hello text-gray'>hello</h1>
-      <Button onClick={() => setOpenModal(true)}>Toggle modal</Button>
-      <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
+      <img
+        src={deleteIcon}
+        alt="delete-icon"
+        onClick={() => setOpenModal(true)}
+      />
+      <Modal
+        show={openModal}
+        size="md"
+        onClose={() => setOpenModal(false)}
+        popup
+      >
         <Modal.Header />
         <Modal.Body>
-          <div className="text-center">
-            <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
-            <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-              Are you sure you want to delete this product?
+          <div className="text-start">
+            <h1 className="modal__title mb-1">
+              Delete Television inventory item?
+            </h1>
+            <h3 className=" modal__text">
+              Please confirm that you’d like to delete{inventoryTodelete.item_name} from
+              the inventory list. You won’t be able to undo this action.
             </h3>
-            <div className="flex justify-center gap-4">
-              <Button color="failure" onClick={() => setOpenModal(false)}>
-                {"Yes, I'm sure"}
-              </Button>
-              <Button color="gray" onClick={() => setOpenModal(false)}>
-                No, cancel
-              </Button>
-            </div>
           </div>
         </Modal.Body>
+        <Modal.Footer>
+          <div className="flex justify-center btn-box gap-2">
+            <Button
+              className="modal__btn modal__btn--white"
+              onClick={() => setOpenModal(false)}
+            >
+              Cancel
+            </Button>
+            <Button className="modal__btn" onClick={handleOnClick}>
+              Delete
+            </Button>
+          </div>
+        </Modal.Footer>
       </Modal>
     </>
   );
