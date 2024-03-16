@@ -1,8 +1,11 @@
 import React from 'react'
+import WarehouseInventoryCard from "../../component/WarehouseInventoryCard/WarehouseInventoryCard"
 
 function WarehouseDetails() {
   return (
-    <div>WarehouseDetails</div>
+    <div>
+    <WarehouseInventoryCard />
+    </div>
   )
 }
 
