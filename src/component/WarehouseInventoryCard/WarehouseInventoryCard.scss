@@ -141,9 +141,12 @@
     }
 
     &__name {
+        height: 24px;
+        
         @include tablet {
             width: 25%;
             padding: 8px;
+            height: 26px;
         }
 
         @include desktop {

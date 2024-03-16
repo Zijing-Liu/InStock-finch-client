@@ -41,7 +41,7 @@ function WarehouseInventoryCard() {
                             </div>
                         </Link>
                         <h2 className="inv-list__small-heading">CATEGORY</h2>
-                        <p className="inv-list__address-text inv-list__paragraph">item.category</p>
+                        <p className="inv-list__paragraph inv-list__address-text inv-list__paragraph">item.category</p>
                         <button className="inv-list__btn-mobile" onClick={() => alert(`id: ${item.id}`)}>
                             <img src={deleteBtn} alt='delete icon' />
                         </button>
@@ -49,9 +49,9 @@ function WarehouseInventoryCard() {
 
                     <div className="inv-list__mobile-inventory">
                         <h2 className="inv-list__small-heading">STATUS</h2>
-                        <p className='inv-list__paragraph inv-list__status'>item.status</p>
+                        <p className='inv-list__paragraph inv-list__paragraph inv-list__status inv-list__name'>item.status</p>
                         <h2 className="inv-list__small-heading">QTY</h2>
-                        <p className='inv-list__paragraph'>item.quantity</p>
+                        <p className='inv-list__paragraph inv-list__paragraph'>item.quantity</p>
                         <Link to={`/warehouses/edit/${item.id}`} className="inv-list__btn-mobile inv-list__btn-mobile--edit">
                             <img src={editBtn} alt='edit icon' />
                         </Link>
