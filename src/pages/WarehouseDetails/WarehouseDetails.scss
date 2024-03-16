@@ -152,3 +152,54 @@
         }
     }
 }
+
+.inv-list {
+
+    &__header {
+        display: none;
+        background-color: $light-grey;
+
+        @include tablet {
+            padding: 0 36px;
+            display: flex;
+        }
+
+        @include desktop {
+            padding: 0 63px;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &--active {
+            &:hover {
+                text-decoration: underline;
+                color: $instock-indigo;
+            }
+        }
+    }
+
+    &__inventory {
+        text-decoration: none;
+        color: $instock-indigo;
+        font-weight: 600;
+        margin-bottom: 8px;
+
+        @include tablet {
+            width: 25%;
+            margin-bottom: 0;
+        }
+
+        @include desktop {
+            width: 25%;
+        }
+    }
+
+    &__small-heading {
+        text-transform: uppercase;
+        @extend .warehouse-details__heading;
+    }
+}

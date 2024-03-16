@@ -1,5 +1,4 @@
 import "./WarehouseInventoryCard.scss"
-import sort from "../../assets/Icons/sort-24px.svg"
 import deleteBtn from "../../assets/Icons/delete_outline-24px.svg"
 import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
@@ -34,26 +33,12 @@ function WarehouseInventoryCard({ item }) {
 
     return (
         <div>
-            <div className="inv-list__header">
-                <div className="inv-list__icons inv-list__inventory">
-                    <h2 className='inv-list__small-heading'>INVENTORY ITEM</h2> <img src={sort} alt='sort icon' />
-                </div>
-                <div className="inv-list__icons inv-list__address">
-                    <h2 className='inv-list__small-heading'>CATEGORY</h2> <img src={sort} alt='sort icon' />
-                </div>
-                <div className="inv-list__icons inv-list__name">
-                    <h2 className='inv-list__small-heading'>STATUS</h2> <img src={sort} alt='sort icon' />
-                </div>
-                <div className="inv-list__icons inv-list__info">
-                    <h2 className='inv-list__small-heading'>QUANTITY</h2> <img src={sort} alt='sort icon' />
-                </div>
-                <h2 className="inv-list__action inv-list__small-heading">ACTIONS</h2>
-            </div>
+
             <div>
                 <div className="inv-list__mobile-container">
                     <div className="inv-list__mobile-inventory">
                         <h2 className="inv-list__small-heading">INVENTORY ITEM</h2>
-                        <Link to={`/warehouses/${item.id}`} className="inv-list__inventory">
+                        <Link to={`/inventory/${item.id}`} className="inv-list__inventory">
                             <div className="inv-list__icons">
                                 <p className="inv-list__paragraph inv-list__inventory inv-list__inventory-text">{item.item_name}</p> <img src={chevron} alt='chevron icon' />
                             </div>

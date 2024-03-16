@@ -2,12 +2,13 @@ import './WarehouseDetails.scss'
 import WarehouseInventoryCard from "../../component/WarehouseInventoryCard/WarehouseInventoryCard"
 import editIconWhite from '../../assets/Icons/edit-24px-white.svg'
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg"
+import sort from "../../assets/Icons/sort-24px.svg"
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 function WarehouseDetails() {
-  
+
 
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -37,15 +38,15 @@ function WarehouseDetails() {
   // const { ID } = useParams();
 
   useEffect(() => {
-      const warehouseDataTest = async () => {
-          try {
-              const response = await axios.get(`${baseURL}warehouses/${ID}/inventories`)
-              setList(response.data)
-          } catch (error) {
-              console.log("WareInv data error")
-          }
+    const warehouseDataTest = async () => {
+      try {
+        const response = await axios.get(`${baseURL}warehouses/${ID}/inventories`)
+        setList(response.data)
+      } catch (error) {
+        console.log("WareInv data error")
       }
-      warehouseDataTest();
+    }
+    warehouseDataTest();
   }, [ID])
 
   if (!selectedWarehouse) {
@@ -56,7 +57,7 @@ function WarehouseDetails() {
 
   if (!list) {
     return <div>Loading...</div>
-}
+  }
 
   return (
     <section>
@@ -96,15 +97,32 @@ function WarehouseDetails() {
           </div>
         </div>
       </div>
+
+      <div className="inv-list__header">
+        <div className="inv-list__icons inv-list__inventory">
+          <h2 className='inv-list__small-heading'>INVENTORY ITEM</h2> <img src={sort} alt='sort icon' />
+        </div>
+        <div className="inv-list__icons inv-list__address">
+          <h2 className="inv-list__small-heading">CATEGORY</h2> <img src={sort} alt='sort icon' />
+        </div>
+        <div className="inv-list__icons inv-list__name">
+          <h2 className='inv-list__small-heading'>STATUS</h2> <img src={sort} alt='sort icon' />
+        </div>
+        <div className="inv-list__icons inv-list__info">
+          <h2 className='inv-list__small-heading'>QUANTITY</h2> <img src={sort} alt='sort icon' />
+        </div>
+        <h2 className="inv-list__action inv-list__small-heading">ACTIONS</h2>
+      </div>
+
       {list.map((item) => {
-        return(
-      <WarehouseInventoryCard 
-      key={item.id}
-      item={item}
-      />
+        return (
+          <WarehouseInventoryCard
+            key={item.id}
+            item={item}
+          />
         )
-    })
-  }
+      })
+      }
     </section >
   )
 }

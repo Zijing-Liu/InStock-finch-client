@@ -15,11 +15,6 @@
         max-width: 1020px;
     }
 
-    &__small-heading {
-        text-transform: uppercase;
-        @extend .warehouse-details__heading;
-    }
-
     &__paragraph {
         // @include body-medium;
         margin: 0 0 8px 0;
@@ -88,20 +83,6 @@
     &__delete-btn {
         border: none;
         background-color: transparent;
-    }
-
-    &__header {
-        display: none;
-        background-color: $light-grey;
-
-        @include tablet {
-            padding: 0 36px;
-            display: flex;
-        }
-
-        @include desktop {
-            padding: 0 63px;
-        }
     }
 
     &__icons {
@@ -212,7 +193,6 @@
     &__mobile-container {
         display: flex;
         flex-wrap: wrap;
-        padding: 10px 0;
         gap: 15%;
         border-top: 1px solid $cloud;
         padding: 10px 22px 15px 22px;;
