@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 function WarehouseDetails() {
+  
 
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -29,12 +30,33 @@ function WarehouseDetails() {
     warehouseDataTest();
   }, [ID])
 
+  // const baseURL = process.env.REACT_APP_BASE_URL
+  // // const [warehouseInv, setWarehouseInv] = useState(null)
+  const [list, setList] = useState(null) //Pass down to delete modal
+  // // const [invItem, setInvItem] = useState(null)
+  // const { ID } = useParams();
+
+  useEffect(() => {
+      const warehouseDataTest = async () => {
+          try {
+              const response = await axios.get(`${baseURL}warehouses/${ID}/inventories`)
+              setList(response.data)
+          } catch (error) {
+              console.log("WareInv data error")
+          }
+      }
+      warehouseDataTest();
+  }, [ID])
 
   if (!selectedWarehouse) {
     return (
       <div>Loading...</div>
     )
   }
+
+  if (!list) {
+    return <div>Loading...</div>
+}
 
   return (
     <section>
@@ -74,7 +96,15 @@ function WarehouseDetails() {
           </div>
         </div>
       </div>
-      <WarehouseInventoryCard />
+      {list.map((item) => {
+        return(
+      <WarehouseInventoryCard 
+      key={item.id}
+      item={item}
+      />
+        )
+    })
+  }
     </section >
   )
 }
