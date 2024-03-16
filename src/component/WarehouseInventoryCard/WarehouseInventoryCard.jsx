@@ -5,16 +5,17 @@ import chevron from "../../assets/Icons/chevron_right-24px.svg"
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
+import DeleteModel from "../DeleteModel/DeleteModel";
 
-function WarehouseInventoryCard({ item }) {
+function WarehouseInventoryCard({ item, setWarehouseInv, warehouseInv }) {
     // const baseURL = process.env.REACT_APP_BASE_URL
-    // // const [warehouseInv, setWarehouseInv] = useState(null)
+    // const [warehouseInv, setWarehouseInv] = useState(null)
     // const [list, setList] = useState(null) //Pass down to delete modal
-    // // const [invItem, setInvItem] = useState(null)
+    // const [invItem, setInvItem] = useState(null)
     // const { ID } = useParams();
 
     // useEffect(() => {
-    //     const warehouseDataTest = async () => {
+    //     const warehouseData = async () => {
     //         try {
     //             const response = await axios.get(`${baseURL}warehouses/${ID}/inventories`)
     //             setList(response.data)
@@ -45,8 +46,8 @@ function WarehouseInventoryCard({ item }) {
                         </Link>
                         <h2 className="inv-list__small-heading">CATEGORY</h2>
                         <p className="inv-list__paragraph inv-list__address-text inv-list__paragraph">{item.category}</p>
-                        <button className="inv-list__btn-mobile" onClick={console.log(item.id)}>
-                            <img src={deleteBtn} alt='delete icon' />
+                        <button className="inv-list__btn-mobile">
+                            <DeleteModel setList={setWarehouseInv} list={warehouseInv} itemId={item.id} listName={"warehouses"} itemName={item.warehouse_name} />
                         </button>
                     </div>
 
@@ -74,7 +75,7 @@ function WarehouseInventoryCard({ item }) {
                     <p className="inv-list__info">{item.quantity}</p>
                     <div className="inv-list__list-btns">
                         <button className="inv-list__delete-btn" onClick={console.log(item.id)}>
-                            <img src={deleteBtn} alt='delete icon' />
+                        <DeleteModel setList={setWarehouseInv} list={warehouseInv} itemId={item.id} listName={"inventories"} itemName={item.warehouse_name} />
                         </button>
                         <Link to={`/inventory/edit/${item.id}`}>
                             <img src={editBtn} alt='edit icon' />

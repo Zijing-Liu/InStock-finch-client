@@ -6,6 +6,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .modal {
     &__title {
         @include page-header;
@@ -80,4 +82,18 @@ svg {
 .max-w-md {
     width: auto;
     max-width: fit-content;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font;
+    font-weight: auto;
+}
+
+body{
+    margin: auto;
+}
+
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+    margin: auto;
+    font-weight: auto;
 }

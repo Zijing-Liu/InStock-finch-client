@@ -17,6 +17,7 @@ function WarehouseDetails() {
 
   const baseURL = process.env.REACT_APP_BASE_URL
   const [selectedWarehouse, setSelectedWarehouse] = useState("")
+  const [warehouseInv, setWarehouseInv] = useState(null)
   const { ID } = useParams();
 
   useEffect(() => {
@@ -31,22 +32,16 @@ function WarehouseDetails() {
     warehouseDataTest();
   }, [ID])
 
-  // const baseURL = process.env.REACT_APP_BASE_URL
-  // // const [warehouseInv, setWarehouseInv] = useState(null)
-  const [list, setList] = useState(null) //Pass down to delete modal
-  // // const [invItem, setInvItem] = useState(null)
-  // const { ID } = useParams();
-
   useEffect(() => {
-    const warehouseDataTest = async () => {
+    const warehouseDataInv = async () => {
       try {
         const response = await axios.get(`${baseURL}warehouses/${ID}/inventories`)
-        setList(response.data)
+        setWarehouseInv(response.data)
       } catch (error) {
         console.log("WareInv data error")
       }
     }
-    warehouseDataTest();
+    warehouseDataInv();
   }, [ID])
 
   if (!selectedWarehouse) {
@@ -55,7 +50,7 @@ function WarehouseDetails() {
     )
   }
 
-  if (!list) {
+  if (!warehouseInv) {
     return <div>Loading...</div>
   }
 
@@ -114,11 +109,13 @@ function WarehouseDetails() {
         <h2 className="inv-list__action inv-list__small-heading">ACTIONS</h2>
       </div>
 
-      {list.map((item) => {
+      {warehouseInv.map((item) => {
         return (
           <WarehouseInventoryCard
             key={item.id}
             item={item}
+            setWarehouseInv={setWarehouseInv}
+            warehouseInv={warehouseInv}
           />
         )
       })
