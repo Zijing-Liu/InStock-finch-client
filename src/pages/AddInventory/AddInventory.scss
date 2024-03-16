@@ -1,0 +1,22 @@
+@use "../../styles/partials/typography.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/breakpoints.scss" as *;
+
+.add-inventory {
+  &__title-box {
+    padding: 0rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include tablet {
+      justify-content: flex-start;
+    }
+  }
+  &__title {
+    @include page-header;
+  }
+  &__image {
+    padding-right: 10px;
+    cursor: pointer;
+  }
+}

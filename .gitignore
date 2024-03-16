@@ -22,7 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# style
 ./src/pages/*css
 ./src/pages/*css.map
-.src/App.css
-.src/App.css.map
+./src/component/*css
+./src/component/*css.map
+./src/App.css
+./src/App.css.map
