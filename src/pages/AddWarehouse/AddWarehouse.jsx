@@ -1,29 +1,17 @@
 import './AddWarehouse.scss'
 import { useState, useEffect } from "react";
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function AddWarehouse() {
-
-  const { ID } = useParams();
+  
+  const [selectedWarehouse, setSelectedWarehouse] = useState({});
   const navigate = useNavigate();
   const baseURL = process.env.REACT_APP_BASE_URL;
   const handleGoBack = () => {
     navigate(-1);
   };
-
-
-  const [selectedWarehouse, setSelectedWarehouse] = useState({
-    warehouse_name: '',
-    address: '',
-    city: '',
-    country: '',
-    contact_name: '',
-    contact_position: '',
-    contact_phone: '',
-    contact_email: '',
-  });
 
   const [error, setError] = useState({
     warehouse_name: '',
@@ -36,27 +24,7 @@ export default function AddWarehouse() {
     contact_email: '',
   });
 
-  // useEffect(() => {
-  //   const warehouseDataTest = async () => {
-  //     try {
-  //       const response = await axios.get(`${baseURL}warehouses/${ID}`)
-  //       setSelectedWarehouse(response.data)
-  //       // console.log("response.data:", response.data)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   warehouseDataTest();
-  // }, [ID])
-
-  // function handleChange(event) {
-  //   const fieldName = event.target.name;
-  //   const fieldValue = event.target.value;
-  //   const newFormData = { ...selectedWarehouse };
-  //   newFormData[fieldName] = fieldValue;
-  //   setSelectedWarehouse(newFormData)
-  // };
-
+  
   function isValidEmail(email) {
     // regex matches "example@example.com" (username before "@" and domain afterwards)
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -103,8 +71,8 @@ export default function AddWarehouse() {
       newError.contact_phone = "Please enter valid phone number";
    }
 
-    setError(newError);
-
+   setError(newError);
+   
     const submitDataObj = {
       warehouse_id: selectedWarehouse.id,
       warehouse_name: selectedWarehouse.warehouse_name,
@@ -119,7 +87,7 @@ export default function AddWarehouse() {
 
     const postWarehouse = async () => {
       try {
-        const response = await axios.post(`${baseURL}warehouses/${ID}`, submitDataObj)
+        const response = await axios.post(`${baseURL}warehouses`, submitDataObj)
         console.log(response)
       } catch (error) {
         console.log(error)
