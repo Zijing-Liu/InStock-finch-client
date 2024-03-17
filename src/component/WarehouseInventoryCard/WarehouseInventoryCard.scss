@@ -1,0 +1,210 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../pages/WarehouseDetails/WarehouseDetails.scss" as *;
+
+.inv-list {
+
+    @include desktop {
+        max-width: 1020px;
+    }
+
+    &__paragraph {
+        @extend .warehouse-details__content;
+    }
+
+    &__status {
+        text-transform: uppercase;
+        padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+        font-weight: 600;
+        width: fit-content;
+        border-radius: 1.25rem;
+        margin-top: 0;
+        text-align: center;
+        text-wrap: nowrap;
+        height: 1.5rem;
+
+        @include tablet {
+            height: 1.625rem;
+        }
+
+        &--in-stock {
+            color: $green;
+            background-color: rgba(21, 132, 99, 0.07);
+        }
+    
+        &--no-stock {
+            color: $red;
+            background-color: rgb(201, 69, 21, 0.07);
+        }
+
+        @include tablet {
+        margin: 0;
+        }
+    }
+
+    &__btn-mobile {
+        align-self: flex-start;
+        border: none;
+        background-color: $white;
+        padding: 0;
+        margin-top: auto;
+        padding-top: 8px;
+
+        &--edit {
+            align-self: flex-end;
+        }
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__list-btns {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            margin-left: auto;
+        }
+
+        :nth-child(2) {
+            padding-left: 15px;
+        }
+    }
+
+    &__delete-btn {
+        border: none;
+        background-color: transparent;
+    }
+
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &--active {
+            &:hover {
+                text-decoration: underline;
+                color: $instock-indigo;
+            }
+        }
+    }
+
+    &__inventory {
+        text-decoration: none;
+        color: $instock-indigo;
+        font-weight: 600;
+        margin-bottom: 0;
+
+        @include tablet {
+            width: 25%;
+            
+        }
+
+        @include desktop {
+            width: 25%;
+        }
+
+        &-text {
+            width: auto;
+            padding-right: 4px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__address {
+        @include tablet {
+            width: 20%;
+            text-wrap: wrap;
+            padding: 8px;
+        }
+
+        @include desktop {
+            width: 20%;
+            text-wrap: wrap;
+        }
+    }
+
+    &__name {
+        
+        @include tablet {
+            width: 23%;
+            padding-right: 8px;
+        }
+
+        @include desktop {
+            width: 25%;
+        }
+    }
+
+    &__info {
+        @include tablet {
+            width: 20%;
+            text-wrap: wrap;
+            padding: 4px;
+        }
+
+        @include tablet {
+            width: 20%;
+        }
+    }
+
+    &__action {
+        margin-left: auto;
+        align-self: center;
+    }
+    
+    &__border-top {
+        border-top: 1px solid $cloud;
+        }
+
+    &__inventory-container {
+        display: none;
+
+        @include tablet {
+            display: flex;
+            padding: 8px 36px;
+            align-items: center;
+        }
+
+        @include desktop {
+            padding: 8px 63px;
+
+            &:hover {
+                background-color: rgb(46, 102, 229, 0.1);
+            }
+        }
+    }
+
+
+
+    //mobile styling
+    &__mobile-inventory {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 8px;
+        width: 30%;
+        text-wrap: wrap;
+        align-items: start;
+        width: 40%;
+    }
+
+    &__mobile-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15%;
+        border-top: 1px solid $cloud;
+        padding: 10px 22px 15px 22px;;
+
+        @include tablet {
+            display: none;
+        }
+
+        @include desktop {
+            display: none;
+        }
+    }
+
+}
+
