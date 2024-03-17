@@ -46,9 +46,12 @@ function InventoryCard({
         </div>
         <div className="list__mobile-warehouse">
           <h2 className="list__header-mobile list__table-text">Status</h2>
-          <p className={`${getStatusClass(inventory.quantity)}`}>
-            {inventory.status}
-          </p>
+          <p className={`list__status list__p ${getStatusClass(
+            inventory.quantity
+          )}`}
+        >
+          {inventory.status}
+        </p>
           <h2 className="list__header-mobile list__table-text">Qty</h2>
           <p className="list__p">{inventory.quantity}</p>
           <Link
@@ -73,8 +76,7 @@ function InventoryCard({
           </div>
         </Link>
         <p className="list__address list__p">{inventory.category}</p>
-        <p
-          className={`list__status list__p ${getStatusClass(
+        <p className={`list__status list__p ${getStatusClass(
             inventory.quantity
           )}`}
         >
