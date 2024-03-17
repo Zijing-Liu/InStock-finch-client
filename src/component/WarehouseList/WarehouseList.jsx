@@ -4,8 +4,8 @@ import { useState } from "react";
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import sort from "../../assets/Icons/sort-24px.svg";
 
+function WarehouseList({warehouseData, setWarehouseData}) {
 
-function WarehouseList({warehouseData, }) {
 
     const warehouseObj = {
         title: "Warehouses",
@@ -47,6 +47,8 @@ function WarehouseList({warehouseData, }) {
                 <WarehouseCard 
                 warehouse={warehouse}
                 key={warehouse.id}
+                setWarehouseData={setWarehouseData}
+                warehouseData={warehouseData}
                 />
             )}
                 )}

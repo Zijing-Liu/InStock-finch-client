@@ -1,15 +1,11 @@
 import "./WarehouseCard.scss"
 import { Link } from "react-router-dom";
-import deleteBtn from "../../assets/Icons/delete_outline-24px.svg"
 import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
+import DeleteModel from "../DeleteModel/DeleteModel"
 
 
-function WarehouseCard({ warehouse }) {
-
-    function handleOnClick() {
-        alert("i've been clicked")
-    }
+function WarehouseCard({ warehouse, setWarehouseData, warehouseData }) {
 
     return (
         <div>
@@ -23,8 +19,8 @@ function WarehouseCard({ warehouse }) {
                     </Link>
                     <h2 className="list__header-mobile list__table-text">Address</h2>
                     <p className="list__address-text list__p">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
-                    <button className="list__btn-mobile" onClick={handleOnClick}>
-                        <img src={deleteBtn} alt="delete button" />
+                    <button className="list__btn-mobile">
+                        <DeleteModel list={warehouseData} setList={setWarehouseData} itemId={warehouse.id} listName={"warehouses"} itemName={warehouse.name} />
                     </button>
                 </div>
                 <div className="list__mobile-warehouse">
@@ -48,8 +44,8 @@ function WarehouseCard({ warehouse }) {
                 <p className="list__name list__p"> {warehouse.contact_name} </p>
                 <p className="list__info list__p">{warehouse.contact_phone} <br /> {warehouse.contact_email}</p>
                 <div className="list__list-btns">
-                    <button className="list__delete-btn" onClick={handleOnClick}>
-                        <img src={deleteBtn} alt="delete button" />
+                    <button className="list__delete-btn">
+                    <DeleteModel list={warehouseData} setList={setWarehouseData} itemId={warehouse.id} listName={"warehouses"} itemName={warehouse.warehouse_name} />
                     </button>
 
                     <Link to={`/warehouses/edit/${warehouse.id}`}>
