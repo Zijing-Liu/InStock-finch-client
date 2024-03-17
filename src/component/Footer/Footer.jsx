@@ -5,7 +5,9 @@ export default function Footer() {
 
     return (
         <footer className='footer'>
-            <h4>© InStock Inc. All Rights Reserved.</h4>
+            <div className='footer__copywrite'>
+            <p3>© InStock Inc. All Rights Reserved.</p3>
+            </div>
         </footer>
     )
 

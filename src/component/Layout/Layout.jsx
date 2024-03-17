@@ -1,6 +1,6 @@
 
 import Header from '../Header/Header';
-// import Footer from './Footer/Footer';
+import Footer from '../Footer/Footer';
 import './Layout.scss';
 
 const Layout = ({ children }) => {
@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
     <div className="layout">
       <Header />
       <main className="content">{children}</main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
