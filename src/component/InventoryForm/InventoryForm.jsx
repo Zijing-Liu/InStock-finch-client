@@ -13,7 +13,6 @@ function InventoryForm({
 }) {
   const base_url = process.env.REACT_APP_BASE_URL;
   const [Warehouses, setWareHouses] = useState();
-  console.log("logging status in edit pgae", itemDetails.status);
   const categories = [
     "Apparel",
     "Accessories",
@@ -29,7 +28,6 @@ function InventoryForm({
         // get all warehouses from api
         const warehouses = await axios.get(`${base_url}warehouses`);
         setWareHouses(warehouses.data);
-        console.log("here is all current warehouses");
       } catch (error) {
         console.log("there is a problem fetch the warehouses", error);
       }
@@ -44,8 +42,6 @@ function InventoryForm({
   // handle inputs change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log("name", name);
-    console.log("logging the value of the selection", value);
     // If status is "Out Of Stock", set quantity to 0
     if (name === "status" && value === "Out of Stock") {
       setItemDetails({
@@ -74,9 +70,7 @@ function InventoryForm({
         [name]: value,
       });
     }
-    // console.log("logging the item status when save", itemDetails.status);
   };
-  console.log("logging the item status when save", itemDetails.status);
   return (
     <>
       <form className="form" onSubmit={handleOnSubmit}>

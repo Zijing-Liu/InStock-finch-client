@@ -58,7 +58,6 @@ function AddInventory() {
       errors.quantity = "Invalid input";
       isValid = false;
     }
-    console.log("status in  validation", itemDetails.status);
     // Update the error state
     if (itemDetails.status === "" || itemDetails.status === undefined) {
       errors.status = "This field is required";
