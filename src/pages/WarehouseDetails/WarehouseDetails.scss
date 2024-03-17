@@ -8,10 +8,6 @@ section:nth-child(3) {
 
 .warehouse-details {
 
-    @include desktop {
-        max-width: 1020px;
-    }
-
     &__header {
         display: flex;
         justify-content: space-between;
@@ -53,7 +49,7 @@ section:nth-child(3) {
 
     &__edit-button {
         display: flex;
-        // align-items: center;
+        align-items: center;
         height: 36px;
         width: 36px;
         background-color: $instock-indigo;
@@ -104,7 +100,11 @@ section:nth-child(3) {
         @include tablet {
             flex-direction: row;
             justify-content: space-between;
-            padding: 20px 30px;
+            padding: 20px 36px;
+        }
+
+        @include desktop {
+            padding-left: 63px; 
         }
     }
 
@@ -205,6 +205,14 @@ section:nth-child(3) {
     }
 
     &__small-heading {
+        &:nth-of-type(even) {
+            margin-top: 20px;
+
+            @include tablet {
+                margin-top: 0;
+            }
+        }
+
         text-transform: uppercase;
         @extend .warehouse-details__heading;
     }
