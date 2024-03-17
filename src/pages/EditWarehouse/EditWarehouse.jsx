@@ -233,7 +233,7 @@ export default function EditWarehouse() {
           </div>
           <div className='warehouse__form-buttons'>
             <button className='warehouse__form-buttons--cancel' onClick={handleGoBack}>Cancel</button>
-            <button className='warehouse__form-buttons--save' type='submit' >Save</button>
+            <button className='warehouse__form-buttons--save' type='submit' onClick={handleGoBack}>Save</button>
           </div>
         </form>
       )}
