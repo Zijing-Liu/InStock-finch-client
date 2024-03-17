@@ -55,7 +55,7 @@ function InventoryCard({
           <h2 className="list__header-mobile list__table-text">Qty</h2>
           <p className="list__p">{inventory.quantity}</p>
           <Link
-            to={`/inventory/edit/:ID${inventory.id}`}
+            to={`/inventory/${inventory.id}/edit`}
             className="list__btn-mobile list__btn-mobile--edit"
           >
             <img src={editBtn} alt="edit button" />
@@ -95,7 +95,7 @@ function InventoryCard({
             />
           </button>
 
-          <Link to={`/inventory/edit/${inventory.id}`}>
+          <Link to={`/inventory/${inventory.id}/edit`}>
             <img src={editBtn} alt="edit button" />
           </Link>
         </div>
