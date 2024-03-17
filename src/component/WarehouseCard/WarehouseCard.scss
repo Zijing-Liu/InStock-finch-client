@@ -9,6 +9,15 @@
         padding: 0;
         text-transform: uppercase;
         text-wrap: nowrap;
+        font-size: 0.6rem;
+
+        &:nth-of-type(even) {
+            margin-top: 10px;
+
+            @include tablet {
+                margin-top: 0;
+            }
+        }
     }
 
     &__p {
