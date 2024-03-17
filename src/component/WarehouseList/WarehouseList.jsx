@@ -2,9 +2,8 @@ import "./WarehouseList.scss";
 import searchLogo from "../../assets/Icons/search-24px.svg";
 import sort from "../../assets/Icons/sort-24px.svg"
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
-import sort from "../../assets/Icons/sort-24px.svg";
 
-function WarehouseList({warehouseData}) {
+function WarehouseList({warehouseData, setWarehouseData}) {
 
     const warehouseObj = {
         title: "Warehouses",
@@ -45,6 +44,8 @@ function WarehouseList({warehouseData}) {
                 <WarehouseCard 
                 warehouse={warehouse}
                 key={warehouse.id}
+                setWarehouseData={setWarehouseData}
+                warehouseData={warehouseData}
                 />
             )}
                 )}
