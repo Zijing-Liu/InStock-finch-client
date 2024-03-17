@@ -1,6 +1,6 @@
 import "./WarehouseList.scss";
 import searchLogo from "../../assets/Icons/search-24px.svg";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import sort from "../../assets/Icons/sort-24px.svg";
 
@@ -16,14 +16,16 @@ function WarehouseList({warehouseData, setWarehouseData}) {
         <section>
             <div className="list">
                 <div className="list__main-container">
-                    <h1>{warehouseObj.title}</h1>
+                    <h1 className="list__title">{warehouseObj.title}</h1>
                     <div className="list__search-container">
                         <input className="list__search" type="text" name="search-bar" placeholder="Search..."></input>
                         <button className="list__search-btn">
                             <img src={searchLogo} className="list__search-img" />
                         </button>
                     </div>
+                    <Link to="/warehouses/add">
                     <button className="list__btn">{warehouseObj.button}</button>
+                    </Link>
                 </div>
 
                 <div className="list__header">
@@ -42,11 +44,12 @@ function WarehouseList({warehouseData, setWarehouseData}) {
                 <h2 className="list__table-header list__action">Actions</h2>
             </div>
 
-        {warehouseData.map((warehouse) => {
+        {warehouseData.map((warehouse, index) => {
             return(
                 <WarehouseCard 
                 warehouse={warehouse}
                 key={warehouse.id}
+                index={index}
                 setWarehouseData={setWarehouseData}
                 warehouseData={warehouseData}
                 />
