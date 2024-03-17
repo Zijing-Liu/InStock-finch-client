@@ -59,12 +59,12 @@ function InventoryItemDetail() {
           itemData={itemData}
         >
           <button className="inventory-item__edit">
-            <p className="inventory-item__edit-text">Edit</p>
             <img
               className="inventory-item__edit-icon"
               src={editIconWhite}
               alt="Edit Icon"
             />
+            <p className="inventory-item__edit-text">Edit</p>
           </button>
         </Link>
       </div>

@@ -77,8 +77,8 @@
     align-items: center;
     @include tablet {
       height: 38px;
-      border-radius: 1rem;
-      gap: 10px;
+      border-radius: 1.25rem;
+      gap: 8px;
       padding: 0.5rem 1rem 0.5rem 1rem;
       width: max-content;
     }
