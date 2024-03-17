@@ -2,233 +2,195 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-
 $green-7: rgba(0, 128, 0, 0.07);
 $red-7: rgba(201, 69, 21, 0.07);
 
-
 p.in-stock {
-    font-size: 14px;
-    line-height: 22px;
-    text-align: center;
-    padding: .125rem .55rem;
-    font-weight: 600;
-    border-radius: 20px;
-    color: $green;
-    background-color: $green-7;
-    text-transform: uppercase;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  padding: 0.125rem 0.55rem;
+  font-weight: 600;
+  border-radius: 20px;
+  color: $green;
+  background-color: $green-7;
+  text-transform: uppercase;
+}
 
-        @include tablet {
-            color: $green;
-            font-weight: 600;
-        }
-  }
-
- p.out-of-stock {
-@extend .in-stock;
-    color: $red;
-    background-color: $red-7;
-  }
-
-
+p.out-of-stock {
+  @extend .in-stock;
+  color: $red;
+  background-color: $red-7;
+}
 
 .list {
+  &__table-text {
+    @include table-header;
+    color: $slate;
+    text-transform: uppercase;
+    padding: 0;
+  }
 
+  &__p {
+    @include body-medium;
+    margin: 0 0 8px 0;
+  }
 
-    &__table-text {
-        @include table-header;
-        color: $slate;
-        text-transform: uppercase;
-        padding: 0;
+  &__mobile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 16px;
+    border-top: 1px solid $cloud;
+
+    @include tablet {
+      display: none;
     }
 
-    &__p {
-        @include body-medium;
-        margin: 0 0 8px 0;
-        }
+    @include desktop {
+      display: none;
+    }
+  }
 
+  &__btn-mobile {
+    align-self: flex-start;
+    border: none;
+    background-color: $white;
+    padding: 0;
+    margin-top: auto;
+    cursor: pointer;
 
-    &__p.in-stock {
-        @include tablet {
-            padding: .125rem .55rem !important;
-            margin-right: 5rem;
-            text-align: center;
-            width: 15%;
-        }
+    &--edit {
+      align-self: flex-end;
     }
 
-        &__p.out-of-stock {
-            @include tablet {
-                color: $red;
-                background-color: $red-7;
-            }
+    @include tablet {
+      display: none;
+    }
+  }
 
+  &__mobile-warehouse {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+    width: 30%;
+    text-wrap: wrap;
+    align-items: start;
+  }
+
+  &__header-mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__warehouse-container {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      padding: 0 36px;
+      align-items: center;
+      border-top: 1px solid $cloud;
+
+      @include desktop {
+        padding: 0 63px;
+
+        &:hover {
+          background-color: rgb(46, 102, 229, 0.1);
+        }
+      }
+    }
+  }
+
+  &__list-btns {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      margin-left: auto;
+      cursor: pointer;
     }
 
-
-    &__mobile-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 0 16px;
-        border-top: 1px solid $cloud;
-
-        @include tablet {
-            display: none;
-        }
-
-        @include desktop {
-            display: none;
-        }
+    :nth-child(2) {
+      padding-left: 15px;
     }
+  }
 
-    &__btn-mobile {
-        align-self: flex-start;
-        border: none;
-        background-color: $white;
-        padding: 0;
-        margin-top: auto;
-        cursor: pointer;
+  &__delete-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 
-        &--edit {
-            align-self: flex-end;
-        }
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-        @include tablet {
-            display: none;
-        }
-    }
-
-    &__mobile-warehouse {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 8px;
-        width: 30%;
-        text-wrap: wrap;
-        align-items: start;
-    }
-
-    &__header-mobile {
-
-        @include tablet {
-            display: none;
-        }
-    }
-
-    &__warehouse-container {
-        display: none;
-
-        @include tablet {
-            display: flex;
-            padding: 0 36px;
-            align-items: center;
-            border-top: 1px solid $cloud;      
-        }
-
-        @include desktop {
-            padding: 0 63px;
-
-            &:hover {
-                background-color: rgb(46, 102, 229, 0.1);
-            }
-        }
-        
-    }
-
-    &__list-btns {
-        display: none;
-
-        @include tablet {
-            display: flex;
-            margin-left: auto;
-            cursor: pointer;
-        }
-
-        :nth-child(2) {
-            padding-left: 15px;
-        }
-    }
-
-    &__delete-btn {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    &__icons {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        &--active {
-            &:hover {
-                text-decoration: underline;
-                color: $instock-indigo;
-            }
-        }
-    }
-
-    &__warehouse {
-        text-decoration: none;
+    &--active {
+      &:hover {
+        text-decoration: underline;
         color: $instock-indigo;
-        font-weight: 600;
-        margin-bottom: 8px;
+      }
+    }
+  }
 
-        @include tablet {
-            width: 25%;
-            margin-bottom: 0;
-        }
+  &__warehouse {
+    text-decoration: none;
+    color: $instock-indigo;
+    font-weight: 600;
+    margin-bottom: 8px;
 
-        @include desktop {
-            width: 25%;
-        }
-
-        &-text {
-            width: auto;
-            padding-right: 4px;
-            margin-bottom: 0;
-        }
+    @include tablet {
+      width: 25%;
+      margin-bottom: 0;
     }
 
-    &__address {
-
-        @include tablet {
-            width: 20%;
-            text-wrap: wrap;
-            padding: 8px;
-
-        }
-
-        @include desktop {
-            width: 20%;
-            text-wrap: wrap;
-        }
+    @include desktop {
+      width: 25%;
     }
 
-    &__status {
-        @include tablet {
-            width: 20%;
-            padding: 8px;
-   }
+    &-text {
+      width: auto;
+      padding-right: 4px;
+      margin-bottom: 0;
+    }
+  }
 
-        
-
-        @include desktop {
-            width: 20%;
-        }
+  &__address {
+    @include tablet {
+      width: 20%;
+      text-wrap: wrap;
+      padding: 8px;
     }
 
-    &__info {
-        @include tablet {
-            width: 20%;
-            text-wrap: wrap;
-            padding: 4px;
-        }
+    @include desktop {
+      width: 20%;
+      text-wrap: wrap;
     }
+  }
 
-    &__action {
-        margin-left: auto;
-        align-self: center;
+  &__status {
+    @include tablet {
+       width: 20%;
     }
+    
+    // @include desktop {
+    //   width: 20%;
+    // }
+  }
 
+  &__info {
+    @include tablet {
+      width: 20%;
+      text-wrap: wrap;
+      padding: 4px;
+    }
+  }
+
+  &__action {
+    margin-left: auto;
+    align-self: center;
+  }
 }

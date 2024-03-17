@@ -35,7 +35,13 @@ function InventoryCard({
           <h2 className="list__header-mobile list__table-text">Category</h2>
           <p className="list__address-text list__p">{inventory.category}</p>
           <button className="list__btn-mobile" onClick={handleOnClick}>
-            <img src={deleteBtn} alt="delete button" />
+          <DeleteModel
+              setList={setInventoryData}
+              list={inventoryData}
+              itemId={inventory.id}
+              listName={"Inventory"}
+              itemName={inventory.item_name}
+            />
           </button>
         </div>
         <div className="list__mobile-warehouse">
