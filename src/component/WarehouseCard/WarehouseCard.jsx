@@ -19,7 +19,7 @@ function WarehouseCard({ warehouse, setWarehouseData, warehouseData, index}) {
                     <h2 className="list__header-mobile list__table-text">Address</h2>
                     <p className="list__address-text list__p">{warehouse.address}, {warehouse.city}, {warehouse.country}</p>
                     <button className="list__btn-mobile">
-                        <DeleteModel list={warehouseData} setList={setWarehouseData} itemId={warehouse.id} listName={"warehouses"} itemName={warehouse.name} />
+                        <DeleteModel list={warehouseData} setList={setWarehouseData} itemId={warehouse.id} listName={"warehouses"} itemName={warehouse.warehouse_name} />
                     </button>
                 </div>
                 <div className="list__mobile-warehouse">

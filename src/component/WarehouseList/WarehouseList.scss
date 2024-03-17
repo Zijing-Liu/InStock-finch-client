@@ -197,6 +197,10 @@
         text-wrap: nowrap;
     }
 
+    &__title{
+        @include page-header;
+    }
+
     &__title-text {
         &:nth-of-type(even) {
             margin-top: 20px;

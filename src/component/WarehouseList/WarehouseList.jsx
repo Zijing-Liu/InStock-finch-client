@@ -16,7 +16,7 @@ function WarehouseList({warehouseData, setWarehouseData}) {
         <section>
             <div className="list">
                 <div className="list__main-container">
-                    <h1>{warehouseObj.title}</h1>
+                    <h1 className="list__title">{warehouseObj.title}</h1>
                     <div className="list__search-container">
                         <input className="list__search" type="text" name="search-bar" placeholder="Search..."></input>
                         <button className="list__search-btn">
