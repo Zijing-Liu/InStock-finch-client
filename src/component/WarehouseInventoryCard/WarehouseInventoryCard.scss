@@ -4,20 +4,12 @@
 @use "../../pages/WarehouseDetails/WarehouseDetails.scss" as *;
 
 .inv-list {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px $cloud;
-    margin-bottom: 2rem;
 
     @include desktop {
         max-width: 1020px;
     }
 
     &__paragraph {
-        // @include body-medium;
-        // margin: 0 0 8px 0;
         @extend .warehouse-details__content;
     }
 

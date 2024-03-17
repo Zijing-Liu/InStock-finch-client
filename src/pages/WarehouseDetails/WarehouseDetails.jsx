@@ -110,7 +110,6 @@ function WarehouseDetails() {
       </div>
 
       {warehouseInv.map((item, index) => {
-        {console.log(index)}
         return (
           <WarehouseInventoryCard
             key={item.id}
@@ -118,7 +117,6 @@ function WarehouseDetails() {
             setWarehouseInv={setWarehouseInv}
             warehouseInv={warehouseInv}
             index={index}
-            // style={ borderTop: index !== 0 ? '1px solid #000' : 'none' }
           />
         )
       })
