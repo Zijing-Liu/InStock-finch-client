@@ -18,11 +18,11 @@
         @include tablet {
             display: flex;
             justify-content: space-between;
-            padding: 0 36px 16px;
+            padding: 0 36px;
         }
 
         @include desktop {
-            padding:  0 63px 16px;
+            padding:  0 63px;
         }
     }
 
@@ -196,6 +196,7 @@
     }
 
     &__title-text {
+        @include page-header;
         &:nth-of-type(even) {
             margin-top: 20px;
 
@@ -224,6 +225,5 @@
             display: flex;
             justify-content: flex-start;
         }
-
     }
 }

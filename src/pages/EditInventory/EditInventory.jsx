@@ -97,8 +97,7 @@ function EditInventory() {
         `${base_url}inventories/${ID}`,
         dataTosend
       );
-      // Return the response data
-      return response.data;
+      navigate(`/inventory`);
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -109,6 +108,7 @@ function EditInventory() {
     event.preventDefault();
     setItemDetails(setItemDetails);
     setError({});
+    navigate(`/inventory`);
   };
 
   return (
