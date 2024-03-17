@@ -5,7 +5,7 @@ import sort from "../../assets/Icons/sort-24px.svg"
 import InventoryCard from "../InventoryCard/InventoryCard.jsx";
 
 
-function InventoryList({ inventoryData, warehouseData }) {
+function InventoryList({ inventoryData, warehouseData, setInventoryData }) {
     
 
    const getWarehouseName = (inventoryItemId) => {
@@ -63,6 +63,8 @@ function InventoryList({ inventoryData, warehouseData }) {
           inventory={inventoryItem}
           key={inventoryItem.id}
           getWarehouseName={getWarehouseName}
+          setInventoryData={setInventoryData}
+          inventoryData={inventoryData}
         />
 ))}
               

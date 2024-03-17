@@ -40,7 +40,7 @@ if (!inventoryData || !warehouseData) {
 
 return (
   <div className='list'>
-      <InventoryList inventoryData={inventoryData} warehouseData={warehouseData}/>
+      <InventoryList inventoryData={inventoryData} setInventoryData={setInventoryData}  warehouseData={warehouseData}/>
     </div>
 );
 }
