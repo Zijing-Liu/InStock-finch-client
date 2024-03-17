@@ -11,13 +11,11 @@ export default function Header() {
         <NavLink
           to="/warehouses"
           as="li"
-          activeClassName="active"
           className="header__list-item"
         >Warehouses</NavLink>
         <NavLink
           to="/inventory"
           as="li"
-          activeClassName="active"
           className="header__list-item"
         >Inventory</NavLink>
       </ul>
