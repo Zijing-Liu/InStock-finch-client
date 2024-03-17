@@ -1,6 +1,6 @@
 import "./WarehouseList.scss";
 import searchLogo from "../../assets/Icons/search-24px.svg";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 import WarehouseCard from "../WarehouseCard/WarehouseCard";
 import sort from "../../assets/Icons/sort-24px.svg";
 
@@ -23,7 +23,9 @@ function WarehouseList({warehouseData, setWarehouseData}) {
                             <img src={searchLogo} className="list__search-img" />
                         </button>
                     </div>
+                    <Link to="/warehouses/add">
                     <button className="list__btn">{warehouseObj.button}</button>
+                    </Link>
                 </div>
 
                 <div className="list__header">
