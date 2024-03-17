@@ -109,13 +109,16 @@ function WarehouseDetails() {
         <h2 className="inv-list__action inv-list__small-heading">ACTIONS</h2>
       </div>
 
-      {warehouseInv.map((item) => {
+      {warehouseInv.map((item, index) => {
+        {console.log(index)}
         return (
           <WarehouseInventoryCard
             key={item.id}
             item={item}
             setWarehouseInv={setWarehouseInv}
             warehouseInv={warehouseInv}
+            index={index}
+            // style={ borderTop: index !== 0 ? '1px solid #000' : 'none' }
           />
         )
       })

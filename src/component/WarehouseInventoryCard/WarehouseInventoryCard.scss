@@ -162,6 +162,10 @@
         margin-left: auto;
         align-self: center;
     }
+    
+    &__border-top {
+        border-top: 1px solid $cloud;
+        }
 
     &__inventory-container {
         display: none;
@@ -170,7 +174,6 @@
             display: flex;
             padding: 8px 36px;
             align-items: center;
-            border-top: 1px solid $cloud;
         }
 
         @include desktop {
@@ -181,6 +184,8 @@
             }
         }
     }
+
+
 
     //mobile styling
     &__mobile-inventory {
