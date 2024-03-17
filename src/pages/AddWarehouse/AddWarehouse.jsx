@@ -122,7 +122,7 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="warehouse_name"
-                //value={selectedWarehouse.warehouse_name}
+        
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, warehouse_name: e.target.value})}
                 style={{ borderColor: error.warehouse_name ? '#C94515' : '' }}
@@ -133,7 +133,7 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="address"
-                value={selectedWarehouse.address}
+              
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, address: e.target.value})}
                 style={{ borderColor: error.address ? '#C94515' : '' }}
@@ -144,7 +144,6 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="city"
-                value={selectedWarehouse.city}
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, city: e.target.value})}
                 style={{ borderColor: error.city ? '#C94515' : '' }}
@@ -155,7 +154,6 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="country"
-                value={selectedWarehouse.country}
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, country: e.target.value})}
                 style={{ borderColor: error.country ? '#C94515' : '' }}
@@ -169,7 +167,6 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="contact_name"
-                value={selectedWarehouse.contact_name}
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_name: e.target.value})}
                 style={{ borderColor: error.contact_name ? '#C94515' : '' }}
@@ -180,7 +177,6 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="contact_position"
-                value={selectedWarehouse.contact_position}
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_position: e.target.value})}
                 style={{ borderColor: error.contact_position ? '#C94515' : '' }}
@@ -191,7 +187,6 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="contact_phone"
-                value={selectedWarehouse.contact_phone}
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_phone: e.target.value})}
                 style={{ borderColor: error.contact_phone ? '#C94515' : '' }}
@@ -202,7 +197,6 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="contact_email"
-                value={selectedWarehouse.contact_email}
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_email: e.target.value})}
                 style={{ borderColor: error.contact_email ? '#C94515' : '' }}
