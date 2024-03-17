@@ -7,7 +7,6 @@ import InventoryForm from "../../component/InventoryForm/InventoryForm";
 
 function AddInventory() {
   const base_url = process.env.REACT_APP_BASE_URL;
-
   // Go back to the previous page when clicking the back arrow
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -37,12 +36,18 @@ function AddInventory() {
       isValid = false;
     }
 
-    if (!itemDetails.warehouse_id) {
-      errors.description = "This field is required";
+    if (
+      !itemDetails.warehouse_id ||
+      itemDetails.warehouse_id === undefined ||
+      !itemDetails.warehouse_name ||
+      itemDetails.warehouse_name === "" ||
+      itemDetails.warehouse_name === undefined
+    ) {
+      errors.warehouse_id = "This field is required";
       isValid = false;
     }
     if (!itemDetails.category) {
-      errors.description = "This field is required";
+      errors.category = "This field is required";
       isValid = false;
     }
     if (
@@ -53,15 +58,17 @@ function AddInventory() {
       errors.quantity = "Invalid input";
       isValid = false;
     }
+    console.log("status in  validation", itemDetails.status);
+    // Update the error state
+    if (itemDetails.status === "" || itemDetails.status === undefined) {
+      errors.status = "This field is required";
+      isValid = false;
+    }
+
     if (itemDetails.quantity === 0 && itemDetails.status === "In Stock") {
       errors.quantity = "The quantity can not be 0 while status in stock!";
       isValid = false;
     }
-    if (itemDetails.warehouse_name || !itemDetails.warehouse_name) {
-      errors.warehouse_name = "Please select a valid warehouse";
-      isValid = false;
-    }
-    // Update the error state
     setError(errors);
 
     return isValid;
@@ -86,7 +93,7 @@ function AddInventory() {
     try {
       const response = await axios.post(`${base_url}inventories`, dataTosend);
       // navigate to the previous page
-      handleGoBack();
+      navigate(`/inventory`);
     } catch (error) {
       console.error("Error updating data:", error);
     }
@@ -98,7 +105,7 @@ function AddInventory() {
     setItemDetails(setItemDetails);
     setError({});
     // navigate to the previous page when cancel
-    handleGoBack();
+    navigate(`/inventory`);
   };
   return (
     <div className="add-inventory">
