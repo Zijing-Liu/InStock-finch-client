@@ -132,6 +132,7 @@ function EditInventory() {
         handleOnSubmit={handleOnSubmit}
         error={error}
         setError={setError}
+        buttonText={"Save"}
       />
     </div>
   );

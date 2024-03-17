@@ -128,6 +128,7 @@ function AddInventory() {
         setError={setError}
         Currentwarehouse={""}
         showPlaceHolder={true}
+        buttonText={"+ Add"}
       />
     </div>
   );

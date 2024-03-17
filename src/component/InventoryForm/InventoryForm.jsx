@@ -10,6 +10,7 @@ function InventoryForm({
   Currentwarehouse,
   setItemDetails,
   showPlaceHolder,
+  buttonText,
 }) {
   const base_url = process.env.REACT_APP_BASE_URL;
   const [Warehouses, setWareHouses] = useState();
@@ -88,7 +89,7 @@ function InventoryForm({
                   : `form__input`
               }
               type="text"
-              placeholder={itemDetails.item_name}
+              placeholder="Item Name"
               id="name"
               name="item_name"
               value={itemDetails.item_name}
@@ -107,7 +108,7 @@ function InventoryForm({
                   ? ` form__input form__input--text form__input--red`
                   : `form__input form__input--text`
               }
-              placeholder={itemDetails.description}
+              placeholder="Please enter a brief item description..."
               id="description"
               name="description"
               rows=""
@@ -129,7 +130,10 @@ function InventoryForm({
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option value="" className="form__placeholder">
+                <option
+                  value=""
+                  className="form__input form__input--placeholder"
+                >
                   Please select
                 </option>
               )}
@@ -247,7 +251,10 @@ function InventoryForm({
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option value="" className="form__placeholder">
+                <option
+                  value=""
+                  className=" form__input form__input--placeholder"
+                >
                   Please select
                 </option>
               )}
@@ -272,7 +279,7 @@ function InventoryForm({
             Cancel
           </button>
           <button type="submit" className="form__btn">
-            Save
+            {buttonText}
           </button>
         </div>
       </form>

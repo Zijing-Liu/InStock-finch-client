@@ -37,10 +37,6 @@
       outline: 1px solid $instock-indigo;
     }
 
-    &__placeholder {
-      @include body-medium;
-      color: $slate;
-    }
     &--error {
       color: $red;
       border: $red;
@@ -62,8 +58,8 @@
     }
 
     &::placeholder {
-      padding: 0rem 1rem;
-      color: $instock-black;
+      color: $slate;
+      padding: 0;
     }
 
     &--text {
@@ -71,9 +67,12 @@
       padding-top: 8px;
 
       &::placeholder {
-        padding: 2rem 1rem;
         font-family: $font;
+        color: $slate;
       }
+    }
+    &--placeholder {
+      color: $slate;
     }
 
     &--select {
