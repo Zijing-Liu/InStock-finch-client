@@ -7,10 +7,6 @@ import DeleteModel from "../DeleteModel/DeleteModel"
 
 function WarehouseCard({ warehouse, setWarehouseData, warehouseData }) {
 
-    function handleOnClick() {
-        alert("i've been clicked")
-    }
-
     return (
         <div>
             <div className="list__mobile-container">
