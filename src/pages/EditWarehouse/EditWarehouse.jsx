@@ -40,7 +40,6 @@ export default function EditWarehouse() {
       try {
         const response = await axios.get(`${baseURL}warehouses/${ID}`)
         setSelectedWarehouse(response.data)
-        // console.log("response.data:", response.data)
       } catch (error) {
         console.log(error)
       }
@@ -118,8 +117,8 @@ export default function EditWarehouse() {
 
     const updateDetails = async () => {
       try {
-        const response = await axios.patch(`${baseURL}warehouses/${ID}`, submitDataObj)
-        console.log(response)
+        await axios.patch(`${baseURL}warehouses/${ID}`, submitDataObj);
+        navigate('/');
       } catch (error) {
         console.log(error)
       }
@@ -233,7 +232,7 @@ export default function EditWarehouse() {
           </div>
           <div className='warehouse__form-buttons'>
             <button className='warehouse__form-buttons--cancel' onClick={handleGoBack}>Cancel</button>
-            <button className='warehouse__form-buttons--save' type='submit' >Save</button>
+            <button className='warehouse__form-buttons--save' type='submit'>Save</button>
           </div>
         </form>
       )}
