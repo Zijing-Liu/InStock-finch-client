@@ -6,12 +6,23 @@ import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function AddWarehouse() {
   
-  const [selectedWarehouse, setSelectedWarehouse] = useState({});
+ 
   const navigate = useNavigate();
   const baseURL = process.env.REACT_APP_BASE_URL;
   const handleGoBack = () => {
     navigate(-1);
   };
+
+  const [selectedWarehouse, setSelectedWarehouse] = useState({
+    warehouse_name: '',
+    address: '',
+    city: '',
+    country: '',
+    contact_name: '',
+    contact_position: '',
+    contact_phone: '',
+    contact_email: '',
+  });
 
   const [error, setError] = useState({
     warehouse_name: '',
@@ -87,8 +98,8 @@ export default function AddWarehouse() {
 
     const postWarehouse = async () => {
       try {
-        const response = await axios.post(`${baseURL}warehouses`, submitDataObj)
-        console.log(response)
+        const response = await axios.post(`${baseURL}warehouses`, submitDataObj);
+        navigate('/')
       } catch (error) {
         console.log(error)
       }
@@ -111,7 +122,7 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="warehouse_name"
-                value={selectedWarehouse.warehouse_name}
+                //value={selectedWarehouse.warehouse_name}
                 className='warehouse__form-input'
                 onChange={(e) => setSelectedWarehouse({...selectedWarehouse, warehouse_name: e.target.value})}
                 style={{ borderColor: error.warehouse_name ? '#C94515' : '' }}
