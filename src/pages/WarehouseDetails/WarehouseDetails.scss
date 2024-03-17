@@ -7,7 +7,7 @@
     &__header {
         display: flex;
         justify-content: space-between;
-        padding: 0 20px;
+        padding: 8px 20px;
         align-items: center;
         border-bottom: 1px solid $cloud;
 
@@ -202,7 +202,7 @@
 
     &__small-heading {
         &:nth-of-type(even) {
-            margin-top: 20px;
+            margin-top: 10px;
 
             @include tablet {
                 margin-top: 0;
