@@ -10,8 +10,6 @@ import EditInventory from "./pages/EditInventory/EditInventory";
 import EditWarehouse from "./pages/EditWarehouse/EditWarehouse";
 import Layout from "./component/Layout/Layout";
 
-import Header from "./component/Header/Header";
-import InventoryItemDetail from "./pages/InventoryDetails/InventoryDetails";
 
 
 function App() {
@@ -28,8 +26,8 @@ function App() {
           <Route path="/inventory/:ID" element={<InventoryDetails />} />
           <Route path="/warehouses/:ID" element={<WarehouseDetails />} />
 
-          <Route path="/inventory/edit/:ID" element={<EditInventory />} />
-          <Route path="/warehouses/edit/:ID" element={<EditWarehouse />} />
+          <Route path="/inventory/:ID/edit" element={<EditInventory />} />
+          <Route path="/warehouses/:ID/edit" element={<EditWarehouse />} />
 
           <Route path="*" element={<Navigate to="/warehouses" />} />
         </Routes>
