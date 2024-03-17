@@ -55,23 +55,23 @@ function InventoryList({ inventoryData, warehouseData, setInventoryData }) {
       </div>
 
       <div className="list__header">
-        <div className="list__icons list__warehouse">
+        <div className="list__icons list__inventory">
           <h2 className="list__table-header">Inventory Item</h2>{" "}
           <img src={sort} alt="sort" />
         </div>
-        <div className="list__icons list__address">
+        <div className="list__icons list__category">
           <h2 className="list__table-header">Category</h2>{" "}
           <img src={sort} alt="sort" />
         </div>
-        <div className="list__icons list__name">
+        <div className="list__icons list__status-1">
           <h2 className="list__table-header">Status</h2>{" "}
           <img src={sort} alt="sort" />
         </div>
-        <div className="list__icons list__info">
+        <div className="list__icons list__qty">
           <h2 className="list__table-header">Qty</h2>{" "}
           <img src={sort} alt="sort" />
         </div>
-        <div className="list__icons list__info">
+        <div className="list__icons list__w-name">
           <h2 className="list__table-header">Warehouse</h2>{" "}
           <img src={sort} alt="sort" />
         </div>

@@ -83,7 +83,7 @@ function InventoryCard({
           {inventory.status}
         </p></div>
         <p className="list__info list__p">{inventory.quantity}</p>
-        <p className="list__info list__p">{getWarehouseName(inventory.id)}</p>
+        <p className="list__warehouse_name list__p">{getWarehouseName(inventory.id)}</p>
         <div className="list__list-btns">
           <button className="list__delete-btn" onClick={handleOnClick}>
             <DeleteModel

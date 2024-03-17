@@ -117,14 +117,14 @@
         }
     }
 
-    &__warehouse {
+    &__inventory {
         text-decoration: none;
         color: $instock-indigo;
         font-weight: 600;
         margin-bottom: 8px;
 
         @include tablet{
-            width: 25%;
+            width: 30%;
             margin-bottom: 0;
         }
 
@@ -133,13 +133,11 @@
         }
     }
 
-    &__address {
+    &__category {
   
         @include tablet{
-            width: 20%;
+            width: 25%;
             text-wrap: wrap;
-            padding: 8px;
-
         }
 
         @include desktop{
@@ -148,11 +146,10 @@
         }
     }
 
-    &__name {
+    &__status-1 {
 
         @include tablet{
             width: 20%;
-            padding: 8px;
         }
 
         @include desktop{
@@ -160,15 +157,26 @@
         }
     }
 
-    &__info {
+    &__qty {
         @include tablet{
-            width: 20%;
+            width: 12%;
             text-wrap: wrap;
-            padding: 4px;
         }
 
+        @include desktop{
+            width: 15%;
+        }
+    }
+
+    &__w-name {
         @include tablet{
-            width: 20%;
+            width: 25%;
+            text-wrap: wrap;
+            padding: 4px 0;
+        }
+
+        @include desktop{
+            width: 27%;
         }
     }
 
