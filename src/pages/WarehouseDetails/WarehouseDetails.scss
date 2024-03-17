@@ -24,6 +24,7 @@
         &-container {
             display: flex;
             justify-content: flex-start;
+            align-items: baseline;
         }
     }
 
@@ -100,7 +101,7 @@
         }
 
         @include desktop {
-            padding-left: 63px; 
+            padding-left: 63px;
         }
     }
 
