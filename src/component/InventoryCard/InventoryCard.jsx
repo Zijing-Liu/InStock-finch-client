@@ -39,7 +39,7 @@ function InventoryCard({
               setList={setInventoryData}
               list={inventoryData}
               itemId={inventory.id}
-              listName={"Inventory"}
+              listName={"inventories"}
               itemName={inventory.item_name}
             />
           </button>
@@ -90,7 +90,7 @@ function InventoryCard({
               setList={setInventoryData}
               list={inventoryData}
               itemId={inventory.id}
-              listName={"Inventory"}
+              listName={"inventories"}
               itemName={inventory.item_name}
             />
           </button>
