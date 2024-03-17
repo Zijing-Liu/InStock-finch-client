@@ -35,7 +35,7 @@ function WarehouseInventoryCard({ item, setWarehouseInv, warehouseInv, index }) 
             </div>
 
             <div className={"inv-list__inventory-container " + (index === 0 ? '' : 'inv-list__border-top' )}>
-                <Link to={`/warehouses/${item.id}`} className="inv-list__inventory">
+                <Link to={`/inventory/${item.id}`} className="inv-list__inventory">
                     <div className="inv-list__icons inv-list__icons--active">
                         <p className="inv-list__paragraph inv-list__inventory inv-list__inventory-text">{item.item_name}</p> <img src={chevron} alt='arrow icon' />
                     </div>

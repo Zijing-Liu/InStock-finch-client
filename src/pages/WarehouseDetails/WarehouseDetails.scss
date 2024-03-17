@@ -53,13 +53,14 @@ section:nth-child(3) {
 
     &__edit-button {
         display: flex;
-        align-items: center;
-        height: 40px;
-        width: 40px;
+        // align-items: center;
+        height: 36px;
+        width: 36px;
         background-color: $instock-indigo;
         border: 0px;
         border-radius: 50%;
         padding: 8px;
+        justify-content: center;
 
 
         @include tablet {
@@ -67,6 +68,7 @@ section:nth-child(3) {
             gap: 8px;
             width: max-content;
             padding: 15px;
+            height: 40px;
         }
     }
 
@@ -90,6 +92,7 @@ section:nth-child(3) {
 
     &__title-name {
         padding-left: 8px;
+        margin: 20px 0;
         @include page-header;
     }
 
