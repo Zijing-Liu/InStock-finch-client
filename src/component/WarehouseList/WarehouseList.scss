@@ -4,6 +4,8 @@
 
 
 .list{
+    overflow: hidden;
+
     &__main-container{
         padding: 0 16px 16px;
         align-items: center;
