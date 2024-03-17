@@ -76,12 +76,12 @@ function InventoryCard({
           </div>
         </Link>
         <p className="list__address list__p">{inventory.category}</p>
-        <p className={`list__status list__p ${getStatusClass(
+       <div className="list__status"> <p className={`badge  ${getStatusClass(
             inventory.quantity
           )}`}
         >
           {inventory.status}
-        </p>
+        </p></div>
         <p className="list__info list__p">{inventory.quantity}</p>
         <p className="list__info list__p">{getWarehouseName(inventory.id)}</p>
         <div className="list__list-btns">

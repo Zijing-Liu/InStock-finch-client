@@ -30,7 +30,8 @@ $red-7: rgba(201, 69, 21, 0.07);
     color: $green;
     background-color: $green-7;
     text-transform: uppercase;
-    border: 1px solid red;
+    width: auto;
+    // border: 1px solid red;
   }
 
   &.out-of-stock {
@@ -177,12 +178,44 @@ $red-7: rgba(201, 69, 21, 0.07);
   }
 
   &__status {
-    @extend .list__address;
+    @include tablet {
+      width: 20%;
+      text-wrap: wrap;
+      padding: 8px;
+    }
+
+    @include desktop {
+      width: 20%;
+      text-wrap: wrap;
+    }
   }
 
   
   &__action {
     margin-left: auto;
     align-self: center;
+  }
+}
+
+
+.badge {
+  &.in-stock {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    padding: 0.125rem 0.55rem;
+    font-weight: 600;
+    border-radius: 20px;
+    color: $green;
+    background-color: $green-7;
+    text-transform: uppercase;
+    width: fit-content;
+    // border: 1px solid red;
+  }
+
+  &.out-of-stock {
+    @extend .in-stock;
+    color: $red;
+    background-color: $red-7;
   }
 }
