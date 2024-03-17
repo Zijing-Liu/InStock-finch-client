@@ -27,7 +27,7 @@ function WarehouseCard({ warehouse, setWarehouseData, warehouseData, index}) {
                     <p className="list__p">{warehouse.contact_name}</p>
                     <h2 className="list__header-mobile list__table-text">Contact Information</h2>
                     <p className="list__p">{warehouse.contact_phone} <br /> {warehouse.contact_email}</p>
-                    <Link to={`/warehouses/edit/${warehouse.id}`} className="list__btn-mobile list__btn-mobile--edit">
+                    <Link to={`/warehouses/${warehouse.id}/edit`} className="list__btn-mobile list__btn-mobile--edit">
                         <img src={editBtn} alt="edit button" />
                     </Link>
                 </div>
@@ -47,7 +47,7 @@ function WarehouseCard({ warehouse, setWarehouseData, warehouseData, index}) {
                     <DeleteModel list={warehouseData} setList={setWarehouseData} itemId={warehouse.id} listName={"warehouses"} itemName={warehouse.warehouse_name} />
                     </button>
 
-                    <Link to={`/warehouses/edit/${warehouse.id}`}>
+                    <Link to={`/warehouses/${warehouse.id}/edit`}>
                         <img src={editBtn} alt="edit button" />
                     </Link>
                 </div>

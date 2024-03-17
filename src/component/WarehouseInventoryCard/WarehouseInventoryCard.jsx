@@ -28,7 +28,7 @@ function WarehouseInventoryCard({ item, setWarehouseInv, warehouseInv, index }) 
                     <p className={"inv-list__paragraph inv-list__paragraph inv-list__status inv-list__name " + (item.status === "In Stock" ? "inv-list__status--in-stock" : "inv-list__status--no-stock")}>{item.status}</p>
                     <h2 className="inv-list__small-heading">QTY</h2>
                     <p className='inv-list__paragraph inv-list__paragraph'>{item.quantity}</p>
-                    <Link to={`/warehouses/edit/${item.id}`} className="inv-list__btn-mobile inv-list__btn-mobile--edit">
+                    <Link to={`/warehouses/${item.id}/edit`} className="inv-list__btn-mobile inv-list__btn-mobile--edit">
                         <img src={editBtn} alt='edit icon' />
                     </Link>
                 </div>
