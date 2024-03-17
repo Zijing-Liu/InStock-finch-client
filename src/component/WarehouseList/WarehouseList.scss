@@ -28,7 +28,7 @@
 
 
     &__search-container{
-        border: 1px solid $slate;
+        border: 1px solid $cloud;
         width: 100%;
         border-radius: 20px;
         display: flex;
@@ -54,6 +54,10 @@
         margin-left: 16px;
         width: 100%;
 
+        @include desktop {
+            min-width: 170px;
+        }
+
         &:focus {
             outline: none;
         }
@@ -64,6 +68,7 @@
         background-color: $white;
         margin-right: 11px;
         border-radius: 10px;
+        align-self: flex-end;
     }
 
     &__btn {
@@ -74,6 +79,7 @@
         color: $white;
         background-color: $instock-indigo;
         border: none;
+        cursor: pointer;
 
         &:hover {
             background-color: $graphite;
