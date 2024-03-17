@@ -13,7 +13,6 @@ function InventoryForm({
 }) {
   const base_url = process.env.REACT_APP_BASE_URL;
   const [Warehouses, setWareHouses] = useState();
-
   const categories = [
     "Apparel",
     "Accessories",
@@ -29,7 +28,6 @@ function InventoryForm({
         // get all warehouses from api
         const warehouses = await axios.get(`${base_url}warehouses`);
         setWareHouses(warehouses.data);
-        console.log("here is all current warehouses");
       } catch (error) {
         console.log("there is a problem fetch the warehouses", error);
       }
@@ -44,9 +42,8 @@ function InventoryForm({
   // handle inputs change
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
     // If status is "Out Of Stock", set quantity to 0
-    if (name === "status" && value === "Out Of Stock") {
+    if (name === "status" && value === "Out of Stock") {
       setItemDetails({
         ...itemDetails,
         quantity: 0,
@@ -74,7 +71,6 @@ function InventoryForm({
       });
     }
   };
-
   return (
     <>
       <form className="form" onSubmit={handleOnSubmit}>
@@ -143,8 +139,8 @@ function InventoryForm({
                 </option>
               ))}
             </select>
-            {error.item_name && (
-              <p className="form__input--error">{error.item_name}</p>
+            {error.category && (
+              <p className="form__input--error">{error.category}</p>
             )}
           </div>
 
@@ -167,8 +163,11 @@ function InventoryForm({
                   type="radio"
                   id="in-stock"
                   name="status"
-                  value="In Stock"
-                  checked={itemDetails.status === "In Stock"}
+                  value={"In Stock"}
+                  checked={
+                    itemDetails.status &&
+                    itemDetails.status.toLowerCase() === "in stock"
+                  }
                   onChange={handleInputChange}
                 />
                 <label
@@ -181,7 +180,7 @@ function InventoryForm({
 
               <div
                 className={
-                  itemDetails.status === "Out Of Stock"
+                  itemDetails.status === "Out of Stock"
                     ? "form__check form__check--checked"
                     : "form__check"
                 }
@@ -190,8 +189,11 @@ function InventoryForm({
                   type="radio"
                   id="out-of-stock"
                   name="status"
-                  value="Out Of Stock"
-                  checked={itemDetails.status === "Out Of Stock"}
+                  value={"Out of Stock"}
+                  checked={
+                    itemDetails.status &&
+                    itemDetails.status.toLowerCase() === "out of stock"
+                  }
                   onChange={handleInputChange}
                 />
                 <label
@@ -202,6 +204,10 @@ function InventoryForm({
                 </label>
               </div>
             </div>
+            {error.status && (
+              <p className="form__input--error">{error.status}</p>
+            )}
+
             {itemDetails.status === "In Stock" && (
               <>
                 <label htmlFor="quantity" className="form__label">
@@ -251,8 +257,8 @@ function InventoryForm({
                 </option>
               ))}
             </select>
-            {error.item_name && (
-              <p className="form__input--error">{error.item_name}</p>
+            {error.warehouse_id && (
+              <p className="form__input--error">{error.warehouse_id}</p>
             )}
           </div>
         </div>
