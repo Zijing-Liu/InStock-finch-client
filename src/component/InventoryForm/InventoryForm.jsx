@@ -77,7 +77,7 @@ function InventoryForm({
       <form className="form" onSubmit={handleOnSubmit}>
         <div className="form__container">
           <div className="form__box">
-            <h3 className="form__title">Item Details</h3>
+            <h2 className="form__title">Item Details</h2>
 
             <label htmlFor="name" className="form__label">
               Item Name
@@ -130,10 +130,7 @@ function InventoryForm({
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option
-                  value=""
-                  className="form__input form__input--placeholder"
-                >
+                <option value="" className="form__input--placeholder">
                   Please select
                 </option>
               )}
@@ -148,10 +145,10 @@ function InventoryForm({
             )}
           </div>
 
-          <hr />
+          <hr className="form__break" />
 
           <div className="form__box">
-            <h3 className="form__title">Item Availability</h3>
+            <h2 className="form__title">Item Availability</h2>
             <label htmlFor="status" className="form__label">
               Status
             </label>
