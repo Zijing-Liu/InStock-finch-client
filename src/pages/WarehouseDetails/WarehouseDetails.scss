@@ -2,17 +2,12 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-
 .warehouse-details {
-
-    @include desktop {
-        max-width: 1020px;
-    }
 
     &__header {
         display: flex;
         justify-content: space-between;
-        padding: 0 20px;
+        padding: 8px 20px;
         align-items: center;
         border-bottom: 1px solid $cloud;
 
@@ -51,12 +46,13 @@
     &__edit-button {
         display: flex;
         align-items: center;
-        height: 40px;
-        width: 40px;
+        height: 36px;
+        width: 36px;
         background-color: $instock-indigo;
         border: 0px;
         border-radius: 50%;
         padding: 8px;
+        justify-content: center;
 
 
         @include tablet {
@@ -64,6 +60,7 @@
             gap: 8px;
             width: max-content;
             padding: 15px;
+            height: 40px;
         }
     }
 
@@ -87,6 +84,7 @@
 
     &__title-name {
         padding-left: 8px;
+        margin: 20px 0;
         @include page-header;
     }
 
@@ -98,7 +96,11 @@
         @include tablet {
             flex-direction: row;
             justify-content: space-between;
-            padding: 20px 30px;
+            padding: 20px 36px;
+        }
+
+        @include desktop {
+            padding-left: 63px; 
         }
     }
 
@@ -150,5 +152,64 @@
         @include desktop {
             padding-right: 100px;
         }
+    }
+}
+
+.inv-list {
+
+    &__header {
+        display: none;
+        background-color: $light-grey;
+
+        @include tablet {
+            padding: 0 36px;
+            display: flex;
+        }
+
+        @include desktop {
+            padding: 0 63px;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &--active {
+            &:hover {
+                text-decoration: underline;
+                color: $instock-indigo;
+            }
+        }
+    }
+
+    &__inventory {
+        text-decoration: none;
+        color: $instock-indigo;
+        font-weight: 600;
+        margin-bottom: 8px;
+
+        @include tablet {
+            width: 25%;
+            margin-bottom: 0;
+        }
+
+        @include desktop {
+            width: 25%;
+        }
+    }
+
+    &__small-heading {
+        &:nth-of-type(even) {
+            margin-top: 10px;
+
+            @include tablet {
+                margin-top: 0;
+            }
+        }
+
+        text-transform: uppercase;
+        @extend .warehouse-details__heading;
     }
 }

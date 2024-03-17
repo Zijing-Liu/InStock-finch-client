@@ -7,6 +7,10 @@
     font-family: $font;
 }
 
+body {
+    margin: 0
+}
+
 .layout {
     background-color: $light-grey;
     height: 100vh;
