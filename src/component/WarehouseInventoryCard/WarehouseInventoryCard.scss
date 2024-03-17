@@ -46,6 +46,7 @@
         padding: 0;
         margin-top: auto;
         padding-top: 8px;
+        cursor: pointer;
 
         &--edit {
             align-self: flex-end;
@@ -72,6 +73,7 @@
     &__delete-btn {
         border: none;
         background-color: transparent;
+        cursor: pointer;
     }
 
     &__icons {

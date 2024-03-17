@@ -8,8 +8,6 @@ import axios from "axios";
 function DeleteModel({list ,setList , itemId ,listName ,itemName}) {
   const [openModal, setOpenModal] = useState(false);
 
-console.log(itemId ,listName ,itemName)
-
   // handle delete button
   const handleOnClick = async (event) => {
     event.preventDefault();
