@@ -28,8 +28,8 @@ if (!warehouseData) {
 }
 
   return (
-    <div>
-      <WarehouseList warehouseData={warehouseData} setDeleteWarehouse={setDeleteWarehouse} />
+    <div className='list'>
+      <WarehouseList warehouseData={warehouseData}/>
     </div>
   )
 }

@@ -1,0 +1,154 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+
+.warehouse-details {
+
+    @include desktop {
+        max-width: 1020px;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        align-items: center;
+        border-bottom: 1px solid $cloud;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 36px;
+        }
+
+        @include desktop {
+            padding: 0 63px;
+        }
+
+        &-container {
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+
+    &__edit-button:hover {
+        background-color: $graphite;
+        cursor: pointer;
+    }
+
+    &__edit-icon--mobile {
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__edit--tablet {
+        color: white;
+        text-decoration: none;
+    }
+
+    &__edit-button {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        background-color: $instock-indigo;
+        border: 0px;
+        border-radius: 50%;
+        padding: 8px;
+
+
+        @include tablet {
+            border-radius: 50px;
+            gap: 8px;
+            width: max-content;
+            padding: 15px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        width: max-content;
+    }
+
+    &__edit-text--tablet {
+        display: none;
+
+        @include tablet {
+            @include label-links-buttons;
+            font-weight: 700;
+            color: $white;
+            display: inline;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &__title-name {
+        padding-left: 8px;
+        @include page-header;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 22px 15px 22px;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 20px 30px;
+        }
+    }
+
+    &__address-wrapper {
+        margin-bottom: 10px;
+
+        @include tablet {
+            width: 30%;
+        }
+    }
+
+    &__heading {
+        @include table-header;
+        margin: 6px 0;
+        font-size: 0.6rem;
+        color: $slate;
+        font-weight: 600;
+    }
+
+    &__content {
+        @include body-small;
+        margin: 0;
+        line-height: 1.5;
+        color: $instock-black;
+
+        @include tablet {
+            width: 110px;
+        }
+    }
+
+    &__contact-wrapper {
+        display: flex;
+        justify-content: flex-start;
+
+        @include tablet {
+            width: 60%;
+            justify-content: flex-start;
+            border-left: 1px solid $cloud;
+        }
+    }
+
+    &__contact-name {
+        padding-right: 40px;
+
+        @include tablet {
+            padding: 0 40px;
+        }
+
+        @include desktop {
+            padding-right: 100px;
+        }
+    }
+}

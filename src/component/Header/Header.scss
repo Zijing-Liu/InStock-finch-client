@@ -1,7 +1,10 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/breakpoints" as *;
 @use "../../styles/partials/variables" as *;
+
 .header {
+  padding-bottom: 40px;
+
   @include page-header;
   background-color: #232940;
   display: flex;
@@ -11,11 +14,11 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 40px;
+    padding: 25px 40px 110px 40px;
   }
 
   @include desktop {
-    padding: 40px 70px;
+    padding: 40px 70px 110px 70px;
   }
 
   &__logo {
@@ -36,7 +39,6 @@
     padding: 10px 0 30px 0;
     margin: 0;
     list-style: none;
-    color: white;
 
     @include tablet {
       padding: 0;
@@ -47,6 +49,8 @@
     line-height: 2;
     padding: 4px 35px;
     font-size: 0.7rem;
+    color: white;
+    text-decoration: none;
     cursor: pointer;
 
     @include tablet {
@@ -57,9 +61,15 @@
       text-decoration: underline;
     }
 
-    &:active {
+    &.active {
       border-radius: 20px;
       background-color: #13182c;
+      text-decoration: underline;
+    }
+
+    &--link {
+      text-decoration: none;
+      color: white;
     }
   }
 }

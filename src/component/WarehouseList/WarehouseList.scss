@@ -4,20 +4,16 @@
 
 
 .list{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
     border-radius: 4px;
     box-shadow: 0 2px 5px $cloud;
-    margin-bottom: 2rem;
-
-    @include desktop {
-        max-width: 1020px;
-    }
+    overflow: hidden;
 
     &__main-container{
         padding: 0 16px 16px;
         align-items: center;
+        border-radius: 4px;
 
         @include tablet {
             display: flex;
@@ -92,22 +88,103 @@
         }
     }
 
-    h2 {
+    &__header {
+        display: none;
+        background-color: $light-grey;
+
+        @include tablet {
+            padding: 0 36px;
+            display: flex;
+        }
+
+        @include desktop {
+            padding: 0 63px;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &--active {
+            &:hover {
+                text-decoration: underline;
+                color: $instock-indigo;
+            }
+        }
+    }
+
+    &__warehouse {
+        text-decoration: none;
+        color: $instock-indigo;
+        font-weight: 600;
+        margin-bottom: 8px;
+
+        @include tablet{
+            width: 25%;
+            margin-bottom: 0;
+        }
+
+        @include desktop{
+            width: 25%;
+        }
+    }
+
+    &__address {
+  
+        @include tablet{
+            width: 20%;
+            text-wrap: wrap;
+            padding: 8px;
+
+        }
+
+        @include desktop{
+            width: 20%;
+            text-wrap: wrap;
+        }
+    }
+
+    &__name {
+
+        @include tablet{
+            width: 20%;
+            padding: 8px;
+        }
+
+        @include desktop{
+            width: 20%;
+        }
+    }
+
+    &__info {
+        @include tablet{
+            width: 20%;
+            text-wrap: wrap;
+            padding: 4px;
+        }
+
+        @include tablet{
+            width: 20%;
+        }
+    }
+
+    &__action {
+        margin-left: auto;
+        align-self: center;
+    }
+
+    &__table-header {
     @include table-header;
         color: $slate;
         text-transform: uppercase;
         padding: 0;
     }
 
-    h1 {
+    &__title-text {
     @include page-header;
     padding: 16px 0;
     margin: 0
     }
-
-    p {
-      @include body-medium;
-        margin: 0 0 8px 0;
-    }
-   
 }

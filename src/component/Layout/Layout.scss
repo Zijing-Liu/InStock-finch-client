@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/typography" as *;
+
+* {
+    box-sizing: border-box;
+    font-family: $font;
+}
+
+.layout {
+    background-color: $light-grey;
+    height: 100vh;
+}
+
+.header {
+    z-index: 0;
+}
+
+.content {
+    z-index: 1;
+    background-color: $white;
+    margin: -3rem 1rem;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+
+    @include tablet {
+        margin: -5rem 2rem;
+    }
+
+    @include desktop {
+        margin: -5rem 10rem;
+    }
+}
