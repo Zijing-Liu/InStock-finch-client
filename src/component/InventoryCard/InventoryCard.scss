@@ -51,14 +51,16 @@ p.in-stock {
     &__p.in-stock {
         @include tablet {
             padding: .125rem .55rem !important;
-            margin-right: 1rem;
+            margin-right: 5rem;
+            text-align: center;
+            width: 15%;
         }
     }
 
         &__p.out-of-stock {
             @include tablet {
-                padding: .125rem .55rem !important;
-                margin-right: 1rem;
+                color: $red;
+                background-color: $red-7;
             }
 
     }
