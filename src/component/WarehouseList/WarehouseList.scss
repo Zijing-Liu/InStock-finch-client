@@ -199,6 +199,7 @@
 
     &__title{
         @include page-header;
+        margin: 20px 0;
     }
 
     &__title-text {
