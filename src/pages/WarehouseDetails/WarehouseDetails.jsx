@@ -62,7 +62,7 @@ function WarehouseDetails() {
             <img className="warehouse__icon" src={arrowIcon} alt="arrow-icon" onClick={handleGoBack} />
             <h1 className='warehouse-details__title-name'>{selectedWarehouse.warehouse_name}</h1>
           </div>
-          <Link to={`/warehouses/edit/${ID}`} className='warehouse-details__edit--tablet'>
+          <Link to={`/warehouses/${ID}/edit`} className='warehouse-details__edit--tablet'>
             <button className="warehouse-details__edit-button">
               <img
                 src={editIconWhite}
