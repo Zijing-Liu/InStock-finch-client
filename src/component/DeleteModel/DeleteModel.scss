@@ -24,6 +24,8 @@
         border: none;
         border-radius: 20px;
         cursor: pointer;
+
+        width: 50%;
         @include label-links-buttons;
 
         &:hover {
@@ -78,4 +80,46 @@ svg {
 .max-w-md {
     width: auto;
     max-width: fit-content;
+    padding: 0;
+
+}
+
+.max-h-\[90dvh\] {
+    max-height: 100dvh;
+
+    @include tablet {
+        height: fit-content;
+    }
+}
+
+div.rounded-lg {
+    border-radius: 0;
+
+    @include tablet {
+    border-radius: 4px;
+    }
+}
+
+.btn-box {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+div.gap-2 {
+    gap: 0;
+}
+
+div.p-6 {
+    padding-top: 0;
+}
+
+.pt-0 {
+
+    @include tablet 
+    {width: 90%;
+    padding: 0 63px 1rem;}
+}
+
+.p-2 {
+    padding-bottom: 0;
 }
