@@ -52,7 +52,7 @@ function InventoryForm({
       });
     }
     // For warehouse selection, find the warehouse object by its name and update the warehouse ID
-    else if (name === "warehouse_id") {
+    else if (name === "warehouse_id" && value) {
       const selectedWarehouse = Warehouses.find(
         (warehouse) => warehouse.warehouse_name === value
       );
@@ -134,7 +134,7 @@ function InventoryForm({
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option key={0} value="">
+                <option key={0} value="" className="form__input">
                   Please select
                 </option>
               )}
@@ -257,7 +257,7 @@ function InventoryForm({
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option key={1} value="">
+                <option key={1} value="" className="form__input">
                   Please select
                 </option>
               )}

@@ -93,11 +93,40 @@
       text-indent: 1rem;
       position: relative;
       background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
-        95% 50%;
-
+        96% 50%;
+      @include desktop {
+        background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
+          98% 50%;
+      }
       &:focus-visible {
         background: url("../../assets/Icons/arrow_drop_down-24px-blue.svg")
-          no-repeat 95% 50%;
+          no-repeat 96% 50%;
+        @include desktop {
+          background: url("../../assets/Icons/arrow_drop_down-24px.svg")
+            no-repeat 98% 50%;
+        }
+      }
+    }
+
+    &--placeholder {
+      appearance: none;
+      color: $slate;
+      padding: 5px;
+      text-indent: 1rem;
+      position: relative;
+      background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
+        96% 50%;
+      @include desktop {
+        background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
+          98% 50%;
+      }
+      &:focus-visible {
+        background: url("../../assets/Icons/arrow_drop_down-24px-blue.svg")
+          no-repeat 96% 50%;
+        @include desktop {
+          background: url("../../assets/Icons/arrow_drop_down-24px.svg")
+            no-repeat 98% 50%;
+        }
       }
     }
 
@@ -188,7 +217,3 @@
     }
   }
 }
-
-// .form__input--placeholder {
-//   color: $slate;
-// }
