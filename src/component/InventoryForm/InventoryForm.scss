@@ -27,7 +27,7 @@
     width: 100%;
     height: 2.5rem;
     margin: 4px 0 0px 0;
-    padding: 0 16px 0 16px;
+    padding: 0px 16px 0 16px;
 
     @include tablet {
       margin: 4px 0 10px 0;
@@ -37,6 +37,10 @@
       outline: 1px solid $instock-indigo;
     }
 
+    &__placeholder {
+      @include body-medium;
+      color: $slate;
+    }
     &--error {
       color: $red;
       border: $red;
@@ -64,6 +68,7 @@
 
     &--text {
       height: 120px;
+      padding-top: 8px;
 
       &::placeholder {
         padding: 2rem 1rem;

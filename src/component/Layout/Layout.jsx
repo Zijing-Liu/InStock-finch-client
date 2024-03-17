@@ -1,9 +1,11 @@
+
 import Header from '../Header/Header';
 // import Footer from './Footer/Footer';
 import './Layout.scss';
 
 const Layout = ({ children }) => {
   return (
+    
     <div className="layout">
       <Header />
       <main className="content">{children}</main>

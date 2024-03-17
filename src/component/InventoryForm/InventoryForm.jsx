@@ -9,6 +9,7 @@ function InventoryForm({
   error,
   Currentwarehouse,
   setItemDetails,
+  showPlaceHolder,
 }) {
   const base_url = process.env.REACT_APP_BASE_URL;
   const [Warehouses, setWareHouses] = useState();
@@ -28,6 +29,7 @@ function InventoryForm({
         // get all warehouses from api
         const warehouses = await axios.get(`${base_url}warehouses`);
         setWareHouses(warehouses.data);
+        console.log("here is all current warehouses");
       } catch (error) {
         console.log("there is a problem fetch the warehouses", error);
       }
@@ -63,7 +65,6 @@ function InventoryForm({
           warehouse_name: selectedWarehouse.warehouse_name,
         });
       }
-
     }
     // For other inputs, simply update the state
     else {
@@ -73,7 +74,6 @@ function InventoryForm({
       });
     }
   };
-
 
   return (
     <>
@@ -132,12 +132,20 @@ function InventoryForm({
               value={itemDetails.category}
               onChange={handleInputChange}
             >
+              {showPlaceHolder && (
+                <option value="" className="form__placeholder">
+                  Please select
+                </option>
+              )}
               {categories.map((category, i) => (
                 <option key={i} value={category}>
                   {category}
                 </option>
               ))}
             </select>
+            {error.item_name && (
+              <p className="form__input--error">{error.item_name}</p>
+            )}
           </div>
 
           <hr />
@@ -232,12 +240,20 @@ function InventoryForm({
               }
               onChange={handleInputChange}
             >
+              {showPlaceHolder && (
+                <option value="" className="form__placeholder">
+                  Please select
+                </option>
+              )}
               {Warehouses.map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.warehouse_name}>
                   {warehouse.warehouse_name}
                 </option>
               ))}
             </select>
+            {error.item_name && (
+              <p className="form__input--error">{error.item_name}</p>
+            )}
           </div>
         </div>
 
