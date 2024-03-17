@@ -44,7 +44,7 @@ function InventoryItemDetail() {
       <div className="inventory-item__header">
         <div className="inventory-item__iconAndTitle">
           <img
-            className="icon"
+            className="inventory-item__icon"
             src={arrowBackIcon}
             alt="Back Arrow Icon"
             onClick={() => {
