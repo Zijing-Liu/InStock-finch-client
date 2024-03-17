@@ -8,13 +8,6 @@ import axios from "axios";
 function DeleteModel({list ,setList , itemId ,listName ,itemName}) {
   const [openModal, setOpenModal] = useState(false);
 
-  // here is the explination how to use this compenet 
-  // add all the following in your copmenent as props to pass it to here . 
-  // 1.const [list, setList] = useState(Allinventories or allWarehouses); that will be coming form your get request.
-  // 2.itemId => is the Id of the warehouse or the inventory you would like to delete .
-  // 3.listName => is warehouses or inventories that will be in rout and text .
-  // 4.ItemName => is the name of the warehouse or the inventory you would like to delete .
-
   // handle delete button
   const handleOnClick = async (event) => {
     event.preventDefault();
