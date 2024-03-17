@@ -21,7 +21,7 @@ $red-7: rgba(201, 69, 21, 0.07);
     margin: 0 0 8px 0;
 
     &.in-stock {
-    font-size: 14px;
+    font-size: 11px;
     line-height: 22px;
     text-align: center;
     padding: 0.125rem 0.55rem;
@@ -31,6 +31,7 @@ $red-7: rgba(201, 69, 21, 0.07);
     background-color: $green-7;
     text-transform: uppercase;
     width: auto;
+    text-wrap: none;
     // border: 1px solid red;
   }
 
@@ -200,7 +201,7 @@ $red-7: rgba(201, 69, 21, 0.07);
 
 .badge {
   &.in-stock {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 22px;
     text-align: center;
     padding: 0.125rem 0.55rem;
