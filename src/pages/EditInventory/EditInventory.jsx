@@ -122,7 +122,7 @@ function EditInventory() {
         />
         <h1 className="edit__title">Edit Inventory Item</h1>
       </div>
-      <hr />
+      <hr className="break" />
       <InventoryForm
         setItemDetails={setItemDetails}
         setFormData={setItemDetails}

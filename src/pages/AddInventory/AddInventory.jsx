@@ -117,7 +117,7 @@ function AddInventory() {
         />
         <h1 className="add-inventory__title">Add Inventory Item</h1>
       </div>
-      <hr />
+      <hr className="break" />
       <InventoryForm
         setItemDetails={setItemDetails}
         setFormData={setItemDetails}
