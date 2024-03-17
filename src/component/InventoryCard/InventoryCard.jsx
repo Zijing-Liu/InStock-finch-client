@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import deleteBtn from "../../assets/Icons/delete_outline-24px.svg"
 import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
+import DeleteModel from "../DeleteModel/DeleteModel";
 
 
 function InventoryCard({ inventory, getWarehouseName }) {
@@ -57,6 +58,7 @@ function InventoryCard({ inventory, getWarehouseName }) {
                 <p className="list__info list__p">{getWarehouseName(inventory.id)}</p>
                 <div className="list__list-btns">
                     <button className="list__delete-btn" onClick={handleOnClick}>
+                        <DeleteModel />
                         <img src={deleteBtn} alt="delete button" />
                     </button>
 

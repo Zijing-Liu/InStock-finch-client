@@ -8,6 +8,7 @@ const baseURL = process.env.REACT_APP_BASE_URL
 const [inventoryData, setInventoryData] = useState(null);
 const [warehouseData, setWarehouseData] = useState(null);
 
+
 useEffect(() => {
   const inventoryData = async() => {
     try{
