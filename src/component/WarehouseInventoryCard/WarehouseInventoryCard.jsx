@@ -8,29 +8,6 @@ import axios from 'axios'
 import DeleteModel from "../DeleteModel/DeleteModel";
 
 function WarehouseInventoryCard({ item, setWarehouseInv, warehouseInv }) {
-    // const baseURL = process.env.REACT_APP_BASE_URL
-    // const [warehouseInv, setWarehouseInv] = useState(null)
-    // const [list, setList] = useState(null) //Pass down to delete modal
-    // const [invItem, setInvItem] = useState(null)
-    // const { ID } = useParams();
-
-    // useEffect(() => {
-    //     const warehouseData = async () => {
-    //         try {
-    //             const response = await axios.get(`${baseURL}warehouses/${ID}/inventories`)
-    //             setList(response.data)
-    //         } catch (error) {
-    //             console.log("WareInv data error")
-    //         }
-    //     }
-    //     warehouseDataTest();
-    // }, [ID])
-
-    // console.log(list)
-
-    // if (!list) {
-    //     return <div>Loading...</div>
-    // }
 
     return (
         <div>
@@ -68,13 +45,13 @@ function WarehouseInventoryCard({ item, setWarehouseInv, warehouseInv }) {
                             <p className="inv-list__paragraph inv-list__inventory inv-list__inventory-text">{item.item_name}</p> <img src={chevron} alt='arrow icon' />
                         </div>
                     </Link>
-                    <p className="inv-list__address">{item.category}</p>
+                    <p className="inv-list__address inv-list__paragraph">{item.category}</p>
                     <div className="inv-list__name">
                         <p className={"inv-list__status inv-list__paragraph " + (item.status === "In Stock" ? "inv-list__status--in-stock" : "inv-list__status--no-stock")}> {item.status} </p>
                     </div>
-                    <p className="inv-list__info">{item.quantity}</p>
+                    <p className="inv-list__info inv-list__paragraph">{item.quantity}</p>
                     <div className="inv-list__list-btns">
-                        <button className="inv-list__delete-btn" onClick={console.log(item.id)}>
+                        <button className="inv-list__delete-btn">
                         <DeleteModel setList={setWarehouseInv} list={warehouseInv} itemId={item.id} listName={"inventories"} itemName={item.warehouse_name} />
                         </button>
                         <Link to={`/inventory/edit/${item.id}`}>
