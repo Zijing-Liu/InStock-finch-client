@@ -9,7 +9,7 @@ function InventoryItemDetail() {
   // get the data from api
   const base_url = process.env.REACT_APP_BASE_URL;
   const { ID } = useParams();
-  const navigator = useNavigate();
+  const navigate = useNavigate();
   const [itemData, setItemData] = useState({});
   const [warehouseName, setWarehouseName] = useState("");
   useEffect(() => {
@@ -48,7 +48,7 @@ function InventoryItemDetail() {
             src={arrowBackIcon}
             alt="Back Arrow Icon"
             onClick={() => {
-              navigator("/inventory");
+              navigate(-1);
             }}
           />
           <h1 className="inventory-item__heading">{itemData.item_name}</h1>
