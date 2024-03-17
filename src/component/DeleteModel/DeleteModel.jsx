@@ -46,8 +46,7 @@ function DeleteModel({list ,setList , itemId ,listName ,itemName}) {
               {/* {listName === "inventories" ? "item" : ""} */}
             </h1>
             <h3 className=" modal__text">
-              Please confirm that you’d like to delete {itemName} from
-              the {listName} list. You won’t be able to undo this action.
+              Please confirm that you’d like to delete {itemName} from the {listName === "warehouses" ? "list of warehouse" : "inventory list"}. You won’t be able to undo this action.
             </h3>
           </div>
         </Modal.Body>
