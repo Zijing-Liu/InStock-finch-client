@@ -64,6 +64,7 @@
         background-color: $white;
         margin-right: 11px;
         border-radius: 10px;
+        cursor: pointer;
     }
 
     &__btn {
@@ -74,6 +75,7 @@
         color: $white;
         background-color: $instock-indigo;
         border: none;
+        cursor: pointer;
 
         &:hover {
             background-color: $graphite;

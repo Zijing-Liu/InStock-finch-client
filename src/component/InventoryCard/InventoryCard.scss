@@ -88,6 +88,7 @@ p.in-stock {
         background-color: $white;
         padding: 0;
         margin-top: auto;
+        cursor: pointer;
 
         &--edit {
             align-self: flex-end;
@@ -140,6 +141,7 @@ p.in-stock {
         @include tablet {
             display: flex;
             margin-left: auto;
+            cursor: pointer;
         }
 
         :nth-child(2) {
@@ -150,6 +152,7 @@ p.in-stock {
     &__delete-btn {
         border: none;
         background-color: transparent;
+        cursor: pointer;
     }
 
     &__icons {
