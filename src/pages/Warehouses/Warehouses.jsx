@@ -7,6 +7,7 @@ export default function Warehouses() {
 const baseURL = process.env.REACT_APP_BASE_URL
 const [warehouseData, setWarehouseData] = useState(null)
 
+
 useEffect(() => {
   const warehouseData = async() => {
     try{
@@ -27,7 +28,7 @@ if (!warehouseData) {
 
   return (
     <div className='list'>
-      <WarehouseList warehouseData={warehouseData}/>
+      <WarehouseList warehouseData={warehouseData} setWarehouseData={setWarehouseData}/>
     </div>
   )
 }

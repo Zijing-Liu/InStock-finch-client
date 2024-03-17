@@ -1,9 +1,216 @@
-import React from 'react'
+import './AddWarehouse.scss'
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
 
-function AddWarehouse() {
+export default function AddWarehouse() {
+  
+ 
+  const navigate = useNavigate();
+  const baseURL = process.env.REACT_APP_BASE_URL;
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
+  const [selectedWarehouse, setSelectedWarehouse] = useState({
+    warehouse_name: '',
+    address: '',
+    city: '',
+    country: '',
+    contact_name: '',
+    contact_position: '',
+    contact_phone: '',
+    contact_email: '',
+  });
+
+  const [error, setError] = useState({
+    warehouse_name: '',
+    address: '',
+    city: '',
+    country: '',
+    contact_name: '',
+    contact_position: '',
+    contact_phone: '',
+    contact_email: '',
+  });
+
+  
+  function isValidEmail(email) {
+    // regex matches "example@example.com" (username before "@" and domain afterwards)
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+  };
+
+  function isValidPhoneNumber(phoneNumber) {
+    // regex matches numbers such as "+1 (646) 123-1234" and "780-555-5555"
+    const phoneRegex = /^(?:\+\d{1,2}\s\(\d{3}\)\s\d{3}-\d{4}|\d{3}-\d{3}-\d{4})$/;
+    return phoneRegex.test(phoneNumber);
+  };
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const newError = {};
+
+    if (!selectedWarehouse.warehouse_name) {
+      newError.warehouse_name = "This field is required";
+    }
+    if (!selectedWarehouse.address) {
+      newError.address = "This field is required";
+    }
+    if (!selectedWarehouse.city) {
+      newError.city = "This field is required";
+    }
+    if (!selectedWarehouse.country) {
+      newError.country = "This field is required";
+    }
+    if (!selectedWarehouse.contact_name) {
+      newError.contact_name = "This field is required";
+    }
+    if (!selectedWarehouse.contact_position) {
+      newError.contact_position = "This field is required";
+    }
+    if (!selectedWarehouse.contact_phone) {
+      newError.contact_phone = "This field is required";
+    }
+    if (!selectedWarehouse.contact_email) {
+      newError.contact_email = "This field is required";
+    }
+    if (!isValidEmail(selectedWarehouse.contact_email)) {
+      newError.contact_email = "Please enter valid email";
+    } if (!isValidPhoneNumber(selectedWarehouse.contact_phone)) {
+      newError.contact_phone = "Please enter valid phone number";
+   }
+
+   setError(newError);
+   
+    const submitDataObj = {
+      warehouse_id: selectedWarehouse.id,
+      warehouse_name: selectedWarehouse.warehouse_name,
+      address: selectedWarehouse.address,
+      city: selectedWarehouse.city,
+      country: selectedWarehouse.country,
+      contact_name: selectedWarehouse.contact_name,
+      contact_position: selectedWarehouse.contact_position,
+      contact_phone: selectedWarehouse.contact_phone,
+      contact_email: selectedWarehouse.contact_email,
+    }
+
+    const postWarehouse = async () => {
+      try {
+        const response = await axios.post(`${baseURL}warehouses`, submitDataObj);
+        navigate('/')
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    postWarehouse();
+  }
+
   return (
-    <div>AddWarehouse</div>
+    <section className='warehouse'>
+      <div className="warehouse__title-box">
+        <img className="warehouse__icon" src={arrowBackIcon} alt="arrow-icon" onClick={handleGoBack} />
+        <h1 className='warehouse__title'>Add New Warehouse</h1>
+      </div>
+      {Object.keys(selectedWarehouse).length > 0 && (
+        <form action="post" className='warehouse__form' onSubmit={handleSubmit}>
+          <div className='warehouse__form-fields'>
+            <div className='warehouse__form-section'>
+              <h2 className='warehouse__form-heading'>Warehouse Details</h2>
+              <label htmlFor="warehouseName" className='warehouse__form-label'>Warehouse Name</label>
+              <input
+                type="text"
+                name="warehouse_name"
+        
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, warehouse_name: e.target.value})}
+                style={{ borderColor: error.warehouse_name ? '#C94515' : '' }}
+              />
+              {error.warehouse_name && <div className="warehouse__form-error">{error.warehouse_name}</div>}
+
+              <label htmlFor="streetAddress" className='warehouse__form-label'>Street Address</label>
+              <input
+                type="text"
+                name="address"
+              
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, address: e.target.value})}
+                style={{ borderColor: error.address ? '#C94515' : '' }}
+              />
+              {error.address && <div className="warehouse__form-error">{error.address}</div>}
+
+              <label htmlFor="city" className='warehouse__form-label'>City</label>
+              <input
+                type="text"
+                name="city"
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, city: e.target.value})}
+                style={{ borderColor: error.city ? '#C94515' : '' }}
+              />
+              {error.city && <div className="warehouse__form-error">{error.city}</div>}
+
+              <label htmlFor="country" className='warehouse__form-label'>Country</label>
+              <input
+                type="text"
+                name="country"
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, country: e.target.value})}
+                style={{ borderColor: error.country ? '#C94515' : '' }}
+              />
+              {error.country && <div className="warehouse__form-error">{error.country}</div>}
+
+            </div>
+            <div className='warehouse__form-section warehouse__form-section--contact'>
+              <h2 className='warehouse__form-heading'>Contact Details</h2>
+              <label htmlFor="contactName" className='warehouse__form-label'>Contact Name</label>
+              <input
+                type="text"
+                name="contact_name"
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_name: e.target.value})}
+                style={{ borderColor: error.contact_name ? '#C94515' : '' }}
+              />
+              {error.contact_name && <div className="warehouse__form-error">{error.contact_name}</div>}
+
+              <label htmlFor="position" className='warehouse__form-label'>Position</label>
+              <input
+                type="text"
+                name="contact_position"
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_position: e.target.value})}
+                style={{ borderColor: error.contact_position ? '#C94515' : '' }}
+              />
+              {error.contact_position && <div className="warehouse__form-error">{error.contact_position}</div>}
+
+              <label htmlFor="phoneNumber" className='warehouse__form-label'>Phone Number</label>
+              <input
+                type="text"
+                name="contact_phone"
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_phone: e.target.value})}
+                style={{ borderColor: error.contact_phone ? '#C94515' : '' }}
+              />
+              {error.contact_phone && <div className="warehouse__form-error">{error.contact_phone}</div>}
+
+              <label htmlFor="email" className='warehouse__form-label'>Email</label>
+              <input
+                type="text"
+                name="contact_email"
+                className='warehouse__form-input'
+                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_email: e.target.value})}
+                style={{ borderColor: error.contact_email ? '#C94515' : '' }}
+              />
+              {error.contact_email && <div className="warehouse__form-error">{error.contact_email}</div>}
+
+            </div>
+          </div>
+          <div className='warehouse__form-buttons'>
+            <button className='warehouse__form-buttons--cancel' onClick={handleGoBack}>Cancel</button>
+            <button className='warehouse__form-buttons--add' type='submit' >+ Add New Warehouse</button>
+          </div>
+        </form>
+      )}
+    </section >
   )
 }
-
-export default AddWarehouse
