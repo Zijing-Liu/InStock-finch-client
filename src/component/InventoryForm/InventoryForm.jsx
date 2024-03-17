@@ -125,12 +125,16 @@ function InventoryForm({
             <select
               id="category"
               name="category"
-              className="form__input form__input--select"
+              className={`form__input ${
+                itemDetails.category
+                  ? "form__input--select"
+                  : "form__input--placeholder"
+              }`}
               value={itemDetails.category}
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option value="" className="form__input--placeholder">
+                <option key={0} value="">
                   Please select
                 </option>
               )}
@@ -239,7 +243,12 @@ function InventoryForm({
             <select
               id="warehouse"
               name="warehouse_id"
-              className="form__input form__input--select"
+              className={`form__input
+                ${
+                  itemDetails.warehouse_name
+                    ? "form__input--select"
+                    : "form__input--placeholder"
+                }`}
               value={
                 itemDetails.warehouse_name
                   ? itemDetails.warehouse_name
@@ -248,10 +257,7 @@ function InventoryForm({
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option
-                  value=""
-                  className=" form__input form__input--placeholder"
-                >
+                <option key={1} value="">
                   Please select
                 </option>
               )}
