@@ -5,7 +5,7 @@ import editBtn from "../../assets/Icons/edit-24px.svg"
 import chevron from "../../assets/Icons/chevron_right-24px.svg"
 
 
-function WarehouseCard({ warehouse }) {
+function WarehouseCard({ warehouse, index }) {
 
     function handleOnClick() {
         alert("i've been clicked")
@@ -18,7 +18,7 @@ function WarehouseCard({ warehouse }) {
                     <h2 className="list__header-mobile list__table-text">Warehouse</h2>
                     <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse">
                         <div className="list__icons">
-                            <p className="list__p list__warehouse list__warehouse-text">{warehouse.warehouse_name}</p> <img src={chevron} alt="chevron" />
+                            <p className="list__p list__warehouse list__warehouse">{warehouse.warehouse_name}</p> <img src={chevron} alt="chevron" />
                         </div>
                     </Link>
                     <h2 className="list__header-mobile list__table-text">Address</h2>
@@ -38,8 +38,8 @@ function WarehouseCard({ warehouse }) {
                 </div>
             </div>
 
-            <div className="list__warehouse-container">
-                <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse list__table-text">
+            <div className={"list__warehouse-container" + " " + (index === 0 ? '' : 'list__border-top' )}>
+                <Link to={`/warehouses/${warehouse.id}`} className="list__warehouse">
                     <div className="list__icons list__icons--active">
                         <p className="list__p list__warehouse list__warehouse-text">{warehouse.warehouse_name}</p> <img src={chevron} alt="chevron" />
                     </div>

@@ -42,11 +42,12 @@ function WarehouseList({warehouseData, }) {
                 <h2 className="list__table-header list__action">Actions</h2>
             </div>
 
-        {warehouseData.map((warehouse) => {
+        {warehouseData.map((warehouse, index) => {
             return(
                 <WarehouseCard 
                 warehouse={warehouse}
                 key={warehouse.id}
+                index={index}
                 />
             )}
                 )}
