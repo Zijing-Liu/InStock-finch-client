@@ -125,7 +125,6 @@
         text-decoration: none;
         color: $instock-indigo;
         font-weight: 600;
-        margin-bottom: 8px;
 
         @include tablet{
             width: 20%;
@@ -189,6 +188,9 @@
 
     &__table-header {
     @include table-header;
+        margin: 6px 0;
+        font-size: 0.5rem;
+        font-weight: 600;
         color: $slate;
         text-transform: uppercase;
         padding: 0;
@@ -196,7 +198,6 @@
     }
 
     &__title-text {
-        @include page-header;
         &:nth-of-type(even) {
             margin-top: 20px;
 
