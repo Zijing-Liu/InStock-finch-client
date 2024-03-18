@@ -1,0 +1,17 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/typography" as *;
+
+
+
+.footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: $slate;
+    min-height: 10rem;
+    font-size: 14px;
+
+    @include tablet {
+        min-height: 18rem;}
+    }
