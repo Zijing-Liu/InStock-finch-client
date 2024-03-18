@@ -76,7 +76,7 @@ function InventoryForm({
     <>
       <form className="form" onSubmit={handleOnSubmit}>
         <div className="form__container">
-          <div className="form__box">
+          <div className="form__box form__box--left">
             <h2 className="form__title">Item Details</h2>
 
             <label htmlFor="name" className="form__label">
