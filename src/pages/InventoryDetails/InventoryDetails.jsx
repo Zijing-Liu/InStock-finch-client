@@ -54,7 +54,7 @@ function InventoryItemDetail() {
           <h1 className="inventory-item__heading">{itemData.item_name}</h1>
         </div>
         <Link
-          to={`/inventory/edit/${ID}`}
+          to={`/inventory/${ID}/edit`}
           className="inventory-item__link"
           itemData={itemData}
         >
@@ -68,6 +68,7 @@ function InventoryItemDetail() {
           </button>
         </Link>
       </div>
+      <hr className="divider" />
       <div className="inventory-item__body">
         <div className="inventory-item__body-left">
           <h4 className="inventory-item__label">ITEM DESCRIPTION:</h4>
