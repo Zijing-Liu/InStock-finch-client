@@ -8,8 +8,17 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+
     @include tablet {
       padding: 0rem 2rem;
+    }
+    @include desktop {
+      padding: 0rem 2.5rem;
+    }
+    &--left {
+      @include tablet {
+        border-right: 1px $cloud solid;
+      }
     }
   }
   &__container {
@@ -20,10 +29,21 @@
       flex-direction: row;
     }
   }
+  &__title {
+    @include subheader;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 0;
+    @include tablet {
+      font-size: 1.5rem;
+    }
+  }
 
   &__input {
     border-radius: 20px;
     border: 1px solid $cloud;
+    color: $slate;
     width: 100%;
     height: 2.5rem;
     margin: 4px 0 0px 0;
@@ -37,10 +57,6 @@
       outline: 1px solid $instock-indigo;
     }
 
-    &__placeholder {
-      @include body-medium;
-      color: $slate;
-    }
     &--error {
       color: $red;
       border: $red;
@@ -62,8 +78,8 @@
     }
 
     &::placeholder {
-      padding: 0rem 1rem;
-      color: $instock-black;
+      color: $slate;
+      padding: 0;
     }
 
     &--text {
@@ -71,22 +87,55 @@
       padding-top: 8px;
 
       &::placeholder {
-        padding: 2rem 1rem;
         font-family: $font;
+        color: $slate;
       }
+    }
+    &--placeholder {
+      color: $slate;
     }
 
     &--select {
       appearance: none;
+      color: $instock-black;
       padding: 5px;
       text-indent: 1rem;
       position: relative;
       background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
-        95% 50%;
-
+        96% 50%;
+      @include desktop {
+        background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
+          98% 50%;
+      }
       &:focus-visible {
         background: url("../../assets/Icons/arrow_drop_down-24px-blue.svg")
-          no-repeat 95% 50%;
+          no-repeat 96% 50%;
+        @include desktop {
+          background: url("../../assets/Icons/arrow_drop_down-24px.svg")
+            no-repeat 98% 50%;
+        }
+      }
+    }
+
+    &--placeholder {
+      appearance: none;
+      color: $slate;
+      padding: 5px;
+      text-indent: 1rem;
+      position: relative;
+      background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
+        96% 50%;
+      @include desktop {
+        background: url("../../assets/Icons/arrow_drop_down-24px.svg") no-repeat
+          98% 50%;
+      }
+      &:focus-visible {
+        background: url("../../assets/Icons/arrow_drop_down-24px-blue.svg")
+          no-repeat 96% 50%;
+        @include desktop {
+          background: url("../../assets/Icons/arrow_drop_down-24px.svg")
+            no-repeat 98% 50%;
+        }
       }
     }
 
@@ -107,9 +156,9 @@
     align-items: center;
     font-size: 16px;
     width: 50%;
-
+    color: $slate;
     &--checked {
-      color: $slate;
+      color: $instock-black;
     }
   }
 
@@ -150,8 +199,9 @@
     }
 
     @include tablet {
-      width: 8%;
-      height: 35px;
+      width: fit-content;
+      padding: 0 1rem;
+      height: 2.1875rem;
     }
 
     &--white {
@@ -164,6 +214,17 @@
         color: $instock-indigo;
         background-color: $white;
       }
+    }
+  }
+
+  &__break {
+    border-top: 1px solid $cloud; /* Use border to style the divider */
+    width: 100%;
+    height: 1px;
+    margin-top: 1.5rem;
+
+    @include tablet {
+      display: none;
     }
   }
 }
