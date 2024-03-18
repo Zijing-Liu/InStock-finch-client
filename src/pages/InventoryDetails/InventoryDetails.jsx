@@ -80,7 +80,14 @@ function InventoryItemDetail() {
           <div className="inventory-item__status-and-quantity">
             <div>
               <h4 className="inventory-item__label">STATUS:</h4>
-              <p className="inventory-item__status">
+              <p
+                className={
+                  itemData.status &&
+                  itemData.status.toLowerCase() === "in stock"
+                    ? "inventory-item__status"
+                    : "inventory-item__status--red"
+                }
+              >
                 {!itemData.status
                   ? itemData.status
                   : itemData.status.toUpperCase()}
