@@ -10,6 +10,7 @@ function InventoryForm({
   Currentwarehouse,
   setItemDetails,
   showPlaceHolder,
+  buttonText,
 }) {
   const base_url = process.env.REACT_APP_BASE_URL;
   const [Warehouses, setWareHouses] = useState();
@@ -51,7 +52,7 @@ function InventoryForm({
       });
     }
     // For warehouse selection, find the warehouse object by its name and update the warehouse ID
-    else if (name === "warehouse_id") {
+    else if (name === "warehouse_id" && value) {
       const selectedWarehouse = Warehouses.find(
         (warehouse) => warehouse.warehouse_name === value
       );
@@ -75,8 +76,8 @@ function InventoryForm({
     <>
       <form className="form" onSubmit={handleOnSubmit}>
         <div className="form__container">
-          <div className="form__box">
-            <h3 className="form__title">Item Details</h3>
+          <div className="form__box form__box--left">
+            <h2 className="form__title">Item Details</h2>
 
             <label htmlFor="name" className="form__label">
               Item Name
@@ -88,7 +89,7 @@ function InventoryForm({
                   : `form__input`
               }
               type="text"
-              placeholder={itemDetails.item_name}
+              placeholder="Item Name"
               id="name"
               name="item_name"
               value={itemDetails.item_name}
@@ -107,7 +108,7 @@ function InventoryForm({
                   ? ` form__input form__input--text form__input--red`
                   : `form__input form__input--text`
               }
-              placeholder={itemDetails.description}
+              placeholder="Please enter a brief item description..."
               id="description"
               name="description"
               rows=""
@@ -124,12 +125,16 @@ function InventoryForm({
             <select
               id="category"
               name="category"
-              className="form__input form__input--select"
+              className={`form__input ${
+                itemDetails.category
+                  ? "form__input--select"
+                  : "form__input--placeholder"
+              }`}
               value={itemDetails.category}
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option value="" className="form__placeholder">
+                <option key={0} value="" className="form__input">
                   Please select
                 </option>
               )}
@@ -144,10 +149,10 @@ function InventoryForm({
             )}
           </div>
 
-          <hr />
+          <hr className="form__break" />
 
           <div className="form__box">
-            <h3 className="form__title">Item Availability</h3>
+            <h2 className="form__title">Item Availability</h2>
             <label htmlFor="status" className="form__label">
               Status
             </label>
@@ -238,7 +243,12 @@ function InventoryForm({
             <select
               id="warehouse"
               name="warehouse_id"
-              className="form__input form__input--select"
+              className={`form__input
+                ${
+                  itemDetails.warehouse_name
+                    ? "form__input--select"
+                    : "form__input--placeholder"
+                }`}
               value={
                 itemDetails.warehouse_name
                   ? itemDetails.warehouse_name
@@ -247,7 +257,7 @@ function InventoryForm({
               onChange={handleInputChange}
             >
               {showPlaceHolder && (
-                <option value="" className="form__placeholder">
+                <option key={1} value="" className="form__input">
                   Please select
                 </option>
               )}
@@ -272,7 +282,7 @@ function InventoryForm({
             Cancel
           </button>
           <button type="submit" className="form__btn">
-            Save
+            {buttonText}
           </button>
         </div>
       </form>

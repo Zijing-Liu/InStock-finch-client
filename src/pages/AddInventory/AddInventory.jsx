@@ -115,9 +115,9 @@ function AddInventory() {
           alt="arrow-icon"
           onClick={handleGoBack}
         />
-        <h1 className="add-inventory__title">Add Inventory Item</h1>
+        <h1 className="add-inventory__title">Add New Inventory Item</h1>
       </div>
-      <hr />
+      <hr className="break" />
       <InventoryForm
         setItemDetails={setItemDetails}
         setFormData={setItemDetails}
@@ -128,6 +128,7 @@ function AddInventory() {
         setError={setError}
         Currentwarehouse={""}
         showPlaceHolder={true}
+        buttonText={"+ Add Item"}
       />
     </div>
   );
