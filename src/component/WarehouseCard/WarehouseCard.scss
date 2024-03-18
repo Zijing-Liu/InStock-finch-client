@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.list {
+.ware-list {
     &__table-text {
         @include table-header;
         color: $slate;
