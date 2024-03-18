@@ -26,7 +26,6 @@ function InventoryItemDetail() {
           const warehouse = await axios.get(
             `${base_url}warehouses/${itemDetail.warehouse_id}`
           );
-          console.log(warehouse.data);
           setWarehouseName(warehouse.data.warehouse_name);
         }
       } catch (error) {
