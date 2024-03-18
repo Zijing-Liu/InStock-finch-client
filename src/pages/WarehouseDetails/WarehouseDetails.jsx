@@ -3,17 +3,11 @@ import WarehouseInventoryCard from "../../component/WarehouseInventoryCard/Wareh
 import editIconWhite from '../../assets/Icons/edit-24px-white.svg'
 import arrowIcon from "../../assets/Icons/arrow_back-24px.svg"
 import sort from "../../assets/Icons/sort-24px.svg"
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 function WarehouseDetails() {
-
-
-  const navigate = useNavigate();
-  const handleGoBack = () => {
-    navigate(-1);
-  };
 
   const baseURL = process.env.REACT_APP_BASE_URL
   const [selectedWarehouse, setSelectedWarehouse] = useState("")
@@ -59,10 +53,10 @@ function WarehouseDetails() {
       <div className="warehouse-details" key={selectedWarehouse.id}>
         <div className="warehouse-details__header" >
           <div className='warehouse-details__header-container'>
-            <img className="warehouse__icon" src={arrowIcon} alt="arrow-icon" onClick={handleGoBack} />
+            <Link to='/warehouses' ><img src={arrowIcon} className="warehouse__icon" alt="arrow-icon" /></Link>
             <h1 className='warehouse-details__title-name'>{selectedWarehouse.warehouse_name}</h1>
           </div>
-          <Link to={`/warehouses/edit/${ID}`} className='warehouse-details__edit--tablet'>
+          <Link to={`/warehouses/${ID}/edit`} className='warehouse-details__edit--tablet'>
             <button className="warehouse-details__edit-button">
               <img
                 src={editIconWhite}

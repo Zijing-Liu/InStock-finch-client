@@ -9,7 +9,7 @@ function InventoryItemDetail() {
   // get the data from api
   const base_url = process.env.REACT_APP_BASE_URL;
   const { ID } = useParams();
-  const navigator = useNavigate();
+  const navigate = useNavigate();
   const [itemData, setItemData] = useState({});
   const [warehouseName, setWarehouseName] = useState("");
   useEffect(() => {
@@ -44,11 +44,11 @@ function InventoryItemDetail() {
       <div className="inventory-item__header">
         <div className="inventory-item__iconAndTitle">
           <img
-            className="icon"
+            className="inventory-item__icon"
             src={arrowBackIcon}
             alt="Back Arrow Icon"
             onClick={() => {
-              navigator("/inventory");
+              navigate(-1);
             }}
           />
           <h1 className="inventory-item__heading">{itemData.item_name}</h1>
@@ -59,12 +59,12 @@ function InventoryItemDetail() {
           itemData={itemData}
         >
           <button className="inventory-item__edit">
-            <p className="inventory-item__edit-text">Edit</p>
             <img
               className="inventory-item__edit-icon"
               src={editIconWhite}
               alt="Edit Icon"
             />
+            <p className="inventory-item__edit-text">Edit</p>
           </button>
         </Link>
       </div>
