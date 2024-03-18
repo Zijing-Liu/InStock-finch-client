@@ -1,0 +1,249 @@
+@use "../../styles/partials/breakpoints" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+$green-7: rgba(0, 128, 0, 0.07);
+$red-7: rgba(201, 69, 21, 0.07);
+
+ 
+
+.list {
+
+  &__table-text {
+    @include table-header;
+    color: $slate;
+    text-transform: uppercase;
+    padding: 0;
+    
+    
+  }
+
+  &__p {
+    @include body-medium;
+    margin: 0 0 8px 0;
+
+    &.in-stock {
+    font-size: 11px;
+    line-height: 22px;
+    text-align: center;
+    padding: 0.125rem 0.55rem;
+    font-weight: 600;
+    border-radius: 20px;
+    color: $green;
+    background-color: $green-7;
+    text-transform: uppercase;
+    width: auto;
+    text-wrap: none;
+  }
+
+  &.out-of-stock {
+    @extend .in-stock;
+    color: $red;
+    background-color: $red-7;
+  }
+    }
+
+
+  &__mobile-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 16px;
+    border-top: 1px solid $cloud;
+
+    @include tablet {
+      display: none;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__btn-mobile {
+    align-self: flex-start;
+    border: none;
+    background-color: $white;
+    padding: 0;
+    margin-top: auto;
+    cursor: pointer;
+
+    &--edit {
+      align-self: flex-end;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__mobile-warehouse {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+    width: 35%;
+    text-wrap: wrap;
+    align-items: start;
+  }
+
+  &__header-mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__warehouse-container {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      padding: 0 36px;
+      align-items: center;
+      border-top: 1px solid $cloud;
+      
+      
+
+      @include desktop {
+        padding: 0 63px;
+
+        &:hover {
+          background-color: rgb(46, 102, 229, 0.1);
+        }
+      }
+    }
+  }
+
+  &__list-btns {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      margin-left: auto;
+      cursor: pointer;
+    }
+
+    :nth-child(2) {
+      padding-left: 15px;
+    }
+  }
+
+  &__delete-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &--active {
+      &:hover {
+        text-decoration: underline;
+        color: $instock-indigo;
+      }
+    }
+  }
+
+  &__warehouse {
+    text-decoration: none;
+    color: $instock-indigo;
+    font-weight: 600;
+    margin-bottom: 8px;
+    
+
+    @include tablet {
+      text-wrap: none;
+      width: 28%;
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      width: 26%;
+    }
+
+    &-text {
+      width: auto;
+      padding-right: 4px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__address {
+    @include tablet {
+      width: 23%;
+      text-wrap: wrap;
+    }
+
+    @include desktop {
+      width: 22%;
+      text-wrap: wrap;
+    }
+  }
+
+  &__status {
+    @include tablet {
+      width: 23%;
+      text-wrap: wrap;
+    }
+
+    @include desktop {
+      width: 23%;
+      text-wrap: wrap;
+    }
+  }
+
+  &__info {
+    @include tablet {
+      width: 10%;
+      text-wrap: wrap;
+    }
+
+    @include desktop {
+      width: 15%;
+      text-wrap: wrap;
+    }
+  }
+
+  &__warehouse_name {
+    @include tablet {
+      width: 20%;
+      text-wrap: wrap;
+    }
+
+    @include desktop {
+      width: 25%;
+      text-wrap: wrap;
+    }
+  }
+
+
+  
+  &__action {
+    margin-left: auto;
+    align-self: center;
+  }
+}
+
+
+.badge {
+  &.in-stock {
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center;
+    padding: 0.125rem 0.55rem;
+    font-weight: 600;
+    border-radius: 20px;
+    color: $green;
+    background-color: $green-7;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+
+  &.out-of-stock {
+    @extend .in-stock;
+    color: $red;
+    background-color: $red-7;
+  }
+}
