@@ -6,20 +6,12 @@
 
 .footer {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     color: $slate;
     min-height: 10rem;
     font-size: 14px;
-    background-color: $light-grey;
 
     @include tablet {
-        min-height: 18rem;
+        min-height: 18rem;}
     }
-
-    &__copywrite {
-        align-self: flex-end;
-        margin-bottom: 3rem;
-        bottom: 3rem;
-    }
-}
