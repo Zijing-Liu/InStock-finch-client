@@ -118,7 +118,7 @@ export default function EditWarehouse() {
     const updateDetails = async () => {
       try {
         await axios.patch(`${baseURL}warehouses/${ID}`, submitDataObj);
-        navigate('/');
+        navigate(`/warehouses/${ID}`);
       } catch (error) {
         console.log(error)
       }
