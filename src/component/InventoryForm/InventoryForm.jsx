@@ -250,7 +250,9 @@ function InventoryForm({
                     : "form__input--placeholder"
                 }`}
               value={
-                itemDetails.warehouse_name
+                itemDetails.Currentwarehouse ||
+                itemDetails.warehouse_name ||
+                itemDetails.warehouse_id
                   ? itemDetails.warehouse_name
                   : Currentwarehouse.warehouse_name
               }
