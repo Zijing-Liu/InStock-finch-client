@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import arrowBackIcon from "../../assets/Icons/arrow_back-24px.svg";
 
 export default function AddWarehouse() {
-  
- 
+
+
   const navigate = useNavigate();
   const baseURL = process.env.REACT_APP_BASE_URL;
   const handleGoBack = () => {
@@ -35,7 +35,7 @@ export default function AddWarehouse() {
     contact_email: '',
   });
 
-  
+
   function isValidEmail(email) {
     // regex matches "example@example.com" (username before "@" and domain afterwards)
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -80,10 +80,10 @@ export default function AddWarehouse() {
       newError.contact_email = "Please enter valid email";
     } if (!isValidPhoneNumber(selectedWarehouse.contact_phone)) {
       newError.contact_phone = "Please enter valid phone number";
-   }
+    }
 
-   setError(newError);
-   
+    setError(newError);
+
     const submitDataObj = {
       warehouse_id: selectedWarehouse.id,
       warehouse_name: selectedWarehouse.warehouse_name,
@@ -122,10 +122,11 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="warehouse_name"
-        
+
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, warehouse_name: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, warehouse_name: e.target.value })}
                 style={{ borderColor: error.warehouse_name ? '#C94515' : '' }}
+                placeholder='Warehouse Name'
               />
               {error.warehouse_name && <div className="warehouse__form-error">{error.warehouse_name}</div>}
 
@@ -133,10 +134,11 @@ export default function AddWarehouse() {
               <input
                 type="text"
                 name="address"
-              
+
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, address: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, address: e.target.value })}
                 style={{ borderColor: error.address ? '#C94515' : '' }}
+                placeholder='Steet Address'
               />
               {error.address && <div className="warehouse__form-error">{error.address}</div>}
 
@@ -145,8 +147,9 @@ export default function AddWarehouse() {
                 type="text"
                 name="city"
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, city: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, city: e.target.value })}
                 style={{ borderColor: error.city ? '#C94515' : '' }}
+                placeholder='City'
               />
               {error.city && <div className="warehouse__form-error">{error.city}</div>}
 
@@ -155,8 +158,9 @@ export default function AddWarehouse() {
                 type="text"
                 name="country"
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, country: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, country: e.target.value })}
                 style={{ borderColor: error.country ? '#C94515' : '' }}
+                placeholder='Country'
               />
               {error.country && <div className="warehouse__form-error">{error.country}</div>}
 
@@ -168,8 +172,9 @@ export default function AddWarehouse() {
                 type="text"
                 name="contact_name"
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_name: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, contact_name: e.target.value })}
                 style={{ borderColor: error.contact_name ? '#C94515' : '' }}
+                placeholder='Contact Name'
               />
               {error.contact_name && <div className="warehouse__form-error">{error.contact_name}</div>}
 
@@ -178,8 +183,9 @@ export default function AddWarehouse() {
                 type="text"
                 name="contact_position"
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_position: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, contact_position: e.target.value })}
                 style={{ borderColor: error.contact_position ? '#C94515' : '' }}
+                placeholder='Position'
               />
               {error.contact_position && <div className="warehouse__form-error">{error.contact_position}</div>}
 
@@ -188,8 +194,9 @@ export default function AddWarehouse() {
                 type="text"
                 name="contact_phone"
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_phone: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, contact_phone: e.target.value })}
                 style={{ borderColor: error.contact_phone ? '#C94515' : '' }}
+                placeholder='Phone Number'
               />
               {error.contact_phone && <div className="warehouse__form-error">{error.contact_phone}</div>}
 
@@ -198,8 +205,9 @@ export default function AddWarehouse() {
                 type="text"
                 name="contact_email"
                 className='warehouse__form-input'
-                onChange={(e) => setSelectedWarehouse({...selectedWarehouse, contact_email: e.target.value})}
+                onChange={(e) => setSelectedWarehouse({ ...selectedWarehouse, contact_email: e.target.value })}
                 style={{ borderColor: error.contact_email ? '#C94515' : '' }}
+                placeholder='Email'
               />
               {error.contact_email && <div className="warehouse__form-error">{error.contact_email}</div>}
 
@@ -207,7 +215,7 @@ export default function AddWarehouse() {
           </div>
           <div className='warehouse__form-buttons'>
             <button className='warehouse__form-buttons--cancel' onClick={handleGoBack}>Cancel</button>
-            <button className='warehouse__form-buttons--add' type='submit' >+ Add New Warehouse</button>
+            <button className='warehouse__form-buttons--add' type='submit' >+ Add Warehouse</button>
           </div>
         </form>
       )}
