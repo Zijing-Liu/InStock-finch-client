@@ -1,6 +1,6 @@
 # Instock
 
-Instock is a web application built with React on the frontend and Node.js on the backend. It is a digitial solution for client to mange inventory and warehouses with ease interaction with enjoyable interfaces.
+Instock is a comprehensive web application crafted to streamline inventory and warehouse management. It utilizes React for a dynamic front-end experience and Node.js for robust back-end services. The application offers an intuitive and engaging interface, allowing users to efficiently manage and interact with their inventory data.
 
 ## Features
 
@@ -34,7 +34,10 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them:
 
 - Node.js
+- Express.js
 - npm or yarn
+- knex
+- mysql2
 
 ### Installing
 
@@ -55,9 +58,11 @@ A step-by-step series of examples that tell you how to get a development environ
    npm install
    ```
 4. Start the client in the client repo
+
    ```bash
    npm start
    ```
+
 5. Navigate to the api repo and start the server:
    ```bash
    node index.js
